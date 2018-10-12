@@ -1,3 +1,5 @@
+package trioteam.minigames;
+
 /*
  * Made By: Conner Cullity
  * Date: 
@@ -13,7 +15,7 @@ import javafx.fxml.Initializable;
  *
  * @author Conner
  */
-public class MemoryMatchController implements Initializable {
+public class SideScrollerController implements Initializable {
 
     /**
      * Initializes the controller class.

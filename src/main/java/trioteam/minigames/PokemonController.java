@@ -1,3 +1,5 @@
+package trioteam.minigames;
+
 /*
  * Made By: Conner Cullity
  * Date: 
