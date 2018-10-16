@@ -56,5 +56,15 @@
       <Button layoutX="387.0" layoutY="482.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
       <Button layoutX="474.0" layoutY="482.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
       <Button layoutX="557.0" layoutY="482.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+      <Button layoutX="54.0" layoutY="194.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+      <Button layoutX="54.0" layoutY="265.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+      <Button layoutX="54.0" layoutY="336.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+      <Button layoutX="54.0" layoutY="408.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+      <Button layoutX="54.0" layoutY="480.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+      <Button layoutX="639.0" layoutY="194.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+      <Button layoutX="639.0" layoutY="265.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+      <Button layoutX="639.0" layoutY="336.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+      <Button layoutX="639.0" layoutY="408.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+      <Button layoutX="639.0" layoutY="480.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
    </children>
 </AnchorPane>
