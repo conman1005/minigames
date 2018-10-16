@@ -1,9 +1,9 @@
 package trioteam.minigames;
 
 /*
- * Made By: Conner Cullity
- * Date: 
- * Description: 
+ * Made By: Erica Wheatley
+ * Date: 10/16/18
+ * Description: Memory matchning game
  */
 
 import java.net.URL;
@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
 /**
  * FXML Controller class
  *
- * @author Conner
+ * @author Erica
  */
 public class MemoryMatchController implements Initializable {
 
