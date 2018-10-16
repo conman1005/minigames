@@ -1,7 +1,530 @@
-/*
- * Empty Stylesheet file.
- */
 
-.mainFxmlClass {
+
+
+.round-red {
+    -fx-background-color: linear-gradient(#ff5400, #be1d00);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+}
+.bevel-grey {
+    -fx-background-color: 
+        linear-gradient(#f2f2f2, #d6d6d6),
+        linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
+        linear-gradient(#dddddd 0%, #f6f6f6 50%);
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.shiny-red {
+    -fx-background-color: 
+        linear-gradient(white, peachpuff),
+        linear-gradient(black, #f2ba44),
+        linear-gradient(black, blue),
+        linear-gradient(red,#757575),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 24%;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: white;
+    -fx-font-size:29    
+}
+.dark-blue {
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+        linear-gradient(#20262b, #191d22),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+}
+.dark-blue Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.9) , 1, 0.0 , 0 , 1 );
+}
+.blue-sales {
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color: 
+        linear-gradient(from 25% 93% to 84% 100%, oldlace 0%, deeppink 100%),
+        lightpink, orange,
+        #d86e3a,
+        radial-gradient(center 50% 50%, radius 100%,cornflowerblue,skyblue);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-text-fill: white;
 
 }
+.blue-sales:hover {
+    -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, red 0%, #903b12 100%),
+        #9d4024,
+        #d86e3a,
+        radial-gradient(center 50% 50%, radius 100%, white, #c54e2c);
+        
+}
+.blue-sales:pressed {
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+.blue-sales Text {
+    -fx-fill: white;
+    -fx-effect: dropshadow( gaussian , #a30000 , 0,0,0,2 );
+}
+.rich-blue {
+    -fx-background-color: 
+        #000000,
+        linear-gradient(#7ebcea, #2f4b8f),
+        linear-gradient(#426ab7, #263e75),
+        linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 3,2,2,2;
+    -fx-text-fill: white;
+
+}
+.rich-blue Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1);
+}
+.big-yellow {
+    -fx-background-color: 
+        #ecebe9,
+        rgba(0,0,0,0.05),
+        linear-gradient(#dcca8a, #c7a740),
+        linear-gradient(#f9f2d6 0%, #f4e5bc 20%, #e6c75d 80%, #e2c045 100%),
+        linear-gradient(#f6ebbe, #e6c34d);
+    -fx-background-insets: 0,9 9 8 9,9,10,11;
+    -fx-background-radius: 50;
+    -fx-text-fill: #311c09;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+.big-yellow Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(255,255,255,0.5) , 0, 0.0 , 0 , 1);
+}
+.iphone-toolbar {
+    -fx-background-color: linear-gradient(#98a8bd 0%, #8195af 25%, #6d86a4 100%);
+}
+.iphone {
+    -fx-background-color: 
+        #a6b5c9,
+        linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),
+        linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%);
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 5,5,4;
+    -fx-text-fill: #242d35;
+    -fx-text-fill: white;
+}
+.iphone Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , -1 );
+}
+.ipad-dark-grey {
+    -fx-background-color: 
+        linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
+        linear-gradient(#020b02, #3a3a3a),
+        linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%),
+        linear-gradient(#8a8a8a 0%, #6b6a6b 20%, #343534 80%, #262626 100%),
+        linear-gradient(#777777 0%, #606060 50%, #505250 51%, #2a2b2a 100%);
+    -fx-background-insets: 0,1,4,5,6;
+    -fx-background-radius: 9,8,5,4,3;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(255,255,255,0.2) , 1, 0.0 , 0 , 1);
+}
+.ipad-dark-grey Text {
+    -fx-effect: dropshadow( one-pass-box , black , 0, 0.0 , 0 , -1 );
+}
+.pastel {
+    -fx-background-color: 
+        linear-gradient(peachpuff 0%,pink 25%, #373837 75%, #757575 100%),
+        linear-gradient(darkblue, #3a3a3a),
+        linear-gradient(#b9b9b9 0%, #c2c2c2 20%,whitesmoke 80%, #ea7f4b 100%),
+        linear-gradient(lightsteelblue 20%,lightskyblue 39%,#ffcc33 62%,deeppink 92%, palevioletred 100%);
+    -fx-background-insets: 0,1,4,5;
+    -fx-background-radius: 9,8,5,4;
+    -fx-text-fill: #fafdfe;
+    -fx-font-style: italic;
+    -fx-effect: dropshadow( three-pass-box , rgba(255,255,255,0.2) , 1, 0.0 , 0 , 1);
+}
+.pastel Text {
+    -fx-effect: dropshadow( one-pass-box , white , 0, 0.0 , 0 , 1 );
+}
+.lion-default {
+    -fx-background-color: 
+        rgba(0,0,0,0.08),
+        linear-gradient(#5a61af, #51536d),
+        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 5,5,4;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: #242d35;
+}
+.lion {
+    -fx-background-color: 
+        rgba(0,0,0,0.08),
+        linear-gradient(#9a9a9a, #909090),
+        linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 5,5,4;
+    -fx-text-fill: #242d35;
+}
+.windows7-default {
+    -fx-background-color: 
+        #3c7fb1,
+        linear-gradient(#fafdfe, #e8f5fc),
+        linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black;
+}
+.windows7 {
+    -fx-background-color: 
+        #707070,
+        linear-gradient(#fcfcfc, #f3f3f3),
+        linear-gradient(#f2f2f2 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black;
+}
+.new {
+    -fx-background-color: 
+        white,
+        linear-gradient(#fcfcfc, white),
+        linear-gradient(whitesmoke 15%, #505250 82%, black 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: white;
+}
+.navy {
+    -fx-background-color: 
+        linear-gradient( #003366,darkblue),
+        linear-gradient( #003366 22%,  #2f4b8f 42%, #3e5577 82%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black;
+}
+.teal-circle {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color: 
+        linear-gradient(from 25% 93% to 84% 100%, peru 25%, oldlace 100%),
+        lightslategrey,
+        #d86e3a,
+        radial-gradient(center 50% 50%, radius 100%, white,lightseagreen);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-text-fill: black;
+}
+.red {
+-fx-background-color: 
+        black,
+        linear-gradient(#ff0033 15%, red 32%, lightsteelblue 100%, skyblue 47%, ffffff 85%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black;
+}
+.cotton-candy {
+-fx-background-color: 
+        black,
+        linear-gradient(#ccffff 12%, lightsalmon 100%, lightsteelblue 55%, skyblue 47%, ffffff 85%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black;
+}
+.cotton-button {
+-fx-background-color: 
+        black,
+        linear-gradient(lightgoldenrodyellow 12%, lightsteelblue 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black;
+}
+.black-light {
+-fx-background-color: 
+        black,
+        linear-gradient(black 100%, black 10%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: white;
+}
+.white-light {
+-fx-background-color: 
+        black,
+        linear-gradient(white 100%, white 10%);
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+}
+.picture-elephant {
+-fx-background-image:  url(elephant.png);
+-fx-background-size: 220 220;
+}
+.picture-seal {
+-fx-background-image: url(seal.png); 
+-fx-background-size: 220 220;
+}
+.picture-man {
+-fx-background-image: url(man.png);
+-fx-background-size: 220 220;
+}
+.picture-girl{
+-fx-background-image: url(girl.png);
+-fx-background-size: 220 220;
+}
+.picture-monkey{
+-fx-background-image: url(monkey.png);
+-fx-background-size: 225 225;
+}
+.picture-bunny{
+-fx-background-image: url(bunny.jpg);
+-fx-background-size: 220 220;
+}
+.picture-lion{
+-fx-background-image: url(lionNew.png);
+-fx-background-size: 220 220;
+}
+.duck{
+-fx-background-image: url(duck.png);
+}
+.game-selections{
+-fx-background-color: 
+    #cc3300,
+    rgba(0,0,0,0.05),
+    linear-gradient(#ffcc33, yellow),
+    linear-gradient(#ffcc33 20%, yellow 80%, yellow 100%),
+    linear-gradient(darksalmon, yellow);
+-fx-background-insets: 0,9 9 8 9,9,10,11;
+-fx-background-radius: 50;
+-fx-text-fill: #311c09;
+-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}    
+.water{
+-fx-background-color: 
+    #00cccc,
+    rgba(0,0,0,0.05),
+    linear-gradient(#00cccc, #00cccc),
+    linear-gradient(#66ccff 20%, #66ccff 80%, #0033ff 100%),
+    linear-gradient(#00cccc, darkslateblue);
+-fx-text-fill: #311c09;   
+}
+.water-title{
+-fx-background-color: 
+        #00cccc,
+        linear-gradient(#00cccc 50%, #00cccc 50% );
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: white;    
+}
+.game2{
+-fx-background-color:
+    linear-gradient( #cc3300, rosybrown ),
+    rgba(0,0,0,0.05),
+    linear-gradient(#ffcc33, yellow),
+    linear-gradient(#ffcc33 20%, yellow 80%, yellow 100%),
+    linear-gradient(darksalmon, yellow);
+-fx-background-insets: 0,9 9 8 9,9,10,11;
+-fx-background-radius: 50;
+-fx-text-fill: #311c09;
+-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+.game3{
+-fx-background-color:
+    linear-gradient( rosybrown, rosybrown ),
+    rgba(0,0,0,0.05),
+    linear-gradient(#ffcc33, yellow),
+    linear-gradient(#ffcc33 20%, yellow 80%, yellow 100%),
+    linear-gradient(darksalmon, yellow);
+-fx-background-insets: 0,9 9 8 9,9,10,11;
+-fx-background-radius: 50;
+-fx-text-fill: #311c09;
+-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);    
+}
+.game-background{
+-fx-background-color: 
+        black,
+        linear-gradient(#cc3300 12%, rosybrown 100%, rosybrown 55%, skyblue 47%, ffffff 85%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black;    
+}
+.balloon-pop{
+-fx-background-color: 
+        black,
+        linear-gradient(#00cccc 12%, #66ff66 45%, #ffffff 100%, #00cccc 25%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black;   
+}
+.strength2{
+-fx-background-color: 
+        black,
+        linear-gradient(blanchedalmond 10%, #ff0066 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black;    
+}
+.green{
+-fx-background-image: url(green.jpg);    
+}
+.yellow{
+-fx-background-image: url(yellow.JPG);
+}
+.orange{
+-fx-background-image: url(orange.png);
+}
+.red{
+-fx-background-image: url(red.jpg);
+}
+.white{
+-fx-background-image: url(white.png);
+}
+.green-balloon{
+-fx-background-image: url(balloonGreen.png);
+}
+.special-one{
+-fx-background-image: url(balloonBlue.png);    
+}
+.blue-balloon{
+-fx-background-image: url(balloonBlue.png);    
+}
+.yellow-whiteS{
+-fx-background-image: url(balloonGreenAndYellow.png);
+}
+.purple-balloon{
+-fx-background-image: url(balloonPurple.png);    
+}
+.white-balloon{
+-fx-background-image: url(balloonPurple2.png)
+}
+.dart{
+-fx-background-image: url(dart.png);
+}
+.bell{
+-fx-background-color: 
+        gold,
+        rgba(0,0,0,0.05),
+        linear-gradient(gold, gold),
+        linear-gradient(gold 0%, gold 20%, gold 80%, gold 100%),
+        linear-gradient(gold, gold);
+    -fx-background-insets: 0,9 9 8 9,9,10,11;
+    -fx-background-radius: 50;
+    -fx-text-fill: #311c09;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+.strength{
+-fx-background-color: 
+        black,
+        linear-gradient(#0000cc 10%, #0000cc 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black; 
+        
+}
+.label-number{
+-fx-background-color: 
+        black,
+        linear-gradient(orange 10%, #ff9966 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black;         
+}
+.picture-peg{
+-fx-background-image: url(blackButton.png);
+    -fx-background-size: 30 30;
+}
+.plinko{
+-fx-background-color: 
+        black,
+        linear-gradient(greenyellow 10%, #99ff99 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black; 
+}
+.plinko-disc{
+-fx-background-image: url(watermelon.png);
+-fx-background-size: 20 20;
+}
+.store{
+-fx-background-color: 
+        black,
+        linear-gradient(orange 10%, magenta 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black; 
+}
+.picture-bear{
+-fx-background-image: url(bear2.png);
+-fx-background-size: 275 260;
+}
+.ball-throw{
+-fx-background-color: 
+        black,
+        linear-gradient(#006666 10%, #ffffcc 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: white;     
+}
+.jar{
+    -fx-background-image: url(MilkCan2.png);
+    -fx-background-size: 80 100;
+}
+.dart-game{
+-fx-background-color: 
+        black,
+        linear-gradient(black 10%, #cc0000 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: white;    
+}
+.strength-game{
+-fx-background-color: 
+        black,
+        linear-gradient(#006666 10%, aquamarine 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black;      
+}
+.strength-ticks{
+-fx-background-color: 
+        black,
+        linear-gradient(#9999ff 10%, #9999ff 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black;
+}
+.snake{
+-fx-background-image: url(snake.jpg);
+-fx-background-size: 200 200;
+}
+.toy{
+-fx-background-image: url(toyStory.jpg);
+-fx-background-size: 148 215;
+}
+.monkeyToy{
+-fx-background-image: url(monkeyToy.png);
+-fx-background-size: 150 198;
+}
+.dragon{
+-fx-background-image: url(dragon.png);
+-fx-background-size: 230 215;    
+}
+.winnie{
+-fx-background-image: url(winnie.jpg);
+-fx-background-size: 275 240;
+}
+.bunny{
+-fx-background-image: url(bunny2.jpg);
+-fx-background-size: 185 175;
+}
+.unicorn{
+-fx-background-image: url(unicorn.png);
+-fx-background-size: 185 175;
+}
+.chicken{
+-fx-background-image: url(chicken.png);
+-fx-background-size: 185 175;
+}
+.sparkle-red{
+    -fx-background-color: 
+        #ff0000,
+        linear-gradient(#ff0000 10%, #ff4838 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black; 
+}
+
