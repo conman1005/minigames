@@ -2,6 +2,11 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
-
+.label {
+    -fx-text-fill: linear-gradient(#0050ff, #0032a0);
+    -fx-font-family: "ArcadeClassic";
+}
+.button {
+    -fx-font-family: "ArcadeClassic";
+    -fx-font-size: 36;
 }
