@@ -55,6 +55,9 @@
     -fx-text-fill: white;
 
 }
+.team-game{
+    -fx-background-color: linear-gradient(greenyellow 15%, lightpink 27%, red 42%);
+}
 .blue-sales:hover {
     -fx-background-color: 
         linear-gradient(from 0% 93% to 0% 100%, red 0%, #903b12 100%),
