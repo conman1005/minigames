@@ -1,7 +1,7 @@
 package trioteam.minigames;
 
 /*
- * Made By: Conner Cullity
+ * Made By: Spencer Jones
  * Date: 
  * Description: 
  */
@@ -13,13 +13,11 @@ import javafx.fxml.Initializable;
 /**
  * FXML Controller class
  *
- * @author Conner
+ * @author Spencer
  */
 public class SideScrollerController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
