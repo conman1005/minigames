@@ -2,11 +2,14 @@
  * Empty Stylesheet file.
  */
 
-.label {
+.title {
     -fx-text-fill: linear-gradient(#0050ff, #0032a0);
+    -fx-font-family: "ArcadeClassic";
+}
+.label {
     -fx-font-family: "ArcadeClassic";
 }
 .button {
     -fx-font-family: "ArcadeClassic";
-    -fx-font-size: 36;
+    -fx-font-size: 18;
 }

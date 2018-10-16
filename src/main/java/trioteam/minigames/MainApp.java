@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 
 public class MainApp extends Application {
+    public static String pokemon;
 
     @Override
     public void start(Stage stage) throws Exception {
