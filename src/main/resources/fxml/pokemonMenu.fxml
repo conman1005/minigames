@@ -14,7 +14,7 @@
             <Font size="48.0" />
          </font>
       </Label>
-      <Button layoutX="77.0" layoutY="241.0" prefHeight="33.0" prefWidth="131.0" text="Charmander" textAlignment="CENTER" />
+      <Button layoutX="77.0" layoutY="241.0" onAction="#btnPokemon" prefHeight="33.0" prefWidth="131.0" text="Charmander" textAlignment="CENTER" />
       <ImageView fitHeight="109.0" fitWidth="115.0" layoutX="92.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../pokemonimages/charmanderFront.png" />
