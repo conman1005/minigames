@@ -40,5 +40,10 @@
             <Image url="@../sideScroller/threeHeart.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="98.0" fitWidth="273.0" layoutX="233.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../sideScroller/ship.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
