@@ -37,7 +37,7 @@
       </Label>
       <ImageView fitHeight="55.0" fitWidth="185.0" layoutY="840.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@threeHeart.png" />
+            <Image url="@../sideScroller/threeHeart.png" />
          </image>
       </ImageView>
    </children>
