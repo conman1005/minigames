@@ -16,7 +16,7 @@ import javafx.fxml.Initializable;
  * @author Spencer
  */
 public class SideScrollerController implements Initializable {
-
+//code
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
