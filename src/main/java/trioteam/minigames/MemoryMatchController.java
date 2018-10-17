@@ -73,7 +73,10 @@ public class MemoryMatchController implements Initializable {
     @FXML 
     private Button btnB40;
     
-    ArrayList <Button> grid = new ArrayList();
+    @FXML
+    private Button btnPlay;
+    
+    Button grid[] = new Button[39];    
     
     Random rand = new Random();
 
@@ -92,31 +95,54 @@ public class MemoryMatchController implements Initializable {
                 + "Click on the buttons to try and find pairs in the fastest time possible");
         alert.showAndWait();
     }
+    
+    @FXML
+    private void buttons(ActionEvent event){
+        int answer = rand.nextInt((39 - 0) + 0) + 0;
+            for (int i = 0; i < grid.length; i++){
+                
+            }
+    }
+    
+    @FXML
+    private void play(ActionEvent event){
+    btnB1.setVisible(true);    btnB2.setVisible(true);    btnB3.setVisible(true);    btnB4.setVisible(true);
+    btnB5.setVisible(true);    btnB6.setVisible(true);    btnB7.setVisible(true);    btnB8.setVisible(true);
+    btnB9.setVisible(true);    btnB10.setVisible(true);   btnB11.setVisible(true);   btnB12.setVisible(true);
+    btnB13.setVisible(true);   btnB14.setVisible(true);   btnB15.setVisible(true);   btnB16.setVisible(true);
+    btnB17.setVisible(true);   btnB18.setVisible(true);   btnB19.setVisible(true);   btnB20.setVisible(true);
+    btnB21.setVisible(true);   btnB22.setVisible(true);   btnB23.setVisible(true);   btnB24.setVisible(true);
+    btnB25.setVisible(true);   btnB26.setVisible(true);   btnB27.setVisible(true);   btnB28.setVisible(true);
+    btnB29.setVisible(true);   btnB30.setVisible(true);   btnB31.setVisible(true);   btnB32.setVisible(true);
+    btnB33.setVisible(true);   btnB34.setVisible(true);   btnB35.setVisible(true);   btnB36.setVisible(true);
+    btnB37.setVisible(true);   btnB38.setVisible(true);   btnB39.setVisible(true);   btnB40.setVisible(true);
+    btnPlay.setVisible(false);
+    }
+    
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    grid.add(btnB1);    grid.add(btnB21);
-    grid.add(btnB2);    grid.add(btnB22);
-    grid.add(btnB3);    grid.add(btnB23);
-    grid.add(btnB4);    grid.add(btnB24);
-    grid.add(btnB5);    grid.add(btnB25);
-    grid.add(btnB6);    grid.add(btnB26);
-    grid.add(btnB7);    grid.add(btnB27);
-    grid.add(btnB8);    grid.add(btnB28);
-    grid.add(btnB9);    grid.add(btnB29);
-    grid.add(btnB10);   grid.add(btnB30);
-    grid.add(btnB11);   grid.add(btnB31);
-    grid.add(btnB12);   grid.add(btnB32);
-    grid.add(btnB13);   grid.add(btnB33);
-    grid.add(btnB14);   grid.add(btnB34);
-    grid.add(btnB15);   grid.add(btnB35);
-    grid.add(btnB16);   grid.add(btnB36);
-    grid.add(btnB17);   grid.add(btnB37);
-    grid.add(btnB18);   grid.add(btnB38);
-    grid.add(btnB19);   grid.add(btnB39);
-    grid.add(btnB20);   grid.add(btnB40);
-    
-   
+    grid[0] = btnB1;    grid[20] = btnB21;
+    grid[1] = btnB2;    grid[21] = btnB22;
+    grid[2] = btnB3;    grid[22] = btnB23;
+    grid[3] = btnB4;    grid[23] = btnB24;
+    grid[4] = btnB5;    grid[24] = btnB25;
+    grid[5] = btnB6;    grid[25] = btnB26;
+    grid[6] = btnB7;    grid[26] = btnB27;
+    grid[7] = btnB8;    grid[27] = btnB28;
+    grid[8] = btnB9;    grid[28] = btnB29;
+    grid[9] = btnB10;   grid[29] = btnB30;
+    grid[10] = btnB11;  grid[30] = btnB31;
+    grid[11] = btnB12;  grid[31] = btnB32;
+    grid[12] = btnB13;  grid[32] = btnB33;
+    grid[13] = btnB14;  grid[33] = btnB34;
+    grid[14] = btnB15;  grid[34] = btnB35;
+    grid[15] = btnB16;  grid[35] = btnB36;
+    grid[16] = btnB17;  grid[36] = btnB37;
+    grid[17] = btnB18;  grid[37] = btnB38;
+    grid[18] = btnB19;  grid[38] = btnB39;
+    grid[19] = btnB20;  grid[39] = btnB40;
     }
 
 }
