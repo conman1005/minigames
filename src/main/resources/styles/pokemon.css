@@ -17,3 +17,6 @@
     -fx-font-family: "ArcadeClassic";
     -fx-font-size: 24;
 }
+.charmanderFront {
+    -fx-background-image: URL(pokemonimages/charmanderFront.png);
+}

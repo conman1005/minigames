@@ -24,10 +24,10 @@ import javafx.stage.Stage;
  * @author Conner
  */
 public class PokemonController implements Initializable {
-    
+        
     @FXML
     private void btnRandom(ActionEvent event) {
-
+        
     }
     
     @FXML
