@@ -533,4 +533,63 @@
     -fx-background-radius: 3,2,1;
     -fx-text-fill: black; 
 }
-
+.picture-boo{
+-fx-background-image: url(PICTURES/boo.png);
+-fx-background-size: 62 62;
+}
+.picture-bowser{
+-fx-background-image: url(PICTURES/bowser.png);
+-fx-background-size: 62 62;
+}
+.picture-controller{
+-fx-background-image: url(PICTURES/controller.png);
+-fx-background-size: 62 62;
+}
+.picture-donkey-kong{
+-fx-background-image: url(PICTURES/donkey-kong.png);
+-fx-background-size: 62 62;
+}
+.picture-game-boy{
+-fx-background-image: url(PICTURES/game-boy.png);
+-fx-background-size: 62 62;
+}
+.picture-mario-star{
+-fx-background-image: url(PICTURES/mario-square.png);
+-fx-background-size: 62 62;
+}
+.picture-mario{
+-fx-background-image: url(PICTURES/mario.png);
+-fx-background-size: 62 62;
+}
+.picture-pacman-ghost{
+-fx-background-image: url(PICTURES/pacman-ghost.png);
+-fx-background-size: 62 62;
+}
+.picture-pacman{
+-fx-background-image: url(PICTURES/pacman.jpg);
+-fx-background-size: 62 62;
+}
+.picture-poke-ball{
+-fx-background-image: url(PICTURES/poke-ball.png);
+-fx-background-size: 62 62;
+}
+.picture-sonic{
+-fx-background-image: url(PICTURES/sonic.jpg);
+-fx-background-size: 62 62;
+}
+.picture-space-invaders{
+-fx-background-image: url(PICTURES/space-invaders.jpg);
+-fx-background-size: 62 62;
+}
+.picture-star-wars{
+-fx-background-image: url(PICTURES/star-wars.jpg);
+-fx-background-size: 62 62;
+}
+.picture-toad{
+-fx-background-image: url(PICTURES/toad.jpg);
+-fx-background-size: 62 62;
+}
+.picture-yoshi{
+-fx-background-image: url(PICTURES/yoshi.png);
+-fx-background-size: 62 62;
+}

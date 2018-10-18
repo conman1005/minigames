@@ -68,13 +68,16 @@ public class MemoryMatchController implements Initializable {
     private Button btnB34;  @FXML private Button btnB35;    @FXML private Button btnB36;
     
     @FXML
-    private Button btnB37;  @FXML private Button btnB38;    @FXML private Button btnB39;
+    private Button btnB37;  @FXML private Button btnB38;    @FXML private Button btnB39;     @FXML private Button btnB40;
     
-    @FXML 
-    private Button btnB40;
+   
     
     @FXML
     private Button btnPlay;
+    
+    String pics[] = {"picture-boo", "picture-bowser", "picture-controller", "picture-donkey-kong", "picture-game-boy",
+                     "picture-mario-star", "picture-mario", "picture-pacman-ghost", "picture-pacman", "picture-poke-ball",
+                     "picture-sonic", "picture-space-invaders", "picture-star-wars", "picture-toad", "picture-yoshi"};
     
     Button grid[] = new Button[39];    
     
@@ -100,7 +103,7 @@ public class MemoryMatchController implements Initializable {
     private void buttons(ActionEvent event){
         int answer = rand.nextInt((39 - 0) + 0) + 0;
             for (int i = 0; i < grid.length; i++){
-                
+               grid[i].getStyleClass().add(pics[answer]);
             }
     }
     
