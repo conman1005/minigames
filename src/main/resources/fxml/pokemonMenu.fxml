@@ -2,8 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -15,10 +13,10 @@
          </font>
       </Label>
       <Button layoutX="77.0" layoutY="241.0" onAction="#btnPokemon" prefHeight="33.0" prefWidth="131.0" text="Charmander" textAlignment="CENTER" />
-      <ImageView fitHeight="109.0" fitWidth="115.0" layoutX="92.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../pokemonimages/charmanderFront.png" />
-         </image>
-      </ImageView>
+      <Label layoutX="81.0" layoutY="104.0" prefHeight="134.0" prefWidth="123.0" styleClass="charmanderFront" />
+      <Button layoutX="374.0" layoutY="241.0" onAction="#btnPokemon" prefHeight="33.0" prefWidth="131.0" text="Squirtle" textAlignment="CENTER" />
+      <Label layoutX="370.0" layoutY="104.0" prefHeight="134.0" prefWidth="140.0" styleClass="squirtleFront" />
+      <Button layoutX="670.0" layoutY="241.0" onAction="#btnPokemon" prefHeight="33.0" prefWidth="131.0" text="Bulbasoar" textAlignment="CENTER" />
+      <Label layoutX="670.0" layoutY="84.0" prefHeight="154.0" prefWidth="131.0" styleClass="bulbasoarFront" />
    </children>
 </AnchorPane>

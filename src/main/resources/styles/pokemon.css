@@ -18,5 +18,26 @@
     -fx-font-size: 24;
 }
 .charmanderFront {
-    -fx-background-image: URL(pokemonimages/charmanderFront.png);
+    -fx-background-image: url(../pokemonimages/charmanderFront.png);
+    -fx-background-size: cover;
+}
+.charmanderBack {
+    -fx-background-image: url(../pokemonimages/charmanderBack.png);
+    -fx-background-size: cover;
+}
+.bulbasoarFront {
+    -fx-background-image: url(../pokemonimages/bulbasaurFront.png);
+    -fx-background-size: cover;
+}
+.bulbasoarBack {
+    -fx-background-image: url(../pokemonimages/bulbasoarBack.png);
+    -fx-background-size: cover;
+}
+.squirtleFront {
+    -fx-background-image: url(../pokemonimages/squirtleFront.png);
+    -fx-background-size: cover;
+}
+.squirtleBack {
+    -fx-background-image: url(../pokemonimages/squirtleBack.png);
+    -fx-background-size: cover;
 }
