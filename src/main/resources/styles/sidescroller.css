@@ -1,7 +1,26 @@
-/*
- * Empty Stylesheet file.
- */
 
-.mainFxmlClass {
 
-}
+ .blackBar{
+        -fx-background-color: #000000
+    }
+    .ship{
+        -fx-image: url(../sideScroller/ship.png);
+    }
+    .oneHeart{
+        -fx-image: url(../sideScroller/oneHeart.png);
+    }
+     .twoHeart{
+        -fx-image: url(../sideScroller/twoHeart.png);
+    }
+     .threeHeart{
+        -fx-image: url(../sideScroller/threeHeart.png);
+    }
+    .astaroid{
+        -fx-image: url(../sideScroller/astaroid.png);
+    }
+    .threeHeart{
+        -fx-image: url(../sideScroller/godMode.png);
+    }
+    .tempBackground{
+        -fx-background-color:#666666
+    }

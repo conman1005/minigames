@@ -9,6 +9,7 @@ package trioteam.minigames;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
@@ -16,7 +17,10 @@ import javafx.fxml.Initializable;
  * @author Spencer
  */
 public class SideScrollerController implements Initializable {
-//code
+
+ImageView picShip;
+ImageView picHealth;
+ImageView picAstaroid;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
