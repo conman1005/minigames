@@ -70,16 +70,14 @@ public class MemoryMatchController implements Initializable {
     @FXML
     private Button btnB37;  @FXML private Button btnB38;    @FXML private Button btnB39;     @FXML private Button btnB40;
     
-   
-    
     @FXML
     private Button btnPlay;
     
-    String pics[] = {"picture-boo", "picture-bowser", "picture-controller", "picture-donkey-kong", "picture-game-boy",
-                     "picture-mario-star", "picture-mario", "picture-pacman-ghost", "picture-pacman", "picture-poke-ball",
-                     "picture-sonic", "picture-space-invaders", "picture-star-wars", "picture-toad", "picture-yoshi"};
+    String pics[] = {"boo", "bowser", "controller", "donkey-kong", "game-boy",
+                     "mario-square", "mario", "pacman-ghost", "pacman", "poke-ball",
+                     "sonic", "space-invaders", "star-wars", "toad", "yoshi"};
     
-    Button grid[] = new Button[39];    
+    Button grid[] = new Button[40];    
     
     Random rand = new Random();
 
@@ -101,25 +99,25 @@ public class MemoryMatchController implements Initializable {
     
     @FXML
     private void buttons(ActionEvent event){
-        int answer = rand.nextInt((39 - 0) + 0) + 0;
+        Button btn = (Button) event.getSource();
+        btn.setDisable(true);
+        int answer = rand.nextInt((15 - 0) + 0) + 0;
             for (int i = 0; i < grid.length; i++){
                grid[i].getStyleClass().add(pics[answer]);
+               if (grid[i].isDisabled()){
+                   grid[i].setStyle(pics[i]);
+               }
             }
+        
+        
     }
     
     @FXML
     private void play(ActionEvent event){
-    btnB1.setVisible(true);    btnB2.setVisible(true);    btnB3.setVisible(true);    btnB4.setVisible(true);
-    btnB5.setVisible(true);    btnB6.setVisible(true);    btnB7.setVisible(true);    btnB8.setVisible(true);
-    btnB9.setVisible(true);    btnB10.setVisible(true);   btnB11.setVisible(true);   btnB12.setVisible(true);
-    btnB13.setVisible(true);   btnB14.setVisible(true);   btnB15.setVisible(true);   btnB16.setVisible(true);
-    btnB17.setVisible(true);   btnB18.setVisible(true);   btnB19.setVisible(true);   btnB20.setVisible(true);
-    btnB21.setVisible(true);   btnB22.setVisible(true);   btnB23.setVisible(true);   btnB24.setVisible(true);
-    btnB25.setVisible(true);   btnB26.setVisible(true);   btnB27.setVisible(true);   btnB28.setVisible(true);
-    btnB29.setVisible(true);   btnB30.setVisible(true);   btnB31.setVisible(true);   btnB32.setVisible(true);
-    btnB33.setVisible(true);   btnB34.setVisible(true);   btnB35.setVisible(true);   btnB36.setVisible(true);
-    btnB37.setVisible(true);   btnB38.setVisible(true);   btnB39.setVisible(true);   btnB40.setVisible(true);
-    btnPlay.setVisible(false);
+        for (int i = 0; i < grid.length; i++){
+        grid[i].setVisible(true);
+    }
+        btnPlay.setVisible(false);
     }
     
     
