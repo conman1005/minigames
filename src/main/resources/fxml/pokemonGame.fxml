@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="614.0" prefWidth="954.0" styleClass="battleBackground" stylesheets="@../styles/pokemon.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trioteam.minigames.PokemonGameController">
+   <children>
+      <Label prefHeight="464.0" prefWidth="954.0" styleClass="battleBackgroundImage" />
+      <Label fx:id="lblEnemy" contentDisplay="RIGHT" layoutX="877.0" layoutY="14.0" styleClass="pkmnNameHP" text="Pokemon" textAlignment="RIGHT" />
+      <Label fx:id="lblEnemyHP" contentDisplay="RIGHT" layoutX="891.0" layoutY="35.0" styleClass="pkmnNameHP" text="HP: 0/0" textAlignment="RIGHT" />
+      <Label fx:id="lblPokemon" layoutX="14.0" layoutY="222.0" styleClass="pkmnNameHP" text="Pokemon" />
+      <Label fx:id="lblPokemonHP" layoutX="14.0" layoutY="243.0" styleClass="pkmnNameHP" text="HP: 0/0" />
+      <Label fx:id="picEnemy" layoutX="620.0" layoutY="68.0" prefHeight="208.0" prefWidth="190.0" />
+      <Label fx:id="picPokemon" layoutX="70.0" layoutY="276.0" prefHeight="188.0" prefWidth="208.0" />
+   </children>
+</AnchorPane>

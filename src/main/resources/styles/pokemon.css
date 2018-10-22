@@ -9,6 +9,9 @@
 .label {
     -fx-font-family: "ArcadeClassic";
 }
+.pkmnNameHP {
+    -fx-font-size: 18;
+}
 .button {
     -fx-font-family: "ArcadeClassic";
     -fx-font-size: 18;
@@ -17,6 +20,15 @@
     -fx-font-family: "ArcadeClassic";
     -fx-font-size: 24;
 }
+
+.battleBackgroundImage {
+    -fx-background-image: url(../pokemonimages/battleField.png);
+    -fx-background-size: cover;
+}
+.battleBackground {
+    -fx-background-color: #000000;
+}
+
 .charmanderFront {
     -fx-background-image: url(../pokemonimages/charmanderFront.png);
     -fx-background-size: cover;
@@ -41,3 +53,4 @@
     -fx-background-image: url(../pokemonimages/squirtleBack.png);
     -fx-background-size: cover;
 }
+
