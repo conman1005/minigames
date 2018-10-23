@@ -6,17 +6,18 @@ package trioteam.minigames;
  * Description: Memory matchning game
  */
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -73,14 +74,16 @@ public class MemoryMatchController implements Initializable {
     @FXML
     private Button btnPlay;
     
-    String pics[] = {"boo", "bowser", "controller", "donkey-kong", "game-boy",
-                     "mario-square", "mario", "pacman-ghost", "pacman", "poke-ball",
-                     "sonic", "space-invaders", "star-wars", "toad", "yoshi"};
+    String pics[] = {"picture-boo", "picture-bowser", "picture-controller", "picture-donkey-kong", "picture-game-boy",
+                     "picture-mario-star", "picture-mario", "picture-pacman-ghost", "picture-pacman", "picture-poke-ball",
+                     "picture-sonic", "picture-space-invaders", "picture-star-wars", "picture-toad", "picture-yoshi"};
     
     Button grid[] = new Button[40];    
     
     Random rand = new Random();
 
+    PauseTransition pause = new PauseTransition(Duration.seconds(5));
+    
     @FXML
     private void exit(ActionEvent event) {
         System.exit(0);
@@ -102,14 +105,13 @@ public class MemoryMatchController implements Initializable {
         Button btn = (Button) event.getSource();
         btn.setDisable(true);
         int answer = rand.nextInt((15 - 0) + 0) + 0;
-            for (int i = 0; i < grid.length; i++){
-               grid[i].getStyleClass().add(pics[answer]);
-               if (grid[i].isDisabled()){
-                   grid[i].setStyle(pics[i]);
-               }
-            }
-        
-        
+            btn.getStyleClass().add(pics[answer]);
+       
+    }
+    
+    @FXML
+    private void click(MouseEvent event){
+         
     }
     
     @FXML
