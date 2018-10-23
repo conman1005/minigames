@@ -10,7 +10,9 @@ import javafx.stage.Stage;
 
 public class MainApp extends Application {
     public static String pokemon;
+    public static int maxHP = 30;
     public static String enemy;
+    public static int enemyMaxHP = 30;
 
     @Override
     public void start(Stage stage) throws Exception {

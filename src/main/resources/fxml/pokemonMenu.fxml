@@ -7,7 +7,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="591.0" prefWidth="878.0" styleClass="mainFxmlClass" stylesheets="@../styles/pokemon.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trioteam.minigames.PokemonMenuController">
    <children>
-      <Label layoutX="208.0" layoutY="14.0" styleClass="title" text="Choose Your Pokemon">
+      <Label fx:id="lblTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="121.0" layoutY="14.0" prefHeight="54.0" prefWidth="639.0" styleClass="title" text="Choose Your Pokemon" textAlignment="CENTER">
          <font>
             <Font size="48.0" />
          </font>
