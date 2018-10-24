@@ -12,11 +12,11 @@
             <Font size="48.0" />
          </font>
       </Label>
-      <Button layoutX="77.0" layoutY="241.0" onAction="#btnPokemon" prefHeight="33.0" prefWidth="131.0" text="charmander" textAlignment="CENTER" />
+      <Button layoutX="77.0" layoutY="241.0" onAction="#btnCharmander" prefHeight="33.0" prefWidth="131.0" text="charmander" textAlignment="CENTER" />
       <Label layoutX="81.0" layoutY="104.0" prefHeight="134.0" prefWidth="123.0" styleClass="charmanderFront" />
-      <Button layoutX="374.0" layoutY="241.0" onAction="#btnPokemon" prefHeight="33.0" prefWidth="131.0" text="squirtle" textAlignment="CENTER" />
+      <Button layoutX="374.0" layoutY="241.0" onAction="#btnSquirtle" prefHeight="33.0" prefWidth="131.0" text="squirtle" textAlignment="CENTER" />
       <Label layoutX="370.0" layoutY="104.0" prefHeight="134.0" prefWidth="140.0" styleClass="squirtleFront" />
-      <Button layoutX="670.0" layoutY="241.0" onAction="#btnPokemon" prefHeight="33.0" prefWidth="131.0" text="bulbasoar" textAlignment="CENTER" />
+      <Button layoutX="670.0" layoutY="241.0" onAction="#btnBulbasoar" prefHeight="33.0" prefWidth="131.0" text="bulbasoar" textAlignment="CENTER" />
       <Label layoutX="670.0" layoutY="84.0" prefHeight="154.0" prefWidth="131.0" styleClass="bulbasoarFront" />
    </children>
 </AnchorPane>

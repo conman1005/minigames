@@ -7,19 +7,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
 public class MainApp extends Application {
-    public static String pokemon;
-    public static int maxHP = 30;
-    public static String enemy;
-    public static int enemyMaxHP = 30;
+    
+    public static pkmn pokeInfo;
+    public static pkmn pokeInfoE;
 
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
-        
+
         Scene scene = new Scene(root);
-        
+
         stage.setTitle("MiniGames");
         stage.setScene(scene);
         stage.show();
