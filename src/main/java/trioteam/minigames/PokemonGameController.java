@@ -10,8 +10,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import static trioteam.minigames.MainApp.pokeInfo;
 import static trioteam.minigames.MainApp.pokeInfoE;
@@ -24,7 +29,6 @@ import static trioteam.minigames.MainApp.pokeInfoE;
  */
 public class PokemonGameController implements Initializable {
 
-    //http://java-buddy.blogspot.com/2013/05/implement-javafx-listview-for-custom.html
     @FXML
     private Label picPokemon;
     @FXML
@@ -37,17 +41,36 @@ public class PokemonGameController implements Initializable {
     private Label lblEnemy;
     @FXML
     private Label lblEnemyHP;
+    @FXML
+    private Button btnM1;
+    @FXML
+    private Button btnM2;
 
     int hp;
     int enemyHP;
-
-    String pokemonMoves[][] = new String[3][3];
-
+    
+    Alert alert = new Alert(AlertType.INFORMATION);
+    
+    @FXML
+    private void btnM1(ActionEvent event) {
+        alert.setContentText(pokeInfo.pkmn + " used " + pokeInfo.move1 + "!");
+        alert.showAndWait();
+    }
+    @FXML
+    private void btnM2(ActionEvent event) {
+        alert.setContentText(pokeInfo.pkmn + " used " + pokeInfo.move2 + "!");
+        alert.showAndWait();
+    }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        alert.setHeaderText(null);
+        alert.setContentText("You have been faced by " + pokeInfoE.pkmn + "!");
+        Platform.runLater(alert::showAndWait);
+        
         //Basic Pokemon Data
         
         lblPokemon.setText(pokeInfo.pkmn);
@@ -61,6 +84,9 @@ public class PokemonGameController implements Initializable {
 
         lblPokemonHP.setText("HP: " + hp + "/" + pokeInfo.maxHP);
         lblEnemyHP.setText("HP: " + enemyHP + "/" + pokeInfoE.maxHP);
+        
+        btnM1.setText(pokeInfo.move1);
+        btnM2.setText(pokeInfo.move2);
 
     }
 

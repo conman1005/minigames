@@ -31,26 +31,26 @@
 
 .charmanderFront {
     -fx-background-image: url(../pokemonimages/charmanderFront.png);
-    -fx-background-size: contain;
+    -fx-background-size: stretch;
 }
 .charmanderBack {
     -fx-background-image: url(../pokemonimages/charmanderBack.png);
-    -fx-background-size: contain;
+    -fx-background-size: stretch;
 }
 .bulbasoarFront {
     -fx-background-image: url(../pokemonimages/bulbasaurFront.png);
-    -fx-background-size: contain;
+    -fx-background-size: stretch;
 }
 .bulbasoarBack {
     -fx-background-image: url(../pokemonimages/bulbasaurBack.png);
-    -fx-background-size: contain;
+    -fx-background-size: stretch;
 }
 .squirtleFront {
     -fx-background-image: url(../pokemonimages/squirtleFront.png);
-    -fx-background-size: contain;
+    -fx-background-size: stretch;
 }
 .squirtleBack {
     -fx-background-image: url(../pokemonimages/squirtleBack.png);
-    -fx-background-size: contain;
+    -fx-background-size: stretch;
 }
 
