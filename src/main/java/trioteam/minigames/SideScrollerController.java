@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -75,7 +76,8 @@ private ImageView picAstaroid3;
 private Rectangle recAstroCol31;
 @FXML
 private Ellipse ovlAstroCol32;
-
+//declaring the grid
+ Shape grid[] = new Shape[8];
 
 
 
@@ -84,18 +86,27 @@ private Ellipse ovlAstroCol32;
 @FXML
 private void btnTest(ActionEvent event) throws IOException { //Test button remove before completion  
    panAstro.setTranslateX(panAstro.getTranslateX()-10); 
-  checkCol();
+  
   
 }
 
 
-private void checkCol(){
-     Shape intersect = Shape.intersect(recShipCol1, ovlAstroCol2);
+private boolean checkCol(Shape obj1, Shape obj2){
+     Shape intersect = Shape.intersect(obj1, obj2);
      
-       if (intersect.getBoundsInParent().getWidth() > 0) {
-           System.out.print("ObjectA intersects ObjectB"); //remove later
-        }
+    return intersect.getBoundsInParent().getWidth() > 0;
        
+}
+
+@FXML
+private void collision(){
+    for (int i=0; i<=1;i++){
+        for (int r=2; r<=7;r++){
+            checkCol(grid[i], grid[r]);
+        }
+        
+    }
+    
 }
 
 
@@ -103,6 +114,16 @@ private void checkCol(){
     public void initialize(URL url, ResourceBundle rb) {
        panShip.getChildren().add(createBoundsRectangle(recAstroCol1.getBoundsInParent()));  //make copy of astro block in ship
         panShip.getChildren().add(createBoundsEllipse(ovlAstroCol2.getBoundsInParent()));  //make copy of astro ovel in ship
+        
+       grid[0] = recShipCol1;
+       grid[1] = recShipCol2;
+       grid[2] = recAstroCol1;
+       grid[3] = ovlAstroCol2;
+       grid[4] = recAstroCol21;
+       grid[5] = ovlAstroCol22;
+       grid[6] = recAstroCol31;
+       grid[7] = ovlAstroCol32;   
+        
     }    
     
     private Rectangle createBoundsRectangle(Bounds bounds) {  //method used to make the blank copy in other pane
