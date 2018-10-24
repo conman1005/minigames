@@ -70,5 +70,6 @@
             <Font name="ArcadeClassic" size="63.0" />
          </font>
       </Button>
+      <Label fx:id="lblShots" layoutX="14.0" layoutY="35.0" onDragDetected="#buttons" text="0" />
    </children>
 </AnchorPane>

@@ -6,8 +6,10 @@ package trioteam.minigames;
  * Description: Memory matchning game
  */
 import java.net.URL;
+import java.util.Collections;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.stream.IntStream;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
@@ -81,6 +84,9 @@ public class MemoryMatchController implements Initializable {
     Button grid[] = new Button[40];    
     
     Random rand = new Random();
+    
+    @FXML
+    private Label lblShots;
 
     PauseTransition pause = new PauseTransition(Duration.seconds(5));
     
@@ -106,12 +112,11 @@ public class MemoryMatchController implements Initializable {
         btn.setDisable(true);
         int answer = rand.nextInt((15 - 0) + 0) + 0;
             btn.getStyleClass().add(pics[answer]);
-       
+            
     }
-    
     @FXML
     private void click(MouseEvent event){
-         
+    
     }
     
     @FXML
