@@ -132,7 +132,7 @@ private void move(){
    int start3 = ThreadLocalRandom.current().nextInt(1360,1440+1);
    
    if(start1 == start2 && start1== start3 || start2 == start1 && start2== start3 || start3 == start1 && start3== start2){
-       astroSetup();
+      move();
    }
    else if (astroLoop == true){
    panAstro.setTranslateX(start1);
@@ -145,7 +145,7 @@ private void move(){
      panAstro2.setTranslateX(panAstro2.getTranslateX() -5);
      panAstro3.setTranslateX(panAstro3.getTranslateX() -5);
      
-     if (panAstro.getTranslateX() <= -500){
+     if (panAstro.getTranslateX() <= -800){
           panAstro.setTranslateX(start1);
      }
      else if (panAstro2.getTranslateX() <= -800){
