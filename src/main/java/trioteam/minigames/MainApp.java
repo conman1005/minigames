@@ -21,6 +21,8 @@ public class MainApp extends Application {
         stage.setTitle("MiniGames");
         stage.setScene(scene);
         stage.show();
+        scene.getRoot().requestFocus();
+        
     }
 
     /**

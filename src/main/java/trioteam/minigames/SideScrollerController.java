@@ -9,6 +9,10 @@ package trioteam.minigames;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,6 +20,8 @@ import javafx.geometry.Bounds;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
@@ -78,18 +84,64 @@ private Rectangle recAstroCol31;
 private Ellipse ovlAstroCol32;
 //declaring the grid
  Shape grid[] = new Shape[8];
-
-
+ //lives
+ int health = 3;
+//Astro moving loop on off
+ boolean astroLoop = false;
+//timer
+ ScheduledExecutorService move;
 
 
         
 @FXML
 private void btnTest(ActionEvent event) throws IOException { //Test button remove before completion  
-   panAstro.setTranslateX(panAstro.getTranslateX()-10); 
-  
+astroSetup();
   
 }
 
+@FXML
+private void start(){
+    panAstro.setVisible(true);
+    panAstro2.setVisible(true);
+    panAstro3.setVisible(true);
+   
+}
+
+private void astroSetup(){
+   int start1 = ThreadLocalRandom.current().nextInt(1360,1440+1);
+   int start2 = ThreadLocalRandom.current().nextInt(1360,1440+1);
+   int start3 = ThreadLocalRandom.current().nextInt(1360,1440+1);
+   if(start1 == start2 && start1== start3 || start2 == start1 && start2== start3 || start3 == start1 && start3== start2){
+       astroSetup();
+   }
+   else{
+   panAstro.setTranslateX(start1);
+    panAstro.setTranslateX(start2);
+     panAstro.setTranslateX(start3);
+     move= Executors.newScheduledThreadPool(1);
+move.scheduleAtFixedRate(()->{ move(); }, 0, 10, TimeUnit.MILLISECONDS);
+        }
+}
+
+@FXML
+public void keyPressed(KeyEvent event){
+if ((event.getCode() == KeyCode.W)) {
+panShip.setTranslateY(panShip.getTranslateY() -10);
+}
+if ((event.getCode() == KeyCode.S)) {
+panShip.setTranslateY(panShip.getTranslateY() +10);
+}
+    
+}
+
+private void move(){
+    panAstro.setTranslateX(panAstro.getTranslateX() -5);
+     panAstro2.setTranslateX(panAstro2.getTranslateX() -5);
+     panAstro3.setTranslateX(panAstro3.getTranslateX() -5);
+    // if (panAstro.getTranslateX() =< -300){
+         
+    // }
+}
 
 private boolean checkCol(Shape obj1, Shape obj2){
      Shape intersect = Shape.intersect(obj1, obj2);
@@ -102,11 +154,23 @@ private boolean checkCol(Shape obj1, Shape obj2){
 private void collision(){
     for (int i=0; i<=1;i++){
         for (int r=2; r<=7;r++){
-            checkCol(grid[i], grid[r]);
+            
+           if (checkCol(grid[i], grid[r])){
+              collided();
+           }
         }
         
     }
     
+}
+
+private void collided(){ //code to run when player hits astaroid
+    /*
+    check lives 
+    if lives left put astaroids back and keep going
+    if no lives stop game kill player
+    reset button apere
+    */
 }
 
 
@@ -114,7 +178,7 @@ private void collision(){
     public void initialize(URL url, ResourceBundle rb) {
        panShip.getChildren().add(createBoundsRectangle(recAstroCol1.getBoundsInParent()));  //make copy of astro block in ship
         panShip.getChildren().add(createBoundsEllipse(ovlAstroCol2.getBoundsInParent()));  //make copy of astro ovel in ship
-        
+       // setting up collision array 
        grid[0] = recShipCol1;
        grid[1] = recShipCol2;
        grid[2] = recAstroCol1;
@@ -123,6 +187,7 @@ private void collision(){
        grid[5] = ovlAstroCol22;
        grid[6] = recAstroCol31;
        grid[7] = ovlAstroCol32;   
+       
         
     }    
     
