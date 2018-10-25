@@ -15,5 +15,6 @@
       <Label fx:id="picPokemon" layoutX="70.0" layoutY="276.0" prefHeight="188.0" prefWidth="208.0" />
       <Button fx:id="btnM1" layoutX="84.0" layoutY="481.0" mnemonicParsing="false" onAction="#btnM1" prefHeight="48.0" prefWidth="229.0" text="Move1" />
       <Button fx:id="btnM2" layoutX="84.0" layoutY="545.0" mnemonicParsing="false" onAction="#btnM2" prefHeight="48.0" prefWidth="229.0" text="Move2" />
+      <Button fx:id="btnMenu" layoutX="413.0" layoutY="497.0" mnemonicParsing="false" onAction="#btnMenu" styleClass="menuButton" text="Menu" visible="false" />
    </children>
 </AnchorPane>

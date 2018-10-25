@@ -5,6 +5,7 @@ package trioteam.minigames;
  * Date: 
  * Description: 
  */
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,11 +15,16 @@ import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import static trioteam.minigames.MainApp.pokeInfo;
 import static trioteam.minigames.MainApp.pokeInfoE;
 
@@ -45,6 +51,8 @@ public class PokemonGameController implements Initializable {
     private Button btnM1;
     @FXML
     private Button btnM2;
+    @FXML
+    private Button btnMenu;
 
     int hp;
     int enemyHP;
@@ -52,7 +60,7 @@ public class PokemonGameController implements Initializable {
     Alert alert = new Alert(AlertType.INFORMATION);
 
     @FXML
-    private void btnM1(ActionEvent event) {
+    private void btnM1(ActionEvent event) throws IOException {
         alert.setContentText(pokeInfo.pkmn + " used " + pokeInfo.move1 + "!");
         alert.showAndWait();
         enemyHP = enemyHP - pokeInfo.move1DMG;
@@ -61,6 +69,9 @@ public class PokemonGameController implements Initializable {
             lblEnemyHP.setText("HP: 0" + "/" + pokeInfoE.maxHP);
             alert.setContentText("You have defeated the enemy " + pokeInfoE.pkmn);
             alert.showAndWait();
+            btnM1.setDisable(true);
+            btnM2.setDisable(true);
+            btnMenu.setVisible(true);
             return;
         }
         lblEnemyHP.setText("HP: " + enemyHP + "/" + pokeInfoE.maxHP);
@@ -78,13 +89,16 @@ public class PokemonGameController implements Initializable {
             lblEnemyHP.setText("HP: 0" + "/" + pokeInfoE.maxHP);
             alert.setContentText("You have defeated the enemy " + pokeInfoE.pkmn);
             alert.showAndWait();
+            btnM1.setDisable(true);
+            btnM2.setDisable(true);
+            btnMenu.setVisible(true);
             return;
         }
         lblEnemyHP.setText("HP: " + enemyHP + "/" + pokeInfoE.maxHP);
         alert.showAndWait();
         enemyTurn();
     }
-
+    
     private void enemyTurn() {
         Random rand = new Random();
         int ans = rand.nextInt(2);
@@ -97,6 +111,9 @@ public class PokemonGameController implements Initializable {
                 lblPokemonHP.setText("HP: 0" + "/" + pokeInfo.maxHP);
                 alert.setContentText("You have been defeated by " + pokeInfoE.pkmn);
                 alert.showAndWait();
+                btnM1.setDisable(true);
+                btnM2.setDisable(true);
+                btnMenu.setVisible(true);
                 return;
             }
             lblPokemonHP.setText("HP: " + hp + "/" + pokeInfo.maxHP);
@@ -110,6 +127,21 @@ public class PokemonGameController implements Initializable {
             lblPokemonHP.setText("HP: " + hp + "/" + pokeInfo.maxHP);
             alert.showAndWait();
         }
+    }
+    
+    @FXML
+    private void btnMenu(ActionEvent event) throws IOException {
+        Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/pokemonMenu.fxml")); //where FXMLPage2 is the name of the scene
+
+        Scene home_page_scene = new Scene(home_page_parent);
+        //get reference to the stage 
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        stage.hide(); //optional
+        stage.setScene(home_page_scene); //puts the new scence in the stage
+
+        stage.setTitle("Pokemon"); //changes the title
+        stage.show(); //shows the new page
     }
 
     /**

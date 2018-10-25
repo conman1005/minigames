@@ -18,7 +18,7 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void btnPokemon(ActionEvent event) throws IOException {
-        Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/pokemon.fxml")); //where FXMLPage2 is the name of the scene
+        Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/pokemonMenu.fxml")); //where FXMLPage2 is the name of the scene
 
         Scene home_page_scene = new Scene(home_page_parent);
         //get reference to the stage 
