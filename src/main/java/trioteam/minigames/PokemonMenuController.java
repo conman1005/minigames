@@ -106,7 +106,7 @@ public class PokemonMenuController implements Initializable {
             }
         }
     }
-    
+
     @FXML
     private void btnBulbasoar(ActionEvent event) throws IOException {
         Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -140,6 +140,21 @@ public class PokemonMenuController implements Initializable {
                 stage.show(); //shows the new page
             }
         }
+    }
+
+    @FXML
+    private void btnMenu(ActionEvent event) throws IOException {
+        Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml")); //where FXMLPage2 is the name of the scene
+
+        Scene home_page_scene = new Scene(home_page_parent);
+        //get reference to the stage 
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        stage.hide(); //optional
+        stage.setScene(home_page_scene); //puts the new scence in the stage
+
+        stage.setTitle("MiniGames"); //changes the title
+        stage.show(); //shows the new page
     }
 
     @Override

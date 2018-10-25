@@ -18,5 +18,6 @@
       <Label layoutX="370.0" layoutY="104.0" prefHeight="134.0" prefWidth="140.0" styleClass="squirtleFront" />
       <Button layoutX="670.0" layoutY="241.0" onAction="#btnBulbasoar" prefHeight="33.0" prefWidth="131.0" text="bulbasoar" textAlignment="CENTER" />
       <Label layoutX="670.0" layoutY="84.0" prefHeight="154.0" prefWidth="131.0" styleClass="bulbasoarFront" />
+      <Button layoutX="77.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnMenu" styleClass="menuButton" text="Main Menu" />
    </children>
 </AnchorPane>
