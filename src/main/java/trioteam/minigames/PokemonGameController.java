@@ -25,8 +25,12 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import static trioteam.minigames.MainApp.enemyLevel;
 import static trioteam.minigames.MainApp.pokeInfo;
 import static trioteam.minigames.MainApp.pokeInfoE;
+import static trioteam.minigames.MainApp.pokeLevel;
+import static trioteam.minigames.MainApp.pokeXP;
+import static trioteam.minigames.MainApp.pokeXPNeeded;
 
 /**
  * FXML Controller class
@@ -54,21 +58,38 @@ public class PokemonGameController implements Initializable {
     @FXML
     private Button btnMenu;
 
-    int hp;
-    int enemyHP;
+    double hp;
+    double enemyHP;
 
     Alert alert = new Alert(AlertType.INFORMATION);
+
+    double dmg;
 
     @FXML
     private void btnM1(ActionEvent event) throws IOException {
         alert.setContentText(pokeInfo.pkmn + " used " + pokeInfo.move1 + "!");
         alert.showAndWait();
-        enemyHP = enemyHP - pokeInfo.move1DMG;
-        alert.setContentText("That did " + pokeInfo.move1DMG + " damage!");
+        dmg = pokeInfo.move1DMG;
+        if ((("Fire".equals(pokeInfo.move1Type)) && ("Grass".equals(pokeInfoE.type))) || (("Water".equals(pokeInfo.move1Type)) && ("Fire".equals(pokeInfoE.type))) || (("Grass".equals(pokeInfo.move1Type)) && ("Water".equals(pokeInfoE.type)))) {
+            dmg = dmg * 1.5;
+        }
+        dmg = dmg * (1 + (pokeLevel / 10));
+        enemyHP = enemyHP - dmg;
+        alert.setContentText("That did " + dmg + " damage!");
         if (enemyHP <= 0) {
             lblEnemyHP.setText("HP: 0" + "/" + pokeInfoE.maxHP);
             alert.setContentText("You have defeated the enemy " + pokeInfoE.pkmn);
             alert.showAndWait();
+            pokeXP = pokeXP + 100 + (100 * (pokeLevel - enemyLevel));
+            System.out.println("XP: " + pokeXP);
+            System.out.println("XP needed: " + pokeXPNeeded);
+            if (pokeXP >= pokeXPNeeded) {
+                pokeXP = 0;
+                pokeLevel++;
+                pokeXPNeeded = 500 + (500 * pokeLevel);
+                alert.setContentText("Congrats! You have reached Level " + pokeLevel + "!");
+                alert.showAndWait();
+            }
             btnM1.setDisable(true);
             btnM2.setDisable(true);
             btnMenu.setVisible(true);
@@ -83,12 +104,27 @@ public class PokemonGameController implements Initializable {
     private void btnM2(ActionEvent event) {
         alert.setContentText(pokeInfo.pkmn + " used " + pokeInfo.move2 + "!");
         alert.showAndWait();
-        enemyHP = enemyHP - pokeInfo.move2DMG;
-        alert.setContentText("That did " + pokeInfo.move2DMG + " damage!");
+        dmg = pokeInfo.move2DMG;
+        if ((("Fire".equals(pokeInfo.move2Type)) && ("Grass".equals(pokeInfoE.type))) || (("Water".equals(pokeInfo.move2Type)) && ("Fire".equals(pokeInfoE.type))) || (("Grass".equals(pokeInfo.move2Type)) && ("Water".equals(pokeInfoE.type)))) {
+            dmg = dmg + (dmg * 0.5);
+        }
+        dmg = dmg * (1 + (pokeLevel / 10));
+        enemyHP = enemyHP - dmg;
+        alert.setContentText("That did " + dmg + " damage!");
         if (enemyHP <= 0) {
             lblEnemyHP.setText("HP: 0" + "/" + pokeInfoE.maxHP);
             alert.setContentText("You have defeated the enemy " + pokeInfoE.pkmn);
             alert.showAndWait();
+            pokeXP = pokeXP + 100 + (100 * (pokeLevel - enemyLevel));
+            System.out.println("XP: " + pokeXP);
+            System.out.println("XP needed: " + pokeXPNeeded);
+            if (pokeXP >= pokeXPNeeded) {
+                pokeXP = 0;
+                pokeLevel++;
+                pokeXPNeeded = 500 + (500 * pokeLevel);
+                alert.setContentText("Congrats! You have reached Level " + pokeLevel + "!");
+                alert.showAndWait();
+            }
             btnM1.setDisable(true);
             btnM2.setDisable(true);
             btnMenu.setVisible(true);
@@ -98,16 +134,21 @@ public class PokemonGameController implements Initializable {
         alert.showAndWait();
         enemyTurn();
     }
-    
+
     private void enemyTurn() {
         Random rand = new Random();
         int ans = rand.nextInt(2);
         if (ans == 0) {
             alert.setContentText(pokeInfoE.pkmn + " used " + pokeInfoE.move1 + "!");
             alert.showAndWait();
-            hp = hp - pokeInfoE.move1DMG;
-            alert.setContentText("That did " + pokeInfoE.move1DMG + " damage!");
-            if (enemyHP <= 0) {
+            dmg = pokeInfoE.move1DMG;
+            if ((("Fire".equals(pokeInfoE.move1Type)) && ("Grass".equals(pokeInfo.type))) || (("Water".equals(pokeInfoE.move1Type)) && ("Fire".equals(pokeInfo.type))) || (("Grass".equals(pokeInfoE.move1Type)) && ("Water".equals(pokeInfo.type)))) {
+                dmg = dmg + (dmg * 0.5);
+            }
+            dmg = dmg * (1 + (enemyLevel / 10));
+            hp = hp - dmg;
+            alert.setContentText("That did " + dmg + " damage!");
+            if (hp <= 0) {
                 lblPokemonHP.setText("HP: 0" + "/" + pokeInfo.maxHP);
                 alert.setContentText("You have been defeated by " + pokeInfoE.pkmn);
                 alert.showAndWait();
@@ -122,13 +163,28 @@ public class PokemonGameController implements Initializable {
         } else {
             alert.setContentText(pokeInfoE.pkmn + " used " + pokeInfoE.move2 + "!");
             alert.showAndWait();
-            hp = hp - pokeInfoE.move2DMG;
-            alert.setContentText("That did " + pokeInfoE.move2DMG + " damage!");
+            dmg = pokeInfoE.move2DMG;
+            if ((("Fire".equals(pokeInfoE.move2Type)) && ("Grass".equals(pokeInfo.type))) || (("Water".equals(pokeInfoE.move2Type)) && ("Fire".equals(pokeInfo.type))) || (("Grass".equals(pokeInfoE.move2Type)) && ("Water".equals(pokeInfo.type)))) {
+                dmg = dmg + (dmg * 0.5);
+            }
+            dmg = dmg * (1 + (enemyLevel / 10));
+            hp = hp - dmg;
+            alert.setContentText("That did " + dmg + " damage!");
+            if (hp <= 0) {
+                lblPokemonHP.setText("HP: 0" + "/" + pokeInfo.maxHP);
+                alert.setContentText("You have been defeated by " + pokeInfoE.pkmn);
+                alert.showAndWait();
+                btnM1.setDisable(true);
+                btnM2.setDisable(true);
+                btnMenu.setVisible(true);
+                return;
+            }
+            alert.setContentText("That did " + dmg + " damage!");
             lblPokemonHP.setText("HP: " + hp + "/" + pokeInfo.maxHP);
             alert.showAndWait();
         }
     }
-    
+
     @FXML
     private void btnMenu(ActionEvent event) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/pokemonMenu.fxml")); //where FXMLPage2 is the name of the scene

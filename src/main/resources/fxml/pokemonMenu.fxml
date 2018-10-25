@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -19,5 +20,11 @@
       <Button layoutX="670.0" layoutY="241.0" onAction="#btnBulbasoar" prefHeight="33.0" prefWidth="131.0" text="bulbasoar" textAlignment="CENTER" />
       <Label layoutX="670.0" layoutY="84.0" prefHeight="154.0" prefWidth="131.0" styleClass="bulbasoarFront" />
       <Button layoutX="77.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnMenu" styleClass="menuButton" text="Main Menu" />
+      <Label fx:id="lblLevel" alignment="CENTER" contentDisplay="CENTER" layoutX="320.0" layoutY="319.0" prefHeight="28.0" prefWidth="238.0" styleClass="title" text="Enemy Level: 0" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Slider fx:id="sldLevel" layoutX="233.0" layoutY="347.0" majorTickUnit="10.0" minorTickCount="5" onMouseClicked="#sldLevel" onMouseDragged="#sldLevel" prefHeight="63.0" prefWidth="413.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" styleClass="button" value="1.0" />
    </children>
 </AnchorPane>
