@@ -108,20 +108,12 @@ private void start(){
 }
 
 private void astroSetup(){
-   int start1 = ThreadLocalRandom.current().nextInt(1360,1440+1);
-   int start2 = ThreadLocalRandom.current().nextInt(1360,1440+1);
-   int start3 = ThreadLocalRandom.current().nextInt(1360,1440+1);
-   if(start1 == start2 && start1== start3 || start2 == start1 && start2== start3 || start3 == start1 && start3== start2){
-       astroSetup();
-   }
-   else{
-   panAstro.setTranslateX(start1);
-    panAstro.setTranslateX(start2);
-     panAstro.setTranslateX(start3);
+
+     astroLoop = true;
      move= Executors.newScheduledThreadPool(1);
 move.scheduleAtFixedRate(()->{ move(); }, 0, 10, TimeUnit.MILLISECONDS);
         }
-}
+
 
 @FXML
 public void keyPressed(KeyEvent event){
@@ -135,12 +127,34 @@ panShip.setTranslateY(panShip.getTranslateY() +10);
 }
 
 private void move(){
+     int start1 = ThreadLocalRandom.current().nextInt(1360,1440+1);
+   int start2 = ThreadLocalRandom.current().nextInt(1360,1440+1);
+   int start3 = ThreadLocalRandom.current().nextInt(1360,1440+1);
+   
+   if(start1 == start2 && start1== start3 || start2 == start1 && start2== start3 || start3 == start1 && start3== start2){
+       astroSetup();
+   }
+   else if (astroLoop == true){
+   panAstro.setTranslateX(start1);
+    panAstro2.setTranslateX(start2);
+     panAstro3.setTranslateX(start3);
+     astroLoop = false;
+   }
+   
     panAstro.setTranslateX(panAstro.getTranslateX() -5);
      panAstro2.setTranslateX(panAstro2.getTranslateX() -5);
      panAstro3.setTranslateX(panAstro3.getTranslateX() -5);
-    // if (panAstro.getTranslateX() =< -300){
-         
-    // }
+     
+     if (panAstro.getTranslateX() <= -500){
+          panAstro.setTranslateX(start1);
+     }
+     else if (panAstro2.getTranslateX() <= -800){
+         panAstro2.setTranslateX(start2);
+     }
+      else if (panAstro3.getTranslateX() <= -800){
+         panAstro3.setTranslateX(start3);
+     
+   }
 }
 
 private boolean checkCol(Shape obj1, Shape obj2){

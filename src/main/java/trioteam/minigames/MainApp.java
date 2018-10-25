@@ -22,6 +22,7 @@ public class MainApp extends Application {
         stage.setScene(scene);
         stage.show();
         scene.getRoot().requestFocus();
+       stage.setOnCloseRequest(e -> System.exit(0));
         
     }
 
