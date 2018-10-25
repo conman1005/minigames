@@ -39,14 +39,14 @@
          </font>
       </Label>
       <ImageView fitHeight="55.0" fitWidth="185.0" layoutY="840.0" pickOnBounds="true" preserveRatio="true" styleClass="threeHeart" />
-      <Pane fx:id="panShip" layoutX="155.0" layoutY="339.0">
+      <Pane fx:id="panShip" translateX="155.0" translateY="339.0">
          <children>
             <ImageView fx:id="picShip" fitHeight="98.0" fitWidth="273.0" layoutX="7.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" styleClass="ship" />
             <Rectangle fx:id="recShipCol1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="35.0" layoutX="9.0" layoutY="34.0" stroke="RED" strokeType="INSIDE" width="215.0" />
             <Rectangle fx:id="recShipCol2" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="98.0" layoutX="47.0" stroke="RED" strokeType="INSIDE" width="121.0" />
          </children>
       </Pane>
-      <Pane fx:id="panAstro" layoutX="968.0" layoutY="198.0" prefHeight="191.0" prefWidth="185.0">
+      <Pane fx:id="panAstro" prefHeight="191.0" prefWidth="185.0" translateX="968.0" translateY="198.0">
          <children>
             <ImageView fx:id="picAstro" fitHeight="182.0" fitWidth="231.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" styleClass="astaroid" />
             <Rectangle fx:id="recAstroCol1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="35.0" layoutX="2.0" layoutY="76.0" stroke="RED" strokeType="INSIDE" width="176.0" />
@@ -57,12 +57,17 @@
          <font>
             <Font name="Monotype Corsiva" size="22.0" />
          </font></Button>
-      <Pane fx:id="panAstro2" layoutX="968.0" layoutY="389.0" prefHeight="191.0" prefWidth="185.0">
+      <Pane fx:id="panAstro2" prefHeight="191.0" prefWidth="185.0" translateX="968.0" translateY="389.0">
          <children>
             <ImageView fx:id="picAstro2" fitHeight="182.0" fitWidth="231.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" styleClass="astaroid" />
             <Rectangle fx:id="recAstroCol21" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="35.0" layoutX="2.0" layoutY="76.0" stroke="RED" strokeType="INSIDE" width="176.0" />
             <Ellipse fx:id="ovlAstroCol22" fill="#1f93ff00" layoutX="90.0" layoutY="91.0" radiusX="68.0" radiusY="91.0" stroke="RED" strokeType="INSIDE" />
          </children>
       </Pane>
+      <Label fx:id="lblTime" layoutX="190.0" layoutY="839.0" prefHeight="51.0" prefWidth="416.0" text="Time Survived: 00:00" textFill="WHITE">
+         <font>
+            <Font name="Magneto Bold" size="32.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

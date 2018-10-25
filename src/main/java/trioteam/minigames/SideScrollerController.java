@@ -12,6 +12,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -27,6 +29,7 @@ import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.shape.StrokeType;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -72,7 +75,6 @@ public class SideScrollerController implements Initializable {
     @FXML
     private Ellipse ovlAstroCol22;
 
-
 //declaring the grid
     Shape grid[] = new Shape[6];
     //lives
@@ -80,10 +82,14 @@ public class SideScrollerController implements Initializable {
 //Astro moving loop on off
     boolean astroLoop = false;
 //timer
-    ScheduledExecutorService move;
+    Timeline timmer;
+    int min = 0;
+    int sec = 0;
+    @FXML
+    private Label lblTime;
 
     @FXML
-    private void btnTest(ActionEvent event) throws IOException { //Test button remove before completion  
+    private void btnTest(ActionEvent event) { //Test button remove before completion  
         astroSetup();
 
     }
@@ -92,17 +98,24 @@ public class SideScrollerController implements Initializable {
     private void start() {
         panAstro.setVisible(true);
         panAstro2.setVisible(true);
-       
 
     }
 
     private void astroSetup() {
-
+        timmer = new Timeline(new KeyFrame(Duration.millis(1), ae -> move()));
+        timmer.setCycleCount(Timeline.INDEFINITE);
+        timmer.play();
         astroLoop = true;
-        move = Executors.newScheduledThreadPool(1);
-        move.scheduleAtFixedRate(() -> {
-            move();
-        }, 0, 10, TimeUnit.MILLISECONDS);
+       
+    }
+
+    private void time() {
+        sec = sec + 1;
+        if (sec >= 60) {
+            min = min + 1;
+            sec = 0;
+        }
+        lblTime.setText("Time Survived: " + min + ":" + sec);
     }
 
     @FXML
@@ -117,13 +130,16 @@ public class SideScrollerController implements Initializable {
     }
 
     private void move() {
-        int x1 = ThreadLocalRandom.current().nextInt(1360, 1480 + 1);
-        int x2 = ThreadLocalRandom.current().nextInt(1360, 1480 + 1);
-        int y1 = ThreadLocalRandom.current().nextInt(380, 0 + 1);
-        int y2 = ThreadLocalRandom.current().nextInt(389, 871 + 1);
-        
+      
+        int x1 = ThreadLocalRandom.current().nextInt(1360, 1440 + 1);
+        int x2 = ThreadLocalRandom.current().nextInt(1360, 1440 + 1);
+        int y1 = ThreadLocalRandom.current().nextInt(30, 300 + 1);
+        int y2 = ThreadLocalRandom.current().nextInt(390, 680 + 1);
+        System.out.println(x1 + "    " + x2); //remove
+         
         if (x1 == x2  || x2 == x1 ) {
             move();
+           
         } else if (astroLoop == true) {
             panAstro.setTranslateX(x1);
             panAstro2.setTranslateX(x1);
@@ -133,7 +149,7 @@ public class SideScrollerController implements Initializable {
 
         panAstro.setTranslateX(panAstro.getTranslateX() - 5);
         panAstro2.setTranslateX(panAstro2.getTranslateX() - 5);
-        
+        System.out.println(x1 + "    " +x2);
 
         if (panAstro.getTranslateX() <= -1000) {
             panAstro.setTranslateX(x1);
@@ -141,7 +157,7 @@ public class SideScrollerController implements Initializable {
         } else if (panAstro2.getTranslateX() <= -1000) {
             panAstro2.setTranslateX(x2);
             panAstro2.setTranslateY(y2);//broke stuff
-        } 
+        }
     }
 
     private boolean checkCol(Shape obj1, Shape obj2) {
@@ -185,7 +201,6 @@ public class SideScrollerController implements Initializable {
         grid[3] = ovlAstroCol2;
         grid[4] = recAstroCol21;
         grid[5] = ovlAstroCol22;
-       
 
     }
 
