@@ -80,7 +80,11 @@ public class PokemonGameController implements Initializable {
             lblEnemyHP.setText("HP: 0" + "/" + pokeInfoE.maxHP);
             alert.setContentText("You have defeated the enemy " + pokeInfoE.pkmn);
             alert.showAndWait();
-            pokeXP = pokeXP + 100 + (100 * (pokeLevel - enemyLevel));
+            if (enemyLevel < pokeLevel) {
+                pokeXP = pokeXP + 100;
+            } else {
+                pokeXP = pokeXP + 100 + (100 * (enemyLevel - pokeLevel));
+            }
             System.out.println("XP: " + pokeXP);
             System.out.println("XP needed: " + pokeXPNeeded);
             if (pokeXP >= pokeXPNeeded) {
@@ -115,7 +119,11 @@ public class PokemonGameController implements Initializable {
             lblEnemyHP.setText("HP: 0" + "/" + pokeInfoE.maxHP);
             alert.setContentText("You have defeated the enemy " + pokeInfoE.pkmn);
             alert.showAndWait();
-            pokeXP = pokeXP + 100 + (100 * (pokeLevel - enemyLevel));
+            if (enemyLevel < pokeLevel) {
+                pokeXP = pokeXP + 100;
+            } else {
+                pokeXP = pokeXP + 100 + (100 * (enemyLevel - pokeLevel));
+            }
             System.out.println("XP: " + pokeXP);
             System.out.println("XP needed: " + pokeXPNeeded);
             if (pokeXP >= pokeXPNeeded) {
@@ -219,6 +227,7 @@ public class PokemonGameController implements Initializable {
 
         hp = pokeInfo.maxHP;
         enemyHP = pokeInfoE.maxHP;
+        System.out.println("HP: " + pokeInfo.maxHP + " Enemy HP: " + pokeInfoE.maxHP);
 
         lblPokemonHP.setText("HP: " + hp + "/" + pokeInfo.maxHP);
         lblEnemyHP.setText("HP: " + enemyHP + "/" + pokeInfoE.maxHP);

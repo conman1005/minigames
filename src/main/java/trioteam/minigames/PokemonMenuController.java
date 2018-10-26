@@ -23,11 +23,14 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Slider;
 import javafx.stage.Stage;
 import static trioteam.minigames.MainApp.enemyLevel;
 import static trioteam.minigames.MainApp.pokeInfo;
 import static trioteam.minigames.MainApp.pokeLevel;
+import static trioteam.minigames.MainApp.pokeXP;
+import static trioteam.minigames.MainApp.pokeXPNeeded;
 
 /**
  * FXML Controller class
@@ -40,13 +43,27 @@ public class PokemonMenuController implements Initializable {
 
     @FXML
     private Label lblTitle;
-    
+
     @FXML
     private Label lblLevel;
     @FXML
     private Slider sldLevel;
     
+    @FXML
+    private ProgressBar prgLevel;
+    @FXML
+    private Label lblLevelCur;
+    @FXML
+    private Label lblLevelNext;
+
     DecimalFormat myFormat = new DecimalFormat("0");
+
+    @FXML
+    private void sldLevel(Event event) {
+        lblLevel.setText("Enemy Level: " + myFormat.format(sldLevel.getValue()));
+        enemyLevel = Integer.parseInt(myFormat.format(sldLevel.getValue()));
+        System.out.println("Enemy Level: " + enemyLevel);
+    }
 
     @FXML
     private void btnCharmander(ActionEvent event) throws IOException {
@@ -67,7 +84,7 @@ public class PokemonMenuController implements Initializable {
             Optional<ButtonType> result = alert.showAndWait();
 
             if (result.get() == ButtonType.OK) {
-                MainApp.pokeInfoE = new pkmn("charmander", "Fire", 30 * (1 + (enemyLevel / 10)), "Scratch", "Normal", 5, "Ember", "Fire", 10);
+                MainApp.pokeInfoE = new pkmn("charmander", "Fire", 30 * (1 + (Double.parseDouble(myFormat.format(sldLevel.getValue())) / 10)), "Scratch", "Normal", 5, "Ember", "Fire", 10);
 
                 Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/pokemonGame.fxml")); //where FXMLPage2 is the name of the scene
 
@@ -98,11 +115,11 @@ public class PokemonMenuController implements Initializable {
             }
 
         } else {
-            alert.setContentText("Are you sure you want to chose Charmander for the enemy?");
+            alert.setContentText("Are you sure you want to chose Squirtle for the enemy?");
             Optional<ButtonType> result = alert.showAndWait();
 
             if (result.get() == ButtonType.OK) {
-                MainApp.pokeInfoE = new pkmn("squirtle", "Water", 30 * (1 + (enemyLevel / 10)), "Scratch", "Normal", 5, "Watergun", "Water", 10);
+                MainApp.pokeInfoE = new pkmn("squirtle", "Water", 30 * (1 + (Double.parseDouble(myFormat.format(sldLevel.getValue())) / 10)), "Scratch", "Normal", 5, "Watergun", "Water", 10);
 
                 Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/pokemonGame.fxml")); //where FXMLPage2 is the name of the scene
 
@@ -133,11 +150,11 @@ public class PokemonMenuController implements Initializable {
             }
 
         } else {
-            alert.setContentText("Are you sure you want to chose Charmander for the enemy?");
+            alert.setContentText("Are you sure you want to chose Bulbasaur for the enemy?");
             Optional<ButtonType> result = alert.showAndWait();
 
             if (result.get() == ButtonType.OK) {
-                MainApp.pokeInfoE = new pkmn("bulbasoar", "Grass", 30 * (1 + (enemyLevel / 10)), "Scratch", "Normal", 5, "Vine Whip", "Grass", 10);
+                MainApp.pokeInfoE = new pkmn("bulbasoar", "Grass", 30 * (1 + (Double.parseDouble(myFormat.format(sldLevel.getValue())) / 10)), "Scratch", "Normal", 5, "Vine Whip", "Grass", 10);
 
                 Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/pokemonGame.fxml")); //where FXMLPage2 is the name of the scene
 
@@ -152,13 +169,6 @@ public class PokemonMenuController implements Initializable {
                 stage.show(); //shows the new page
             }
         }
-    }
-    
-    @FXML
-    private void sldLevel(Event event) {
-        lblLevel.setText("Enemy Level: " + myFormat.format(sldLevel.getValue()));
-        enemyLevel = Integer.parseInt(myFormat.format(sldLevel.getValue()));
-        System.out.println("Enemy Level: " + enemyLevel);
     }
 
     @FXML
@@ -178,7 +188,9 @@ public class PokemonMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        lblLevelCur.setText("Level: " + myFormat.format(pokeLevel));
+        lblLevelNext.setText("Level: " + myFormat.format(pokeLevel + 1));
+        prgLevel.setProgress(pokeXP / pokeXPNeeded);
     }
 
 }

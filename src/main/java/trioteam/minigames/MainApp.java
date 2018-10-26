@@ -11,10 +11,10 @@ public class MainApp extends Application {
     
     public static pkmn pokeInfo;
     public static pkmn pokeInfoE;
-    public static int pokeLevel = 0;
-    public static int pokeXP = 0;
-    public static int pokeXPNeeded = 500;
-    public static int enemyLevel = 0;
+    public static double pokeLevel = 0;
+    public static double pokeXP = 0;
+    public static double pokeXPNeeded = 500;
+    public static double enemyLevel = 0;
 
     @Override
     public void start(Stage stage) throws Exception {

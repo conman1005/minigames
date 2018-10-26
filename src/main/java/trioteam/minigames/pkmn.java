@@ -13,7 +13,7 @@ public class pkmn {
 
     public String pkmn;
     public String type;
-    public int maxHP;
+    public double maxHP;
     public String move1;
     public String move1Type;
     public int move1DMG;
@@ -21,7 +21,7 @@ public class pkmn {
     public String move2Type;
     public int move2DMG;
 
-    public pkmn(String p, String tp, int hp, String m1, String m1T, int m1d, String m2, String m2T, int m2d) {
+    public pkmn(String p, String tp, double hp, String m1, String m1T, int m1d, String m2, String m2T, int m2d) {
         pkmn = p;
         type = tp;
         maxHP = hp;
