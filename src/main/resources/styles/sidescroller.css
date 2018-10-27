@@ -15,6 +15,9 @@
      .threeHeart{
         -fx-image: url(../sideScroller/threeHeart.png);
     }
+    .noHeart{
+        -fx-image: url(../sideScroller/noHeart.png);
+    }
     .astaroid{
         -fx-image: url(../sideScroller/astaroid.png);
     }
@@ -23,4 +26,11 @@
     }
     .tempBackground{
         -fx-background-color:#666666
+    }
+    .start{
+        -fx-image:url(../sideScroller/start.png)
+    }
+    .death{
+       -fx-image:url(../sideScroller/explotion.gif) 
+           
     }
