@@ -14,8 +14,11 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 import javafx.animation.Animation;
 import javafx.animation.Animation.Status;
+import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
+import javafx.animation.ParallelTransition;
 import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -96,7 +99,17 @@ int health = 3;
 //TopBar
     @FXML
     private Rectangle recTopBar;
-
+//background
+    @FXML
+    private Pane panBack;
+    @FXML
+    private ImageView picBack1;
+    @FXML
+    private ImageView picBack2;
+ private int BACKGROUND_WIDTH = 1441;
+private ParallelTransition parallelTransition;      
+@FXML
+private Button btnControl;
     @FXML
     private void btnTest(ActionEvent event) { //Test button remove before completion  
         start();
@@ -265,6 +278,24 @@ int health = 3;
             break;
     }
     }
+    
+public void startAmination() {
+ 
+ parallelTransition.play();
+}
+
+public void pauseAnimation() {
+ parallelTransition.pause();
+}
+
+@FXML
+public void controlPressed(ActionEvent event) {
+ if( parallelTransition.getStatus() == Animation.Status.RUNNING ) {
+  pauseAnimation();
+ } else {
+  startAmination();
+ }
+}
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -277,8 +308,37 @@ int health = 3;
         grid[3] = ovlAstroCol2;
         grid[4] = recAstroCol21;
         grid[5] = ovlAstroCol22;
+        
+        //background mover
+        TranslateTransition translateTransition =
+        new TranslateTransition(Duration.millis(10000), picBack1);
+ translateTransition.setFromX(0);
+ translateTransition.setToX(-1 * BACKGROUND_WIDTH);
+ translateTransition.setInterpolator(Interpolator.LINEAR);
+ 
+ TranslateTransition translateTransition2 =
+        new TranslateTransition(Duration.millis(10000), picBack2);
+ translateTransition2.setFromX(0);
+ translateTransition2.setToX(-1 * BACKGROUND_WIDTH);
+ translateTransition2.setInterpolator(Interpolator.LINEAR);
 
-    }
+ parallelTransition = 
+  new ParallelTransition( translateTransition, translateTransition2 );
+ parallelTransition.setCycleCount(Animation.INDEFINITE);
+
+ //
+ // Sets the label of the Button based on the animation state
+ //
+ parallelTransition.statusProperty().addListener((obs, oldValue, newValue) -> {
+  if( newValue == Animation.Status.RUNNING ) {
+   btnControl.setText( "||" );
+  } else {
+   btnControl.setText( ">" );
+  }
+ });
+}
+
+    
 
     private Rectangle createBoundsRectangle(Bounds bounds) {  //method used to make the blank copy in other pane
         Rectangle rect = new Rectangle();

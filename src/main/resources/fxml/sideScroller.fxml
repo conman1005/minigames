@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -33,6 +34,20 @@
           </Menu>
         </menus>
       </MenuBar>
+      <Pane fx:id="panBack" prefHeight="815.0" prefWidth="1356.0" translateY="24.0">
+         <children>
+            <ImageView fx:id="picBack1" fitHeight="807.0" fitWidth="1441.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../sideScroller/back1.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="picBack2" fitHeight="828.0" fitWidth="1437.0" layoutX="1435.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../sideScroller/back2.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
       <Rectangle fx:id="recBlackBar" arcHeight="5.0" arcWidth="5.0" height="57.0" layoutX="506.0" layoutY="563.0" stroke="BLACK" strokeType="INSIDE" width="1356.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <ImageView fx:id="picHealth" fitHeight="55.0" fitWidth="185.0" layoutY="840.0" pickOnBounds="true" preserveRatio="true" styleClass="threeHeart" />
       <Pane fx:id="panShip" translateX="155.0" translateY="339.0">
@@ -66,5 +81,6 @@
          </children>
       </Pane>
       <Rectangle fx:id="recTopBar" arcHeight="5.0" arcWidth="5.0" height="1.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="1356.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Button fx:id="btnControl" layoutX="662.0" layoutY="856.0" mnemonicParsing="false" onAction="#controlPressed" text="Button" />
    </children>
 </AnchorPane>
