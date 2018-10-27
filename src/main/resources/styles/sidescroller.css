@@ -15,6 +15,9 @@
      .threeHeart{
         -fx-image: url(../sideScroller/threeHeart.png);
     }
+    .noHeart{
+        -fx-image: url(../sideScroller/noHeart.png);
+    }
     .astaroid{
         -fx-image: url(../sideScroller/astaroid.png);
     }

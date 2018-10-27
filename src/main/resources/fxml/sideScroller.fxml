@@ -34,11 +34,11 @@
         </menus>
       </MenuBar>
       <Rectangle fx:id="recBlackBar" arcHeight="5.0" arcWidth="5.0" height="57.0" layoutX="506.0" layoutY="563.0" stroke="BLACK" strokeType="INSIDE" width="1356.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <ImageView fitHeight="55.0" fitWidth="185.0" layoutY="840.0" pickOnBounds="true" preserveRatio="true" styleClass="threeHeart" />
+      <ImageView fx:id="picHealth" fitHeight="55.0" fitWidth="185.0" layoutY="840.0" pickOnBounds="true" preserveRatio="true" styleClass="threeHeart" />
       <Pane fx:id="panShip" translateX="155.0" translateY="339.0">
          <children>
             <ImageView fx:id="picShip" fitHeight="98.0" fitWidth="273.0" layoutX="7.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" styleClass="ship" />
-            <Rectangle fx:id="recShipCol1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="35.0" layoutX="9.0" layoutY="34.0" stroke="RED" strokeType="INSIDE" width="215.0" />
+            <Rectangle fx:id="recShipCol1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="33.0" layoutX="9.0" layoutY="34.0" stroke="RED" strokeType="INSIDE" width="206.0" />
             <Rectangle fx:id="recShipCol2" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="98.0" layoutX="47.0" stroke="RED" strokeType="INSIDE" width="121.0" />
          </children>
       </Pane>
