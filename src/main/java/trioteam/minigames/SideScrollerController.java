@@ -87,6 +87,12 @@ public class SideScrollerController implements Initializable {
     int sec = 0;
     @FXML
     private Label lblTime;
+//bottom bar
+    @FXML
+    private Rectangle recBlackBar;
+//TopBar
+    @FXML
+    private Rectangle recTopBar;
 
     @FXML
     private void btnTest(ActionEvent event) { //Test button remove before completion  
@@ -102,11 +108,11 @@ public class SideScrollerController implements Initializable {
     }
 
     private void astroSetup() {
-        timmer = new Timeline(new KeyFrame(Duration.millis(1), ae -> move()));
+        timmer = new Timeline(new KeyFrame(Duration.millis(8), ae -> move()));
         timmer.setCycleCount(Timeline.INDEFINITE);
         timmer.play();
         astroLoop = true;
-       
+
     }
 
     private void time() {
@@ -121,35 +127,45 @@ public class SideScrollerController implements Initializable {
     @FXML
     public void keyPressed(KeyEvent event) {
         if ((event.getCode() == KeyCode.W)) {
-            panShip.setTranslateY(panShip.getTranslateY() - 10);
+            if (checkCol(recShipCol2, recTopBar)) {
+                panShip.setTranslateY(panShip.getTranslateY() + 10);
+            } else {
+                panShip.setTranslateY(panShip.getTranslateY() - 10);
+            }
         }
         if ((event.getCode() == KeyCode.S)) {
-            panShip.setTranslateY(panShip.getTranslateY() + 10);
+            if (checkCol(recShipCol2, recBlackBar)) {
+                panShip.setTranslateY(panShip.getTranslateY() - 10);
+            } else {
+                panShip.setTranslateY(panShip.getTranslateY() + 10);
+            }
         }
 
     }
 
     private void move() {
-      
+
         int x1 = ThreadLocalRandom.current().nextInt(1360, 1440 + 1);
         int x2 = ThreadLocalRandom.current().nextInt(1360, 1440 + 1);
         int y1 = ThreadLocalRandom.current().nextInt(30, 300 + 1);
         int y2 = ThreadLocalRandom.current().nextInt(390, 680 + 1);
         System.out.println(x1 + "    " + x2); //remove
-         
-        if (x1 == x2  || x2 == x1 ) {
+
+        if (x1 == x2 || x2 == x1) {
             move();
-           
+
         } else if (astroLoop == true) {
             panAstro.setTranslateX(x1);
             panAstro2.setTranslateX(x1);
-           
+            panAstro.setTranslateY(y1);
+            panAstro2.setTranslateY(y2);
+
             astroLoop = false;
         }
 
         panAstro.setTranslateX(panAstro.getTranslateX() - 5);
         panAstro2.setTranslateX(panAstro2.getTranslateX() - 5);
-        System.out.println(x1 + "    " +x2);
+        System.out.println(x1 + "    " + x2);
 
         if (panAstro.getTranslateX() <= -1000) {
             panAstro.setTranslateX(x1);
