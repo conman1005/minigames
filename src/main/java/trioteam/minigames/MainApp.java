@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class MainApp extends Application {
-    
+
     public static pkmn pokeInfo;
     public static pkmn pokeInfoE;
     public static double pokeLevel = 0;
@@ -26,8 +26,8 @@ public class MainApp extends Application {
         stage.setScene(scene);
         stage.show();
         scene.getRoot().requestFocus();
-       stage.setOnCloseRequest(e -> System.exit(0));
-        
+        stage.setOnCloseRequest(e -> System.exit(0));
+
     }
 
     /**

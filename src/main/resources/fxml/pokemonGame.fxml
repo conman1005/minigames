@@ -2,7 +2,9 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="614.0" prefWidth="954.0" styleClass="battleBackground" stylesheets="@../styles/pokemon.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trioteam.minigames.PokemonGameController">
    <children>
@@ -15,6 +17,17 @@
       <Label fx:id="picPokemon" layoutX="70.0" layoutY="276.0" prefHeight="188.0" prefWidth="208.0" />
       <Button fx:id="btnM1" layoutX="84.0" layoutY="481.0" mnemonicParsing="false" onAction="#btnM1" prefHeight="48.0" prefWidth="229.0" text="Move1" />
       <Button fx:id="btnM2" layoutX="84.0" layoutY="545.0" mnemonicParsing="false" onAction="#btnM2" prefHeight="48.0" prefWidth="229.0" text="Move2" />
-      <Button fx:id="btnMenu" layoutX="413.0" layoutY="497.0" mnemonicParsing="false" onAction="#btnMenu" styleClass="menuButton" text="Menu" />
+      <Button fx:id="btnMenu" layoutX="413.0" layoutY="481.0" mnemonicParsing="false" onAction="#btnMenu" styleClass="menuButton" text="Menu" visible="false" />
+      <ProgressBar fx:id="prgLevel" layoutX="593.0" layoutY="573.0" prefHeight="21.0" prefWidth="208.0" progress="0.0" />
+      <Label fx:id="lblLevelCur" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="442.0" layoutY="570.0" prefHeight="28.0" prefWidth="131.0" text="Level: 0" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblLevelNext" layoutX="829.0" layoutY="569.0" prefHeight="28.0" prefWidth="111.0" text="Level: 1" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

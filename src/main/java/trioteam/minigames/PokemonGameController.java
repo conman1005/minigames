@@ -7,11 +7,14 @@ package trioteam.minigames;
  */
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,7 +27,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import static trioteam.minigames.MainApp.enemyLevel;
 import static trioteam.minigames.MainApp.pokeInfo;
 import static trioteam.minigames.MainApp.pokeInfoE;
@@ -58,12 +63,23 @@ public class PokemonGameController implements Initializable {
     @FXML
     private Button btnMenu;
 
+    @FXML
+    private ProgressBar prgLevel;
+    @FXML
+    private Label lblLevelCur;
+    @FXML
+    private Label lblLevelNext;
+
+    DecimalFormat myFormat = new DecimalFormat("0");
+
     double hp;
     double enemyHP;
 
     Alert alert = new Alert(AlertType.INFORMATION);
 
     double dmg;
+    
+    Timeline animation = new Timeline(new KeyFrame(Duration.millis(50), ae -> animate()));
 
     @FXML
     private void btnM1(ActionEvent event) throws IOException {
@@ -94,6 +110,9 @@ public class PokemonGameController implements Initializable {
                 alert.setContentText("Congrats! You have reached Level " + pokeLevel + "!");
                 alert.showAndWait();
             }
+            lblLevelCur.setText("Level: " + myFormat.format(pokeLevel));
+            lblLevelNext.setText("Level: " + myFormat.format(pokeLevel + 1));
+            prgLevel.setProgress(pokeXP / pokeXPNeeded);
             btnM1.setDisable(true);
             btnM2.setDisable(true);
             btnMenu.setVisible(true);
@@ -133,6 +152,9 @@ public class PokemonGameController implements Initializable {
                 alert.setContentText("Congrats! You have reached Level " + pokeLevel + "!");
                 alert.showAndWait();
             }
+            lblLevelCur.setText("Level: " + myFormat.format(pokeLevel));
+            lblLevelNext.setText("Level: " + myFormat.format(pokeLevel + 1));
+            prgLevel.setProgress(pokeXP / pokeXPNeeded);
             btnM1.setDisable(true);
             btnM2.setDisable(true);
             btnMenu.setVisible(true);
@@ -192,6 +214,10 @@ public class PokemonGameController implements Initializable {
             alert.showAndWait();
         }
     }
+    
+    private void animate() {
+        
+    }
 
     @FXML
     private void btnMenu(ActionEvent event) throws IOException {
@@ -234,6 +260,10 @@ public class PokemonGameController implements Initializable {
 
         btnM1.setText(pokeInfo.move1);
         btnM2.setText(pokeInfo.move2);
+
+        lblLevelCur.setText("Level: " + myFormat.format(pokeLevel));
+        lblLevelNext.setText("Level: " + myFormat.format(pokeLevel + 1));
+        prgLevel.setProgress(pokeXP / pokeXPNeeded);
 
     }
 

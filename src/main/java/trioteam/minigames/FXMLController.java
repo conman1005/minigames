@@ -21,6 +21,7 @@ public class FXMLController implements Initializable {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/pokemonMenu.fxml")); //where FXMLPage2 is the name of the scene
 
         Scene home_page_scene = new Scene(home_page_parent);
+        home_page_scene.getRoot().requestFocus();
         //get reference to the stage 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
