@@ -47,35 +47,35 @@
             </ImageView>
          </children>
       </Pane>
-      <Rectangle fx:id="recBlackBar" arcHeight="5.0" arcWidth="5.0" height="57.0" layoutX="506.0" layoutY="563.0" stroke="BLACK" strokeType="INSIDE" width="1356.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <ImageView fx:id="picHealth" fitHeight="55.0" fitWidth="185.0" layoutY="840.0" pickOnBounds="true" preserveRatio="true" styleClass="threeHeart" />
       <Pane fx:id="panShip" translateX="155.0" translateY="339.0">
          <children>
             <ImageView fx:id="picShip" fitHeight="98.0" fitWidth="273.0" layoutX="7.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" styleClass="ship" />
-            <Rectangle fx:id="recShipCol1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="33.0" layoutX="9.0" layoutY="34.0" stroke="RED" strokeType="INSIDE" width="206.0" />
-            <Rectangle fx:id="recShipCol2" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="98.0" layoutX="47.0" stroke="RED" strokeType="INSIDE" width="121.0" />
+            <Rectangle fx:id="recShipCol1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="33.0" layoutX="9.0" layoutY="34.0" stroke="#ff000000" strokeType="INSIDE" width="206.0" />
+            <Rectangle fx:id="recShipCol2" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="98.0" layoutX="47.0" stroke="#ff000000" strokeType="INSIDE" width="121.0" />
          </children>
       </Pane>
       <Pane fx:id="panAstro" layoutX="15.0" layoutY="45.0" prefHeight="146.0" prefWidth="145.0" translateX="968.0" translateY="198.0" visible="false">
          <children>
             <ImageView fx:id="picAstro" fitHeight="148.0" fitWidth="136.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true" styleClass="astaroid" />
-            <Rectangle fx:id="recAstroCol1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="25.0" layoutX="2.0" layoutY="58.0" stroke="RED" strokeType="INSIDE" width="136.0" />
-            <Ellipse fx:id="ovlAstroCol2" fill="#1f93ff00" layoutX="71.0" layoutY="68.0" radiusX="54.0" radiusY="70.0" stroke="RED" strokeType="INSIDE" />
+            <Rectangle fx:id="recAstroCol1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="25.0" layoutX="2.0" layoutY="58.0" stroke="#ff000000" strokeType="INSIDE" width="136.0" />
+            <Ellipse fx:id="ovlAstroCol2" fill="#1f93ff00" layoutX="71.0" layoutY="68.0" radiusX="54.0" radiusY="70.0" stroke="#ff000000" strokeType="INSIDE" />
          </children>
       </Pane>
+      <Pane fx:id="panAstro2" prefHeight="146.0" prefWidth="145.0" translateX="983.0" translateY="389.0" visible="false">
+         <children>
+            <ImageView fx:id="picAstro2" fitHeight="148.0" fitWidth="136.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true" styleClass="astaroid" />
+            <Rectangle fx:id="recAstroCol21" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="25.0" layoutX="2.0" layoutY="56.0" stroke="#ff000000" strokeType="INSIDE" width="136.0" />
+            <Ellipse fx:id="ovlAstroCol22" fill="#1f93ff00" layoutX="71.0" layoutY="68.0" radiusX="54.0" radiusY="70.0" stroke="#ff000000" strokeType="INSIDE" />
+         </children>
+      </Pane>
+      <Rectangle fx:id="recBlackBar" arcHeight="5.0" arcWidth="5.0" height="57.0" layoutY="836.0" stroke="BLACK" strokeType="INSIDE" width="1356.0" />
+      <Rectangle fx:id="recTopBar" arcHeight="5.0" arcWidth="5.0" height="1.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="1356.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Label fx:id="lblTime" layoutX="190.0" layoutY="839.0" prefHeight="51.0" prefWidth="416.0" text="Time Survived: 00:00" textFill="WHITE">
          <font>
             <Font name="Magneto Bold" size="32.0" />
          </font>
       </Label>
-      <Pane fx:id="panAstro2" prefHeight="146.0" prefWidth="145.0" translateX="983.0" translateY="389.0" visible="false">
-         <children>
-            <ImageView fx:id="picAstro2" fitHeight="148.0" fitWidth="136.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true" styleClass="astaroid" />
-            <Rectangle fx:id="recAstroCol21" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="25.0" layoutX="2.0" layoutY="56.0" stroke="RED" strokeType="INSIDE" width="136.0" />
-            <Ellipse fx:id="ovlAstroCol22" fill="#1f93ff00" layoutX="71.0" layoutY="68.0" radiusX="54.0" radiusY="70.0" stroke="RED" strokeType="INSIDE" />
-         </children>
-      </Pane>
-      <Rectangle fx:id="recTopBar" arcHeight="5.0" arcWidth="5.0" height="1.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="1356.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <ImageView fx:id="picStartButton" fitHeight="384.0" fitWidth="715.0" layoutX="277.0" layoutY="192.0" onMouseClicked="#start" pickOnBounds="true" preserveRatio="true" styleClass="start" />
+      <ImageView fx:id="picHealth" fitHeight="55.0" fitWidth="185.0" layoutY="840.0" pickOnBounds="true" preserveRatio="true" styleClass="threeHeart" />
    </children>
 </AnchorPane>

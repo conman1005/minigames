@@ -101,8 +101,7 @@ public class SideScrollerController implements Initializable {
     @FXML
     private Rectangle recTopBar;
 //background
-    @FXML
-    private Pane panBack;
+   
     @FXML
     private ImageView picBack1;
     @FXML
@@ -110,12 +109,13 @@ public class SideScrollerController implements Initializable {
     private int BACKGROUND_WIDTH = 3900;
     private ParallelTransition backgroundMove;
 //game over
-    boolean gameOver = false;
+    boolean lockMove = true;
 //start button
+    @FXML
    private ImageView picStartButton;
    
-    @FXML
-    private Button btnControl;
+   /* @FXML
+    private Button btnControl;*/
 
     
     
@@ -124,7 +124,8 @@ public class SideScrollerController implements Initializable {
     private void start(Event event) {
         panAstro.setVisible(true);
         panAstro2.setVisible(true);
-       picStartButton.setVisible(false); //errors on this line
+       picStartButton.setVisible(false); 
+       lockMove = false;
        startAmination();
         astroSetup();
         timeStart();
@@ -156,7 +157,7 @@ public class SideScrollerController implements Initializable {
 
     @FXML
     public void keyPressed(KeyEvent event) {
-        if (gameOver == false) {
+        if (lockMove == false) {
             if ((event.getCode() == KeyCode.W)) {
                 if (checkCol(recShipCol2, recTopBar)) {
                     panShip.setTranslateY(panShip.getTranslateY() + 10);
@@ -186,7 +187,7 @@ public class SideScrollerController implements Initializable {
 
             timmer.play();*/
             }
-        } else if (gameOver == true) {
+        } else if (lockMove == true) {
 
         }
     }
@@ -281,13 +282,14 @@ public class SideScrollerController implements Initializable {
                 picHealth.getStyleClass().add("noHeart");
                 timmer.pause();
                 movement.pause();
-                gameOver = true;
+                lockMove = true;
                 panAstro.setVisible(false);
-                panAstro.setVisible(false);
+                panAstro2.setVisible(false);
                 if (backgroundMove.getStatus() == Animation.Status.RUNNING) {
                     pauseAnimation();
                 }
-
+                picShip.getStyleClass().clear();
+                picShip.getStyleClass().add("death");
                 //you lose
                 break;
             default:
@@ -348,13 +350,13 @@ public class SideScrollerController implements Initializable {
         //
         // Sets the label of the Button based on the animation state
         //
-        backgroundMove.statusProperty().addListener((obs, oldValue, newValue) -> {
+      /*  backgroundMove.statusProperty().addListener((obs, oldValue, newValue) -> {
             if (newValue == Animation.Status.RUNNING) {
                 btnControl.setText("||");
             } else {
                 btnControl.setText(">");
             }
-        });
+        });*/
     }
 
     private Rectangle createBoundsRectangle(Bounds bounds) {  //method used to make the blank copy in other pane

@@ -30,3 +30,7 @@
     .start{
         -fx-image:url(../sideScroller/start.png)
     }
+    .death{
+       -fx-image:url(../sideScroller/explotion.gif) 
+           
+    }
