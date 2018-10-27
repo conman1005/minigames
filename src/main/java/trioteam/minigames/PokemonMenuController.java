@@ -177,9 +177,14 @@ public class PokemonMenuController implements Initializable {
         System.out.println("Enemy Level: " + enemyLevel);
     }
 
-    /*public void keyPressed(KeyEvent event) {
-        sldLevel
-    }*/
+    @FXML
+    private void btnHTP(ActionEvent event) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setHeaderText("How to Play");
+        alert.setTitle("How to Play");
+        alert.setContentText("Your goal is to keep leveling up and defeat the enemy Pokemon. You select your own pokemon then you select the opponent's pokemon and it's level. the higher the enemy level, the harder it is, but you get more XP if you defeat it. You level up by defeating enemy pokemon, and the higher your level, the stronger your pokemon.");
+        alert.showAndWait();
+    }
 
     @FXML
     private void btnMenu(ActionEvent event) throws IOException {
