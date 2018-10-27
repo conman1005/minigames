@@ -43,6 +43,7 @@ public class FXMLController implements Initializable {
 
         stage.setTitle("Asoride Dogge"); //changes the title
         stage.show(); //shows the new page
+        home_page_scene.getRoot().requestFocus();
     }
     @FXML
     private void btnMemoryMatch(ActionEvent event) throws IOException {
