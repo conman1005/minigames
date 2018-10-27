@@ -27,3 +27,6 @@
     .tempBackground{
         -fx-background-color:#666666
     }
+    .start{
+        -fx-image:url(../sideScroller/start.png)
+    }

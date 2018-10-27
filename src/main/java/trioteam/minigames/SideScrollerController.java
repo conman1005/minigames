@@ -20,6 +20,7 @@ import javafx.animation.ParallelTransition;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
@@ -43,7 +44,8 @@ import javafx.util.Duration;
  */
 public class SideScrollerController implements Initializable {
 //Health
-int health = 3;
+
+    int health = 3;
     @FXML
     private ImageView picHealth;
 
@@ -82,8 +84,7 @@ int health = 3;
 
 //declaring the grid
     Shape grid[] = new Shape[6];
-   
-    
+
 //Astro moving loop on off
     boolean astroLoop = false;
 //timer
@@ -106,34 +107,40 @@ int health = 3;
     private ImageView picBack1;
     @FXML
     private ImageView picBack2;
- private int BACKGROUND_WIDTH = 3900;
-private ParallelTransition parallelTransition;      
-@FXML
-private Button btnControl;
+    private int BACKGROUND_WIDTH = 3900;
+    private ParallelTransition backgroundMove;
+//game over
+    boolean gameOver = false;
+//start button
+   private ImageView picStartButton;
+   
     @FXML
-    private void btnTest(ActionEvent event) { //Test button remove before completion  
-        start();
+    private Button btnControl;
 
-    }
+    
+    
 
     @FXML
-    private void start() {
+    private void start(Event event) {
         panAstro.setVisible(true);
         panAstro2.setVisible(true);
+       picStartButton.setVisible(false); //errors on this line
+       startAmination();
         astroSetup();
-       timeStart();
+        timeStart();
+       
     }
-    
-    private void timeStart(){
-         timmer = new Timeline(new KeyFrame(Duration.seconds(1), ae -> time()));
-            timmer.setCycleCount(Timeline.INDEFINITE);
-            timmer.play();
+
+    private void timeStart() {
+        timmer = new Timeline(new KeyFrame(Duration.seconds(1), ae -> time()));
+        timmer.setCycleCount(Timeline.INDEFINITE);
+        timmer.play();
     }
 
     private void astroSetup() {
-      movement = new Timeline(new KeyFrame(Duration.millis(8), ae -> move()));
+        movement = new Timeline(new KeyFrame(Duration.millis(8), ae -> move()));
         movement.setCycleCount(Timeline.INDEFINITE);
-   movement.play();
+        movement.play();
         astroLoop = true;
 
     }
@@ -149,34 +156,38 @@ private Button btnControl;
 
     @FXML
     public void keyPressed(KeyEvent event) {
-        if ((event.getCode() == KeyCode.W)) {
-            if (checkCol(recShipCol2, recTopBar)) {
-                panShip.setTranslateY(panShip.getTranslateY() + 10);
-            } else {
-                panShip.setTranslateY(panShip.getTranslateY() - 10);
-            }
-           /*timmer = new Timeline(new KeyFrame(Duration.millis(50), ae -> shipMove("up")));
+        if (gameOver == false) {
+            if ((event.getCode() == KeyCode.W)) {
+                if (checkCol(recShipCol2, recTopBar)) {
+                    panShip.setTranslateY(panShip.getTranslateY() + 10);
+                } else {
+                    panShip.setTranslateY(panShip.getTranslateY() - 10);
+                }
+                /*timmer = new Timeline(new KeyFrame(Duration.millis(50), ae -> shipMove("up")));
             timmer.setCycleCount(Timeline.INDEFINITE);
             if (Status.RUNNING == timmer.getStatus()) {
                 timmer.stop();
             }
 
             timmer.play();*/
-        }
-        
-        if ((event.getCode() == KeyCode.S)) {
-             if (checkCol(recShipCol2, recBlackBar)) {
-                panShip.setTranslateY(panShip.getTranslateY() - 10);
-            } else {
-                panShip.setTranslateY(panShip.getTranslateY() + 10);
             }
-           /* timmer = new Timeline(new KeyFrame(Duration.millis(50), ae -> shipMove("down")));
+
+            if ((event.getCode() == KeyCode.S)) {
+                if (checkCol(recShipCol2, recBlackBar)) {
+                    panShip.setTranslateY(panShip.getTranslateY() - 10);
+                } else {
+                    panShip.setTranslateY(panShip.getTranslateY() + 10);
+                }
+                /* timmer = new Timeline(new KeyFrame(Duration.millis(50), ae -> shipMove("down")));
             timmer.setCycleCount(Timeline.INDEFINITE);
             if (Status.RUNNING == timmer.getStatus()) {
                 timmer.stop();
             }
 
             timmer.play();*/
+            }
+        } else if (gameOver == true) {
+
         }
     }
 
@@ -200,9 +211,8 @@ private Button btnControl;
 
         int x1 = ThreadLocalRandom.current().nextInt(1360, 1440 + 1);
         int x2 = ThreadLocalRandom.current().nextInt(1360, 1440 + 1);
-        int y1 = ThreadLocalRandom.current().nextInt(30, 300 + 1);
+        int y1 = ThreadLocalRandom.current().nextInt(30, 280 + 1);
         int y2 = ThreadLocalRandom.current().nextInt(390, 680 + 1);
-        
 
         if (x1 == x2 || x2 == x1) {
             move();
@@ -210,15 +220,14 @@ private Button btnControl;
         } else if (astroLoop == true) {
             panAstro.setTranslateX(x1);
             panAstro2.setTranslateX(x1);
-            panAstro.setTranslateY(y1);
-            panAstro2.setTranslateY(y2);
+            panAstro.setTranslateY(40);
+            panAstro2.setTranslateY(650);
 
             astroLoop = false;
         }
 
         panAstro.setTranslateX(panAstro.getTranslateX() - 5);
         panAstro2.setTranslateX(panAstro2.getTranslateX() - 5);
-        
 
         if (panAstro.getTranslateX() <= -1000) {
             panAstro.setTranslateX(x1);
@@ -252,50 +261,57 @@ private Button btnControl;
     }
 
     private void collided() { //code to run when player hits astaroid
-       
-      if(health >= 1){
-       health = health - 1;
-       astroLoop = true;
-      
-      }
-    switch (health) {
-        case 2:
-            picHealth.getStyleClass().clear();
-            picHealth.getStyleClass().add("twoHeart");
-            break;
-        case 1:
-            picHealth.getStyleClass().clear();
-            picHealth.getStyleClass().add("oneHeart");
-            break;
-        case 0:
-             picHealth.getStyleClass().clear();
-            picHealth.getStyleClass().add("noHeart");
-            timmer.pause();
-            movement.pause();
-            //you lose
-            break;
-        default:
-            break;
-    }
-    }
-    
-public void startAmination() {
- 
- parallelTransition.play();
-}
 
-public void pauseAnimation() {
- parallelTransition.pause();
-}
+        if (health >= 1) {
+            health = health - 1;
+            astroLoop = true;
 
-@FXML
-public void controlPressed(ActionEvent event) {
- if( parallelTransition.getStatus() == Animation.Status.RUNNING ) {
-  pauseAnimation();
- } else {
-  startAmination();
- }
-}
+        }
+        switch (health) {
+            case 2:
+                picHealth.getStyleClass().clear();
+                picHealth.getStyleClass().add("twoHeart");
+                break;
+            case 1:
+                picHealth.getStyleClass().clear();
+                picHealth.getStyleClass().add("oneHeart");
+                break;
+            case 0:
+                picHealth.getStyleClass().clear();
+                picHealth.getStyleClass().add("noHeart");
+                timmer.pause();
+                movement.pause();
+                gameOver = true;
+                panAstro.setVisible(false);
+                panAstro.setVisible(false);
+                if (backgroundMove.getStatus() == Animation.Status.RUNNING) {
+                    pauseAnimation();
+                }
+
+                //you lose
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void startAmination() {
+
+      backgroundMove.play();
+    }
+
+    public void pauseAnimation() {
+      backgroundMove.pause();
+    }
+
+    @FXML
+    public void controlPressed(ActionEvent event) {
+        if (backgroundMove.getStatus() == Animation.Status.RUNNING) {
+            pauseAnimation();
+        } else {
+            startAmination();
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -308,37 +324,38 @@ public void controlPressed(ActionEvent event) {
         grid[3] = ovlAstroCol2;
         grid[4] = recAstroCol21;
         grid[5] = ovlAstroCol22;
-        
+
         //background mover
-        TranslateTransition translateTransition =
-        new TranslateTransition(Duration.millis(10000), picBack1);
- translateTransition.setFromX(0);
- translateTransition.setToX(-1 * BACKGROUND_WIDTH);
- translateTransition.setInterpolator(Interpolator.LINEAR);
- 
- TranslateTransition translateTransition2 =
-        new TranslateTransition(Duration.millis(10000), picBack2);
- translateTransition2.setFromX(0);
- translateTransition2.setToX(-1 * BACKGROUND_WIDTH);
- translateTransition2.setInterpolator(Interpolator.LINEAR);
+        TranslateTransition translateTransition
+                = /*This Transititon creates a move/translate animation that spans its duration. This is done by updating the translateX, Y and Z vsrisbles at regular interval*/ new TranslateTransition(Duration.millis(16000), picBack1);
+        /*It strats from the (fromX, fromY, fromZ) value if proided else uses the items translateX, Y, Z vales*/
+        translateTransition.setFromX(0);
+        /*It stops at the (toX, toY, toZ) value if provided else it will use  start value plus (byX,byY, byZ) value*/
+        translateTransition.setToX(-1 * BACKGROUND_WIDTH);
+        /*the (toX, toY, toZ) value takes precedence if both (toX, toY, toZ) and (byX, byY, byZ) values are specified*/
+        translateTransition.setInterpolator(Interpolator.LINEAR);
 
- parallelTransition = 
-  new ParallelTransition( translateTransition, translateTransition2 );
- parallelTransition.setCycleCount(Animation.INDEFINITE);
+        TranslateTransition translateTransition2
+                = new TranslateTransition(Duration.millis(16000), picBack2);
+        translateTransition2.setFromX(0);
+        translateTransition2.setToX(-1 * BACKGROUND_WIDTH);
+        translateTransition2.setInterpolator(Interpolator.LINEAR);
 
- //
- // Sets the label of the Button based on the animation state
- //
- parallelTransition.statusProperty().addListener((obs, oldValue, newValue) -> {
-  if( newValue == Animation.Status.RUNNING ) {
-   btnControl.setText( "||" );
-  } else {
-   btnControl.setText( ">" );
-  }
- });
-}
+        backgroundMove
+                = new ParallelTransition(translateTransition, translateTransition2);
+        backgroundMove.setCycleCount(Animation.INDEFINITE);
 
-    
+        //
+        // Sets the label of the Button based on the animation state
+        //
+        backgroundMove.statusProperty().addListener((obs, oldValue, newValue) -> {
+            if (newValue == Animation.Status.RUNNING) {
+                btnControl.setText("||");
+            } else {
+                btnControl.setText(">");
+            }
+        });
+    }
 
     private Rectangle createBoundsRectangle(Bounds bounds) {  //method used to make the blank copy in other pane
         Rectangle rect = new Rectangle();
