@@ -8,9 +8,6 @@ package trioteam.minigames;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.animation.KeyFrame;
@@ -28,6 +25,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import static javafx.scene.media.MediaPlayer.INDEFINITE;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import static trioteam.minigames.MainApp.enemyLevel;
@@ -69,6 +69,8 @@ public class PokemonGameController implements Initializable {
     private Label lblLevelCur;
     @FXML
     private Label lblLevelNext;
+    
+    boolean enemyTurn = false;
 
     DecimalFormat myFormat = new DecimalFormat("0");
 
@@ -79,12 +81,19 @@ public class PokemonGameController implements Initializable {
 
     double dmg;
     
-    Timeline animation = new Timeline(new KeyFrame(Duration.millis(50), ae -> animate()));
+    Timeline animation = new Timeline(new KeyFrame(Duration.millis(5), ae -> animate()));
+    
+    MediaPlayer punch = new MediaPlayer((new Media(getClass().getResource("/pokemonimages/punch.mp3").toString())));
+    MediaPlayer music = new MediaPlayer((new Media(getClass().getResource("/pokemonimages/battle.mp3").toString())));
 
     @FXML
     private void btnM1(ActionEvent event) throws IOException {
+        enemyTurn = false;
         alert.setContentText(pokeInfo.pkmn + " used " + pokeInfo.move1 + "!");
         alert.showAndWait();
+        animation.setCycleCount(50);
+        animation.play();
+        punch.play();
         dmg = pokeInfo.move1DMG;
         if ((("Fire".equals(pokeInfo.move1Type)) && ("Grass".equals(pokeInfoE.type))) || (("Water".equals(pokeInfo.move1Type)) && ("Fire".equals(pokeInfoE.type))) || (("Grass".equals(pokeInfo.move1Type)) && ("Water".equals(pokeInfoE.type)))) {
             dmg = dmg * 1.5;
@@ -93,9 +102,13 @@ public class PokemonGameController implements Initializable {
         enemyHP = enemyHP - dmg;
         alert.setContentText("That did " + dmg + " damage!");
         if (enemyHP <= 0) {
+            music.stop();
+            music.setCycleCount(INDEFINITE);
+            music = new MediaPlayer((new Media(getClass().getResource("/pokemonimages/victory.mp3").toString())));
+            music.play();
             lblEnemyHP.setText("HP: 0" + "/" + pokeInfoE.maxHP);
             alert.setContentText("You have defeated the enemy " + pokeInfoE.pkmn);
-            alert.showAndWait();
+            Platform.runLater(alert::showAndWait);
             if (enemyLevel < pokeLevel) {
                 pokeXP = pokeXP + 100;
             } else {
@@ -108,7 +121,7 @@ public class PokemonGameController implements Initializable {
                 pokeLevel++;
                 pokeXPNeeded = 500 + (500 * pokeLevel);
                 alert.setContentText("Congrats! You have reached Level " + pokeLevel + "!");
-                alert.showAndWait();
+                Platform.runLater(alert::showAndWait);
             }
             lblLevelCur.setText("Level: " + myFormat.format(pokeLevel));
             lblLevelNext.setText("Level: " + myFormat.format(pokeLevel + 1));
@@ -120,13 +133,18 @@ public class PokemonGameController implements Initializable {
         }
         lblEnemyHP.setText("HP: " + enemyHP + "/" + pokeInfoE.maxHP);
         alert.showAndWait();
+        punch.stop();
         enemyTurn();
     }
 
     @FXML
     private void btnM2(ActionEvent event) {
+        enemyTurn = false;
         alert.setContentText(pokeInfo.pkmn + " used " + pokeInfo.move2 + "!");
         alert.showAndWait();
+        animation.setCycleCount(50);
+        animation.play();
+        punch.play();
         dmg = pokeInfo.move2DMG;
         if ((("Fire".equals(pokeInfo.move2Type)) && ("Grass".equals(pokeInfoE.type))) || (("Water".equals(pokeInfo.move2Type)) && ("Fire".equals(pokeInfoE.type))) || (("Grass".equals(pokeInfo.move2Type)) && ("Water".equals(pokeInfoE.type)))) {
             dmg = dmg + (dmg * 0.5);
@@ -135,9 +153,13 @@ public class PokemonGameController implements Initializable {
         enemyHP = enemyHP - dmg;
         alert.setContentText("That did " + dmg + " damage!");
         if (enemyHP <= 0) {
+            music.stop();
+            music.setCycleCount(INDEFINITE);
+            music = new MediaPlayer((new Media(getClass().getResource("/pokemonimages/victory.mp3").toString())));
+            music.play();
             lblEnemyHP.setText("HP: 0" + "/" + pokeInfoE.maxHP);
             alert.setContentText("You have defeated the enemy " + pokeInfoE.pkmn);
-            alert.showAndWait();
+            Platform.runLater(alert::showAndWait);
             if (enemyLevel < pokeLevel) {
                 pokeXP = pokeXP + 100;
             } else {
@@ -150,7 +172,7 @@ public class PokemonGameController implements Initializable {
                 pokeLevel++;
                 pokeXPNeeded = 500 + (500 * pokeLevel);
                 alert.setContentText("Congrats! You have reached Level " + pokeLevel + "!");
-                alert.showAndWait();
+                Platform.runLater(alert::showAndWait);
             }
             lblLevelCur.setText("Level: " + myFormat.format(pokeLevel));
             lblLevelNext.setText("Level: " + myFormat.format(pokeLevel + 1));
@@ -162,16 +184,21 @@ public class PokemonGameController implements Initializable {
         }
         lblEnemyHP.setText("HP: " + enemyHP + "/" + pokeInfoE.maxHP);
         alert.showAndWait();
+        punch.stop();
         enemyTurn();
     }
 
     private void enemyTurn() {
+        enemyTurn = true;
         Random rand = new Random();
         int ans = rand.nextInt(2);
         if (ans == 0) {
             alert.setContentText(pokeInfoE.pkmn + " used " + pokeInfoE.move1 + "!");
             alert.showAndWait();
             dmg = pokeInfoE.move1DMG;
+            animation.setCycleCount(50);
+            animation.play();
+            punch.play();
             if ((("Fire".equals(pokeInfoE.move1Type)) && ("Grass".equals(pokeInfo.type))) || (("Water".equals(pokeInfoE.move1Type)) && ("Fire".equals(pokeInfo.type))) || (("Grass".equals(pokeInfoE.move1Type)) && ("Water".equals(pokeInfo.type)))) {
                 dmg = dmg + (dmg * 0.5);
             }
@@ -181,7 +208,7 @@ public class PokemonGameController implements Initializable {
             if (hp <= 0) {
                 lblPokemonHP.setText("HP: 0" + "/" + pokeInfo.maxHP);
                 alert.setContentText("You have been defeated by " + pokeInfoE.pkmn);
-                alert.showAndWait();
+                Platform.runLater(alert::showAndWait);
                 btnM1.setDisable(true);
                 btnM2.setDisable(true);
                 btnMenu.setVisible(true);
@@ -189,10 +216,14 @@ public class PokemonGameController implements Initializable {
             }
             lblPokemonHP.setText("HP: " + hp + "/" + pokeInfo.maxHP);
             alert.showAndWait();
+            punch.stop();
 
         } else {
             alert.setContentText(pokeInfoE.pkmn + " used " + pokeInfoE.move2 + "!");
             alert.showAndWait();
+            animation.setCycleCount(50);
+            animation.play();
+            punch.play();
             dmg = pokeInfoE.move2DMG;
             if ((("Fire".equals(pokeInfoE.move2Type)) && ("Grass".equals(pokeInfo.type))) || (("Water".equals(pokeInfoE.move2Type)) && ("Fire".equals(pokeInfo.type))) || (("Grass".equals(pokeInfoE.move2Type)) && ("Water".equals(pokeInfo.type)))) {
                 dmg = dmg + (dmg * 0.5);
@@ -203,7 +234,7 @@ public class PokemonGameController implements Initializable {
             if (hp <= 0) {
                 lblPokemonHP.setText("HP: 0" + "/" + pokeInfo.maxHP);
                 alert.setContentText("You have been defeated by " + pokeInfoE.pkmn);
-                alert.showAndWait();
+                Platform.runLater(alert::showAndWait);
                 btnM1.setDisable(true);
                 btnM2.setDisable(true);
                 btnMenu.setVisible(true);
@@ -212,15 +243,42 @@ public class PokemonGameController implements Initializable {
             alert.setContentText("That did " + dmg + " damage!");
             lblPokemonHP.setText("HP: " + hp + "/" + pokeInfo.maxHP);
             alert.showAndWait();
+            punch.stop();
         }
     }
-    
+    int animate = 0;
     private void animate() {
-        
+        animate++;
+        System.out.println("animate: " + animate);
+        if (enemyTurn == false) {
+            if (animate >= 25) {
+                picPokemon.setTranslateX(picPokemon.getTranslateX() - 1);
+                animate++;
+                if (animate == 50) {
+                    animate = 0;
+                    animation.stop();
+                }
+            } else {
+                picPokemon.setTranslateX(picPokemon.getTranslateX() + 1);
+            }
+        } else {
+            if (animate >= 25) {
+                picEnemy.setTranslateX(picEnemy.getTranslateX() + 1);
+                animate++;
+                if (animate == 50) {
+                    animate = 0;
+                    animation.stop();
+                }
+            } else {
+                picEnemy.setTranslateX(picEnemy.getTranslateX() - 1);
+            }
+        }
     }
 
     @FXML
     private void btnMenu(ActionEvent event) throws IOException {
+        music.stop();
+        
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/pokemonMenu.fxml")); //where FXMLPage2 is the name of the scene
 
         Scene home_page_scene = new Scene(home_page_parent);
@@ -264,7 +322,10 @@ public class PokemonGameController implements Initializable {
         lblLevelCur.setText("Level: " + myFormat.format(pokeLevel));
         lblLevelNext.setText("Level: " + myFormat.format(pokeLevel + 1));
         prgLevel.setProgress(pokeXP / pokeXPNeeded);
-
+        
+        music.setCycleCount(INDEFINITE);
+        music.setVolume(0.5);
+        music.play();
     }
 
 }
