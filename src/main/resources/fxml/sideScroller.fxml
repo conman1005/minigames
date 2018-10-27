@@ -36,14 +36,14 @@
       </MenuBar>
       <Pane fx:id="panBack" prefHeight="815.0" prefWidth="1356.0" translateY="24.0">
          <children>
-            <ImageView fx:id="picBack1" fitHeight="807.0" fitWidth="1441.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="picBack1" fitHeight="858.0" fitWidth="3909.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../sideScroller/back1.jpg" />
+                  <Image url="@../sideScroller/back11.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="picBack2" fitHeight="828.0" fitWidth="1437.0" layoutX="1435.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="picBack2" fitHeight="820.0" fitWidth="3915.0" layoutX="3900.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../sideScroller/back2.jpg" />
+                  <Image url="@../sideScroller/back11.jpg" />
                </image>
             </ImageView>
          </children>

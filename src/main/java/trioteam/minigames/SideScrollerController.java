@@ -106,7 +106,7 @@ int health = 3;
     private ImageView picBack1;
     @FXML
     private ImageView picBack2;
- private int BACKGROUND_WIDTH = 1441;
+ private int BACKGROUND_WIDTH = 3900;
 private ParallelTransition parallelTransition;      
 @FXML
 private Button btnControl;
