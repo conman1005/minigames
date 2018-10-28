@@ -75,7 +75,12 @@
             <Font name="Magneto Bold" size="32.0" />
          </font>
       </Label>
-      <ImageView fx:id="picStartButton" fitHeight="384.0" fitWidth="715.0" layoutX="277.0" layoutY="192.0" onMouseClicked="#start" pickOnBounds="true" preserveRatio="true" styleClass="start" />
+      <ImageView fx:id="picStartButton" fitHeight="349.0" fitWidth="740.0" onMouseClicked="#start" pickOnBounds="true" preserveRatio="true" styleClass="start" translateX="371.0" translateY="192.0" />
+      <Label fx:id="lblText" alignment="CENTER" prefHeight="109.0" prefWidth="662.0" text="You Survived:" textFill="WHITE" translateX="400.0" translateY="500.0" visible="false">
+         <font>
+            <Font name="Bauhaus 93" size="51.0" />
+         </font>
+      </Label>
       <ImageView fx:id="picHealth" fitHeight="55.0" fitWidth="185.0" layoutY="840.0" pickOnBounds="true" preserveRatio="true" styleClass="threeHeart" />
    </children>
 </AnchorPane>

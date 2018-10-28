@@ -34,3 +34,8 @@
        -fx-image:url(../sideScroller/explotion.gif) 
            
     }
+    .gameOver{
+         -fx-image:url(../sideScroller/gameOver.gif) 
+    }
+    
+ 

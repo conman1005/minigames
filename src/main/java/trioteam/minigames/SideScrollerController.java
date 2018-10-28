@@ -109,7 +109,9 @@ public class SideScrollerController implements Initializable {
     private int BACKGROUND_WIDTH = 3900;
     private ParallelTransition backgroundMove;
 //game over
-    boolean lockMove = true;
+    boolean gameOver = true;
+    @FXML
+    private Label lblText;
 //start button
     @FXML
    private ImageView picStartButton;
@@ -122,14 +124,30 @@ public class SideScrollerController implements Initializable {
 
     @FXML
     private void start(Event event) {
+       if(gameOver == false){
         panAstro.setVisible(true);
         panAstro2.setVisible(true);
        picStartButton.setVisible(false); 
-       lockMove = false;
+       gameOver = false;
        startAmination();
         astroSetup();
         timeStart();
-       
+       }
+       else if (gameOver == true){
+           gameOver= false;
+           picStartButton.getStyleClass().clear();
+           picStartButton.getStyleClass().add("start");
+           lblText.setText("");
+           lblText.setVisible(false);
+           picShip.getStyleClass().clear();
+           picShip.getStyleClass().add("ship");
+           lblTime.setText("Time Survived: 00:00");
+           picHealth.getStyleClass().clear();
+           picHealth.getStyleClass().add("threeHeart");
+           health = 3;
+           min = 0;
+           sec = 0;
+       }
     }
 
     private void timeStart() {
@@ -148,16 +166,28 @@ public class SideScrollerController implements Initializable {
 
     private void time() {
         sec = sec + 1;
+        
         if (sec >= 60) {
             min = min + 1;
             sec = 0;
         }
-        lblTime.setText("Time Survived: " + min + ":" + sec);
+        if(sec<10){
+        lblTime.setText("Time Survived: " + min + ":0" + sec);
+        }
+        else if(sec<10 && min<10){
+           lblTime.setText("Time Survived: 0" + min + ":0" + sec); 
+        }
+        else if(min<10){
+            lblTime.setText("Time Survived: 0" + min + ":" + sec);
+        }
+        else{
+            lblTime.setText("Time Survived: " + min + ":" + sec);
+        }
     }
 
     @FXML
     public void keyPressed(KeyEvent event) {
-        if (lockMove == false) {
+        if (gameOver == false) {
             if ((event.getCode() == KeyCode.W)) {
                 if (checkCol(recShipCol2, recTopBar)) {
                     panShip.setTranslateY(panShip.getTranslateY() + 10);
@@ -187,7 +217,7 @@ public class SideScrollerController implements Initializable {
 
             timmer.play();*/
             }
-        } else if (lockMove == true) {
+        } else if (gameOver == true) {
 
         }
     }
@@ -282,7 +312,7 @@ public class SideScrollerController implements Initializable {
                 picHealth.getStyleClass().add("noHeart");
                 timmer.pause();
                 movement.pause();
-                lockMove = true;
+               gameOver = true;
                 panAstro.setVisible(false);
                 panAstro2.setVisible(false);
                 if (backgroundMove.getStatus() == Animation.Status.RUNNING) {
@@ -290,6 +320,22 @@ public class SideScrollerController implements Initializable {
                 }
                 picShip.getStyleClass().clear();
                 picShip.getStyleClass().add("death");
+               picStartButton.setVisible(true);
+                picStartButton.getStyleClass().clear();
+                 picStartButton.getStyleClass().add("gameOver");
+                 lblText.setVisible(true);
+         if(sec<10){
+        lblTime.setText("You Survived: " + min + ":0" + sec);
+        }
+        else if(sec<10 && min<10){
+           lblTime.setText("You Survived: 0" + min + ":0" + sec); 
+        }
+        else if(min<10){
+            lblTime.setText("You Survived: 0" + min + ":" + sec);
+        }
+        else{
+            lblTime.setText("You Survived: " + min + ":" + sec);
+        }
                 //you lose
                 break;
             default:
