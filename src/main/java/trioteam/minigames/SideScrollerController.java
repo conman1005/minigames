@@ -101,7 +101,7 @@ public class SideScrollerController implements Initializable {
     @FXML
     private Rectangle recTopBar;
 //background
-   
+
     @FXML
     private ImageView picBack1;
     @FXML
@@ -114,40 +114,38 @@ public class SideScrollerController implements Initializable {
     private Label lblText;
 //start button
     @FXML
-   private ImageView picStartButton;
-   
-   /* @FXML
+    private ImageView picStartButton;
+//missile
+    @FXML
+    private ImageView picMissile;
+    Timeline missile;
+    /* @FXML
     private Button btnControl;*/
-
-    
-    
-
     @FXML
     private void start(Event event) {
-       if(gameOver == false){
-        panAstro.setVisible(true);
-        panAstro2.setVisible(true);
-       picStartButton.setVisible(false); 
-       gameOver = false;
-       startAmination();
-        astroSetup();
-        timeStart();
-       }
-       else if (gameOver == true){
-           gameOver= false;
-           picStartButton.getStyleClass().clear();
-           picStartButton.getStyleClass().add("start");
-           lblText.setText("");
-           lblText.setVisible(false);
-           picShip.getStyleClass().clear();
-           picShip.getStyleClass().add("ship");
-           lblTime.setText("Time Survived: 00:00");
-           picHealth.getStyleClass().clear();
-           picHealth.getStyleClass().add("threeHeart");
-           health = 3;
-           min = 0;
-           sec = 0;
-       }
+        if (gameOver == false) {
+            panAstro.setVisible(true);
+            panAstro2.setVisible(true);
+            picStartButton.setVisible(false);
+            gameOver = false;
+            startAmination();
+            astroSetup();
+            timeStart();
+        } else if (gameOver == true) {
+            gameOver = false;
+            picStartButton.getStyleClass().clear();
+            picStartButton.getStyleClass().add("start");
+            lblText.setText("");
+            lblText.setVisible(false);
+            picShip.getStyleClass().clear();
+            picShip.getStyleClass().add("ship");
+            lblTime.setText("Time Survived: 00:00");
+            picHealth.getStyleClass().clear();
+            picHealth.getStyleClass().add("threeHeart");
+            health = 3;
+            min = 0;
+            sec = 0;
+        }
     }
 
     private void timeStart() {
@@ -166,21 +164,18 @@ public class SideScrollerController implements Initializable {
 
     private void time() {
         sec = sec + 1;
-        
+
         if (sec >= 60) {
             min = min + 1;
             sec = 0;
         }
-        if(sec<10){
-        lblTime.setText("Time Survived: " + min + ":0" + sec);
-        }
-        else if(sec<10 && min<10){
-           lblTime.setText("Time Survived: 0" + min + ":0" + sec); 
-        }
-        else if(min<10){
+        if (sec < 10) {
+            lblTime.setText("Time Survived: " + min + ":0" + sec);
+        } else if (sec < 10 && min < 10) {
+            lblTime.setText("Time Survived: 0" + min + ":0" + sec);
+        } else if (min < 10) {
             lblTime.setText("Time Survived: 0" + min + ":" + sec);
-        }
-        else{
+        } else {
             lblTime.setText("Time Survived: " + min + ":" + sec);
         }
     }
@@ -217,9 +212,20 @@ public class SideScrollerController implements Initializable {
 
             timmer.play();*/
             }
+            if((event.getCode() ==  KeyCode.E)){
+                picMissile.setTranslateY(panShip.getTranslateY()+35);
+                picMissile.setTranslateX(panShip.getTranslateX()+180);
+                picMissile.setVisible(true);
+                 missile = new Timeline(new KeyFrame(Duration.millis(2), ae -> missileMove()));
+                   missile.setCycleCount(Timeline.INDEFINITE);
+                missile.play();
+            }
         } else if (gameOver == true) {
 
         }
+    }
+    private void missileMove(){
+        picMissile.setTranslateX(picMissile.getTranslateX() + 1);
     }
 
     /* private void shipMove(String direction) {
@@ -312,7 +318,7 @@ public class SideScrollerController implements Initializable {
                 picHealth.getStyleClass().add("noHeart");
                 timmer.pause();
                 movement.pause();
-               gameOver = true;
+                gameOver = true;
                 panAstro.setVisible(false);
                 panAstro2.setVisible(false);
                 if (backgroundMove.getStatus() == Animation.Status.RUNNING) {
@@ -320,22 +326,19 @@ public class SideScrollerController implements Initializable {
                 }
                 picShip.getStyleClass().clear();
                 picShip.getStyleClass().add("death");
-               picStartButton.setVisible(true);
+                picStartButton.setVisible(true);
                 picStartButton.getStyleClass().clear();
-                 picStartButton.getStyleClass().add("gameOver");
-                 lblText.setVisible(true);
-         if(sec<10){
-        lblTime.setText("You Survived: " + min + ":0" + sec);
-        }
-        else if(sec<10 && min<10){
-           lblTime.setText("You Survived: 0" + min + ":0" + sec); 
-        }
-        else if(min<10){
-            lblTime.setText("You Survived: 0" + min + ":" + sec);
-        }
-        else{
-            lblTime.setText("You Survived: " + min + ":" + sec);
-        }
+                picStartButton.getStyleClass().add("gameOver");
+                lblText.setVisible(true);
+                if (sec < 10) {
+                    lblText.setText("You Survived: " + min + ":0" + sec);
+                } else if (sec < 10 && min < 10) {
+                    lblText.setText("You Survived: 0" + min + ":0" + sec);
+                } else if (min < 10) {
+                    lblText.setText("You Survived: 0" + min + ":" + sec);
+                } else {
+                    lblText.setText("You Survived: " + min + ":" + sec);
+                }
                 //you lose
                 break;
             default:
@@ -345,11 +348,11 @@ public class SideScrollerController implements Initializable {
 
     public void startAmination() {
 
-      backgroundMove.play();
+        backgroundMove.play();
     }
 
     public void pauseAnimation() {
-      backgroundMove.pause();
+        backgroundMove.pause();
     }
 
     @FXML
@@ -396,7 +399,7 @@ public class SideScrollerController implements Initializable {
         //
         // Sets the label of the Button based on the animation state
         //
-      /*  backgroundMove.statusProperty().addListener((obs, oldValue, newValue) -> {
+        /*  backgroundMove.statusProperty().addListener((obs, oldValue, newValue) -> {
             if (newValue == Animation.Status.RUNNING) {
                 btnControl.setText("||");
             } else {
