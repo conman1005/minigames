@@ -3,7 +3,7 @@ package trioteam.minigames;
 /*
  * Made By: Spencer Jones
  * Date: 
- * Description: 
+ * Description: User moves up and down to avoid asroids
  */
 import java.io.IOException;
 import java.net.URL;
