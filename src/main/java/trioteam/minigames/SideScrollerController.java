@@ -7,6 +7,7 @@ package trioteam.minigames;
  */
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.concurrent.ThreadLocalRandom;
 import javafx.animation.Animation;
@@ -25,6 +26,11 @@ import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
@@ -93,8 +99,9 @@ public class SideScrollerController implements Initializable {
 //Astro moving loop on off
     boolean astroLoop = false;
 //timer
-    Timeline  timmer = new Timeline(new KeyFrame(Duration.seconds(1), ae -> time()));
-    Timeline  movement = new Timeline(new KeyFrame(Duration.millis(8), ae -> move()));;
+    Timeline timmer = new Timeline(new KeyFrame(Duration.seconds(1), ae -> time()));
+    Timeline movement = new Timeline(new KeyFrame(Duration.millis(8), ae -> move()));
+    ;
     int min = 0;
     int sec = 0;
     @FXML
@@ -127,7 +134,8 @@ public class SideScrollerController implements Initializable {
     private Pane panMissile;
     @FXML
     private Rectangle recMissile;
-    Timeline  missile = new Timeline(new KeyFrame(Duration.millis(2), ae -> missileMove()));;
+    Timeline missile = new Timeline(new KeyFrame(Duration.millis(2), ae -> missileMove()));
+    ;
     int missiles = 3;
 //God mode
     boolean godMode = false;
@@ -145,6 +153,28 @@ public class SideScrollerController implements Initializable {
 //pause
     boolean gamePause = false;
     boolean lockKey = true;
+//tutorial
+    @FXML
+    private Label lblHealthHelp;
+    @FXML
+    private Label lblAmmoHelp;
+    @FXML
+    private Label lblTimeHelp;
+    @FXML
+    private Label lblShipHelp;
+    @FXML
+    private Label lblAstroHelp;
+    @FXML
+    private ImageView picAstroHelp;
+    @FXML
+    private Label lblButtonHelp;
+    @FXML
+    private Button btnNext;
+    @FXML
+    private Button btnPrev;
+    Alert obj = new Alert(AlertType.INFORMATION);
+    Alert tutor = new Alert(AlertType.CONFIRMATION);
+    int turCount = 0;
 
     /* @FXML
     private Button btnControl;*/
@@ -154,7 +184,120 @@ public class SideScrollerController implements Initializable {
         soundEff = sliSoundEff.getValue();
         music.setVolume(soundVol);
     }
-
+    
+    @FXML
+    private void objective() {
+        obj.setTitle("Objective");
+        obj.setHeaderText(null);
+        obj.setContentText("Your goal is to survive as long as you can using \n"
+                + " W and S to move your ship up and down to avoid on coming asteroids. \n"
+                + "You can fire missiles to destroy oncoming asteroids with the E key, \n"
+                + "however you only have 3 missiles. \n"
+                + "You can use TAB to pause at any time. \n"
+                + "Have fun!");
+        obj.showAndWait();
+    }
+    
+    @FXML
+    private void tutorial() {
+        tutor.setTitle("Tutorial");
+        tutor.setHeaderText("Would you like to see what all parts of the screen are?");
+        tutor.setContentText("If yes click Continue");
+        ButtonType buttonTypeOne = new ButtonType("Continue");
+        ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
+        tutor.getButtonTypes().setAll(buttonTypeOne, buttonTypeCancel);
+        Optional<ButtonType> result = tutor.showAndWait();
+        
+        if (result.get() == buttonTypeOne) {
+            btnNext.setVisible(true);
+            btnPrev.setVisible(true);
+            btnPrev.setDisable(true);
+            lblButtonHelp.setVisible(true);
+            turCount = 0;
+        }
+    }
+    
+    @FXML
+    private void next() {
+        switch (turCount) {
+            case 0:
+                lblButtonHelp.setVisible(false);
+                lblAstroHelp.setVisible(true);
+                picAstroHelp.setVisible(true);
+                btnPrev.setDisable(false);
+                turCount = turCount + 1;
+                break;
+            case 1:
+                lblAstroHelp.setVisible(false);
+                picAstroHelp.setVisible(false);                
+                lblShipHelp.setVisible(true);
+                lblShipHelp.setTranslateY(panShip.getTranslateY() - 170);
+                turCount = turCount + 1;
+                break;
+            case 2:
+                lblShipHelp.setVisible(false);
+                lblHealthHelp.setVisible(true);
+                turCount = turCount + 1;
+                break;
+            case 3:
+                lblHealthHelp.setVisible(false);
+                lblAmmoHelp.setVisible(true);
+                turCount = turCount + 1;
+                break;
+            case 4:
+                lblAmmoHelp.setVisible(false);
+                lblTimeHelp.setVisible(true);
+                turCount = turCount + 1;
+                btnNext.setText("EXIT");
+                break;
+            case 5:
+                lblTimeHelp.setVisible(false);
+                btnNext.setVisible(false);
+                btnPrev.setVisible(false);
+                break;
+            default:
+                break;
+        }
+    }
+    
+    @FXML
+    private void prev() {
+          switch (turCount) {
+            case 1:
+                lblButtonHelp.setVisible(true);
+                lblAstroHelp.setVisible(false);
+                picAstroHelp.setVisible(false);
+                btnPrev.setDisable(true);
+                turCount = turCount - 1;
+                break;
+            case 2:
+                lblAstroHelp.setVisible(true);
+                picAstroHelp.setVisible(true);                
+                lblShipHelp.setVisible(false);
+                turCount = turCount - 1;
+                break;
+            case 3:
+                lblShipHelp.setVisible(true);
+                lblHealthHelp.setVisible(false);
+                turCount = turCount - 1;
+                break;
+            case 4:
+                lblHealthHelp.setVisible(true);
+                lblAmmoHelp.setVisible(false);
+                turCount = turCount - 1;
+                break;
+            case 5:
+                lblAmmoHelp.setVisible(true);
+                lblTimeHelp.setVisible(false);
+                turCount = turCount - 1;
+                btnNext.setText("Next");
+                break;
+           
+            default:
+                break;
+          }
+    }
+    
     @FXML
     private void returnToMenu(Event event) throws IOException {
         music.pause();
@@ -170,7 +313,7 @@ public class SideScrollerController implements Initializable {
         MainApp.mainStage.setTitle("MiniGames"); //changes the title
         MainApp.mainStage.show(); //shows the new page 
     }
-
+    
     @FXML
     private void start(Event event) {
         if (gameOver == false) {
@@ -200,24 +343,24 @@ public class SideScrollerController implements Initializable {
             picAmmo.getStyleClass().add("threeAmmo");
         }
     }
-
+    
     private void timeStart() {
-       // timmer = new Timeline(new KeyFrame(Duration.seconds(1), ae -> time()));
+        // timmer = new Timeline(new KeyFrame(Duration.seconds(1), ae -> time()));
         timmer.setCycleCount(Timeline.INDEFINITE);
         timmer.play();
     }
-
+    
     private void astroSetup() {
-     //   movement = new Timeline(new KeyFrame(Duration.millis(8), ae -> move()));
+        //   movement = new Timeline(new KeyFrame(Duration.millis(8), ae -> move()));
         movement.setCycleCount(Timeline.INDEFINITE);
         movement.play();
         astroLoop = true;
-
+        
     }
-
+    
     private void time() {
         sec = sec + 1;
-
+        
         if (sec >= 60) {
             min = min + 1;
             sec = 0;
@@ -232,7 +375,7 @@ public class SideScrollerController implements Initializable {
             lblTime.setText("Time Survived: " + min + ":" + sec);
         }
     }
-
+    
     @FXML
     public void keyPressed(KeyEvent event) {
         if (lockKey == false) {
@@ -250,7 +393,7 @@ public class SideScrollerController implements Initializable {
 
             timmer.play();*/
             }
-
+            
             if ((event.getCode() == KeyCode.S)) {
                 if (checkCol(recShipCol2, recBlackBar)) {
                     panShip.setTranslateY(panShip.getTranslateY() - 10);
@@ -270,7 +413,7 @@ public class SideScrollerController implements Initializable {
                     panMissile.setTranslateY(panShip.getTranslateY() + 35);
                     panMissile.setTranslateX(panShip.getTranslateX() + 180);
                     panMissile.setVisible(true);
-                   // missile = new Timeline(new KeyFrame(Duration.millis(2), ae -> missileMove()));
+                    // missile = new Timeline(new KeyFrame(Duration.millis(2), ae -> missileMove()));
                     missile.setCycleCount(Timeline.INDEFINITE);
                     missile.play();
                     missiles = missiles - 1;
@@ -293,9 +436,9 @@ public class SideScrollerController implements Initializable {
                         default:
                             break;
                     }
-
+                    
                 }
-
+                
             }
             if ((event.getCode() == KeyCode.G)) {
                 godMode = true;
@@ -318,13 +461,13 @@ public class SideScrollerController implements Initializable {
                     default:
                         break;
                 }
-
+                
             }
         } else if (lockKey == true) {
-
+            
         }
         if ((event.getCode() == KeyCode.TAB)) {
-         
+            
             if (gamePause == false) {
                 gamePause = true;
                 lockKey = true;
@@ -362,7 +505,7 @@ public class SideScrollerController implements Initializable {
             }
         }
     }
-
+    
     private void missileMove() {
         panMissile.setTranslateX(panMissile.getTranslateX() + 1);
         if (checkCol(recMissile, ovlAstroCol2)) {
@@ -383,7 +526,7 @@ public class SideScrollerController implements Initializable {
             missile.pause();
             panMissile.setVisible(false);
         }
-
+        
     }
 
     /* private void shipMove(String direction) {
@@ -403,27 +546,27 @@ public class SideScrollerController implements Initializable {
         }
     }*/
     private void move() {
-
+        
         int x1 = ThreadLocalRandom.current().nextInt(1360, 1440 + 1);
         int x2 = ThreadLocalRandom.current().nextInt(1360, 1440 + 1);
         int y1 = ThreadLocalRandom.current().nextInt(30, 280 + 1);
         int y2 = ThreadLocalRandom.current().nextInt(390, 680 + 1);
-
+        
         if (x1 == x2 || x2 == x1) {
             move();
-
+            
         } else if (astroLoop == true) {
             panAstro.setTranslateX(x1);
             panAstro2.setTranslateX(x1);
             panAstro.setTranslateY(40);
             panAstro2.setTranslateY(650);
-
+            
             astroLoop = false;
         }
-
+        
         panAstro.setTranslateX(panAstro.getTranslateX() - 5);
         panAstro2.setTranslateX(panAstro2.getTranslateX() - 5);
-
+        
         if (panAstro.getTranslateX() <= -1000) {
             panAstro.setTranslateX(x1);
             panAstro.setTranslateY(y1);
@@ -434,30 +577,30 @@ public class SideScrollerController implements Initializable {
         if (godMode == false) {
             astroCollision();
         }
-
+        
     }
-
+    
     private boolean checkCol(Shape obj1, Shape obj2) {
         Shape intersect = Shape.intersect(obj1, obj2);
-
+        
         return intersect.getBoundsInParent().getWidth() > 0;
-
+        
     }
-
+    
     @FXML
     private void astroCollision() {
         for (int i = 0; i <= 1; i++) {
             for (int r = 2; r <= 5; r++) {
-
+                
                 if (checkCol(grid[i], grid[r])) {
                     collided();
                 }
             }
-
+            
         }
-
+        
     }
-
+    
     private void collided() { //code to run when player hits astaroid
 
         if (health >= 1) {
@@ -467,15 +610,15 @@ public class SideScrollerController implements Initializable {
         }
         switch (health) {
             case 2:
-
+                
                 picHealth.getStyleClass().add("twoHeart");
                 break;
             case 1:
-
+                
                 picHealth.getStyleClass().add("oneHeart");
                 break;
             case 0:
-
+                
                 picHealth.getStyleClass().add("noHeart");
                 timmer.pause();
                 movement.pause();
@@ -508,16 +651,16 @@ public class SideScrollerController implements Initializable {
                 break;
         }
     }
-
+    
     public void startAmination() {
-
+        
         backgroundMove.play();
     }
-
+    
     public void pauseAnimation() {
         backgroundMove.pause();
     }
-
+    
     @FXML
     public void controlPressed(ActionEvent event) {
         if (backgroundMove.getStatus() == Animation.Status.RUNNING) {
@@ -526,10 +669,10 @@ public class SideScrollerController implements Initializable {
             startAmination();
         }
     }
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        
         panShip.getChildren().add(createBoundsRectangle(recAstroCol1.getBoundsInParent()));  //make copy of astro block in ship
         panShip.getChildren().add(createBoundsRectangle(recAstroCol21.getBoundsInParent()));
         panShip.getChildren().add(createBoundsEllipse(ovlAstroCol2.getBoundsInParent()));  //make copy of astro ovel in ship
@@ -553,13 +696,13 @@ public class SideScrollerController implements Initializable {
         translateTransition.setToX(-1 * BACKGROUND_WIDTH);
         /*the (toX, toY, toZ) value takes precedence if both (toX, toY, toZ) and (byX, byY, byZ) values are specified*/
         translateTransition.setInterpolator(Interpolator.LINEAR);
-
+        
         TranslateTransition translateTransition2
                 = new TranslateTransition(Duration.millis(16000), picBack2);
         translateTransition2.setFromX(0);
         translateTransition2.setToX(-1 * BACKGROUND_WIDTH);//goes to the opsite 
         translateTransition2.setInterpolator(Interpolator.LINEAR);
-
+        
         backgroundMove
                 = new ParallelTransition(translateTransition, translateTransition2);
         backgroundMove.setCycleCount(Animation.INDEFINITE);
@@ -578,7 +721,7 @@ public class SideScrollerController implements Initializable {
         music.setVolume(1.5);
         music.play();
     }
-
+    
     private Rectangle createBoundsRectangle(Bounds bounds) {  //method used to make the blank copy in other pane
         Rectangle rect = new Rectangle();
         rect.setFill(Color.TRANSPARENT);
@@ -588,7 +731,7 @@ public class SideScrollerController implements Initializable {
         rect.setHeight(bounds.getHeight());
         return rect;
     }
-
+    
     private Ellipse createBoundsEllipse(Bounds bounds) {  //method used to make the blank copy in other pane
         Ellipse ovl = new Ellipse();
         ovl.setFill(Color.TRANSPARENT);
