@@ -5,6 +5,7 @@ package trioteam.minigames;
  * Date: 
  * Description: User moves up and down to avoid asroids
  */
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.ThreadLocalRandom;
@@ -17,9 +18,14 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -32,6 +38,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
@@ -125,26 +132,44 @@ public class SideScrollerController implements Initializable {
     boolean godMode = false;
 //sound
     MediaPlayer soundEffects;
-MediaPlayer music = new MediaPlayer((new Media(getClass().getResource("/sideScroller/backgroundMusic.mp3").toString())));
+    MediaPlayer music = new MediaPlayer((new Media(getClass().getResource("/sideScroller/backgroundMusic.mp3").toString())));
 //menu
+    @FXML
+    private MenuItem munMenu;
+    @FXML
+    private Slider sliVolume;
+    @FXML
+    private Slider sliSoundEff;
+    @FXML
+    double soundVol = 1;
+    double soundEff = 1;
 
-@FXML
-private Slider sliVolume;
-@FXML
-private Slider sliSoundEff;
-@FXML
-double soundVol = 1;
-double soundEff = 1;
     /* @FXML
     private Button btnControl;*/
 
+    @FXML
+    private void musicApply() {
+        soundVol = sliVolume.getValue();
+        soundEff = sliSoundEff.getValue();
+        music.setVolume(soundVol);
+    }
 @FXML
-private void musicApply(){
-    soundVol = sliVolume.getValue();
-    soundEff = sliSoundEff.getValue();
-    music.setVolume(soundVol);
-}
+private void returnToMenu(Event event)  throws IOException{
+    music.pause();
+    Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml")); //where FXMLPage2 is the name of the scene
 
+        Scene home_page_scene = new Scene(home_page_parent);
+        home_page_scene.getRoot().requestFocus();
+        //get reference to the stage 
+       
+
+        MainApp.mainStage.hide(); //optional
+         MainApp.mainStage.setScene(home_page_scene); //puts the new scence in the stage
+
+         MainApp.mainStage.setTitle("MiniGames"); //changes the title
+         MainApp.mainStage.show(); //shows the new page 
+}
+    
     @FXML
     private void start(Event event) {
         if (gameOver == false) {
@@ -170,8 +195,8 @@ private void musicApply(){
             min = 0;
             sec = 0;
             missiles = 3;
-             picAmmo.getStyleClass().clear();
-             picAmmo.getStyleClass().add("threeAmmo");
+            picAmmo.getStyleClass().clear();
+            picAmmo.getStyleClass().add("threeAmmo");
         }
     }
 
@@ -250,7 +275,7 @@ private void musicApply(){
                     missiles = missiles - 1;
                     soundEffects = new MediaPlayer((new Media(getClass().getResource("/sideScroller/MissileLaunch.mp3").toString())));
                     soundEffects.setVolume(soundEff);
-                   soundEffects.play();
+                    soundEffects.play();
                     switch (missiles) {
                         case 2:
                             picAmmo.getStyleClass().clear();
@@ -305,16 +330,16 @@ private void musicApply(){
             panAstro.setTranslateX(-2000);
             missile.pause();
             panMissile.setVisible(false);
-           soundEffects = new MediaPlayer((new Media(getClass().getResource("/sideScroller/astroBoom.mp3").toString())));
-           soundEffects.setVolume(soundEff);
-          soundEffects.play();
+            soundEffects = new MediaPlayer((new Media(getClass().getResource("/sideScroller/astroBoom.mp3").toString())));
+            soundEffects.setVolume(soundEff);
+            soundEffects.play();
         } else if (checkCol(recMissile, ovlAstroCol22)) {
             panAstro2.setTranslateX(-2000);
             missile.pause();
             panMissile.setVisible(false);
-         soundEffects = new MediaPlayer((new Media(getClass().getResource("/sideScroller/astroBoom.mp3").toString())));
-         soundEffects.setVolume(soundEff);
-         soundEffects.play();
+            soundEffects = new MediaPlayer((new Media(getClass().getResource("/sideScroller/astroBoom.mp3").toString())));
+            soundEffects.setVolume(soundEff);
+            soundEffects.play();
         } else if (panMissile.getTranslateX() > 1360) {
             missile.pause();
             panMissile.setVisible(false);
@@ -421,8 +446,8 @@ private void musicApply(){
                 if (backgroundMove.getStatus() == Animation.Status.RUNNING) {
                     pauseAnimation();
                 }
-              soundEffects = new MediaPlayer((new Media(getClass().getResource("/sideScroller/spaceShipExplotion.mp3").toString())));
-              soundEffects.play();
+                soundEffects = new MediaPlayer((new Media(getClass().getResource("/sideScroller/spaceShipExplotion.mp3").toString())));
+                soundEffects.play();
                 picShip.getStyleClass().add("death");
                 picStartButton.setVisible(true);
                 picStartButton.getStyleClass().clear();
@@ -464,7 +489,7 @@ private void musicApply(){
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         panShip.getChildren().add(createBoundsRectangle(recAstroCol1.getBoundsInParent()));  //make copy of astro block in ship
         panShip.getChildren().add(createBoundsRectangle(recAstroCol21.getBoundsInParent()));
         panShip.getChildren().add(createBoundsEllipse(ovlAstroCol2.getBoundsInParent()));  //make copy of astro ovel in ship
@@ -480,8 +505,8 @@ private void musicApply(){
         grid[5] = ovlAstroCol22;
 
         //background mover
-        TranslateTransition translateTransition
-                = /*This Transititon creates a move/translate animation that spans its duration. This is done by updating the translateX, Y and Z vsrisbles at regular interval*/ new TranslateTransition(Duration.millis(16000), picBack1);
+        /*This Transititon creates a move/translate animation that spans its duration. This is done by updating the translateX, Y and Z vsrisbles at regular interval*/
+        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(16000), picBack1);
         /*It strats from the (fromX, fromY, fromZ) value if proided else uses the items translateX, Y, Z vales*/
         translateTransition.setFromX(0);
         /*It stops at the (toX, toY, toZ) value if provided else it will use  start value plus (byX,byY, byZ) value*/
@@ -492,7 +517,7 @@ private void musicApply(){
         TranslateTransition translateTransition2
                 = new TranslateTransition(Duration.millis(16000), picBack2);
         translateTransition2.setFromX(0);
-        translateTransition2.setToX(-1 * BACKGROUND_WIDTH);
+        translateTransition2.setToX(-1 * BACKGROUND_WIDTH);//goes to the opsite 
         translateTransition2.setInterpolator(Interpolator.LINEAR);
 
         backgroundMove

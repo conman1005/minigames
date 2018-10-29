@@ -15,13 +15,14 @@ public class MainApp extends Application {
     public static double pokeXP = 0;
     public static double pokeXPNeeded = 500;
     public static double enemyLevel = 0;
-
+    
+    public static Stage mainStage;
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
 
         Scene scene = new Scene(root);
-
+mainStage = stage;
         stage.setTitle("MiniGames");
         stage.setScene(scene);
         stage.show();
