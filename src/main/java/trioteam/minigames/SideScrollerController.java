@@ -5,15 +5,10 @@ package trioteam.minigames;
  * Date: 
  * Description: User moves up and down to avoid asroids
  */
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
 import javafx.animation.Animation;
-import javafx.animation.Animation.Status;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.ParallelTransition;
@@ -24,17 +19,19 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import static javafx.scene.media.MediaPlayer.INDEFINITE;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
-import javafx.scene.shape.StrokeType;
 import javafx.util.Duration;
 
 /**
@@ -126,9 +123,28 @@ public class SideScrollerController implements Initializable {
     int missiles = 3;
 //God mode
     boolean godMode = false;
+//sound
+    MediaPlayer soundEffects;
+MediaPlayer music = new MediaPlayer((new Media(getClass().getResource("/sideScroller/backgroundMusic.mp3").toString())));
+//menu
 
+@FXML
+private Slider sliVolume;
+@FXML
+private Slider sliSoundEff;
+@FXML
+double soundVol = 1;
+double soundEff = 1;
     /* @FXML
     private Button btnControl;*/
+
+@FXML
+private void musicApply(){
+    soundVol = sliVolume.getValue();
+    soundEff = sliSoundEff.getValue();
+    music.setVolume(soundVol);
+}
+
     @FXML
     private void start(Event event) {
         if (gameOver == false) {
@@ -153,6 +169,9 @@ public class SideScrollerController implements Initializable {
             health = 3;
             min = 0;
             sec = 0;
+            missiles = 3;
+             picAmmo.getStyleClass().clear();
+             picAmmo.getStyleClass().add("threeAmmo");
         }
     }
 
@@ -229,6 +248,9 @@ public class SideScrollerController implements Initializable {
                     missile.setCycleCount(Timeline.INDEFINITE);
                     missile.play();
                     missiles = missiles - 1;
+                    soundEffects = new MediaPlayer((new Media(getClass().getResource("/sideScroller/MissileLaunch.mp3").toString())));
+                    soundEffects.setVolume(soundEff);
+                   soundEffects.play();
                     switch (missiles) {
                         case 2:
                             picAmmo.getStyleClass().clear();
@@ -283,10 +305,16 @@ public class SideScrollerController implements Initializable {
             panAstro.setTranslateX(-2000);
             missile.pause();
             panMissile.setVisible(false);
+           soundEffects = new MediaPlayer((new Media(getClass().getResource("/sideScroller/astroBoom.mp3").toString())));
+           soundEffects.setVolume(soundEff);
+          soundEffects.play();
         } else if (checkCol(recMissile, ovlAstroCol22)) {
             panAstro2.setTranslateX(-2000);
             missile.pause();
             panMissile.setVisible(false);
+         soundEffects = new MediaPlayer((new Media(getClass().getResource("/sideScroller/astroBoom.mp3").toString())));
+         soundEffects.setVolume(soundEff);
+         soundEffects.play();
         } else if (panMissile.getTranslateX() > 1360) {
             missile.pause();
             panMissile.setVisible(false);
@@ -393,7 +421,8 @@ public class SideScrollerController implements Initializable {
                 if (backgroundMove.getStatus() == Animation.Status.RUNNING) {
                     pauseAnimation();
                 }
-
+              soundEffects = new MediaPlayer((new Media(getClass().getResource("/sideScroller/spaceShipExplotion.mp3").toString())));
+              soundEffects.play();
                 picShip.getStyleClass().add("death");
                 picStartButton.setVisible(true);
                 picStartButton.getStyleClass().clear();
@@ -435,6 +464,7 @@ public class SideScrollerController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         panShip.getChildren().add(createBoundsRectangle(recAstroCol1.getBoundsInParent()));  //make copy of astro block in ship
         panShip.getChildren().add(createBoundsRectangle(recAstroCol21.getBoundsInParent()));
         panShip.getChildren().add(createBoundsEllipse(ovlAstroCol2.getBoundsInParent()));  //make copy of astro ovel in ship
@@ -479,6 +509,9 @@ public class SideScrollerController implements Initializable {
                 btnControl.setText(">");
             }
         });*/
+        music.setCycleCount(INDEFINITE);
+        music.setVolume(1.5);
+        music.play();
     }
 
     private Rectangle createBoundsRectangle(Bounds bounds) {  //method used to make the blank copy in other pane
