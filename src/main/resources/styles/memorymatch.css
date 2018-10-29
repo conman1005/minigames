@@ -593,7 +593,10 @@
 -fx-background-image: url(../PICTURES/yoshi.png);
 -fx-background-size: 62 62;
 }
-.pixel-background{
--fx-background-image: url(pixels.jpg);
--fx-background-size: 75 75;    
+.picture-lucky-seven{
+-fx-background-image: url(../PICTURES/lucky-seven.png);
+-fx-background-size: 62 62;    
 }
+
+
+
