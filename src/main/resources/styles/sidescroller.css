@@ -21,7 +21,7 @@
     .astaroid{
         -fx-image: url(../sideScroller/astaroid.png);
     }
-    .GodHeart{
+    .godHeart{
         -fx-image: url(../sideScroller/godMode.png);
     }
     .tempBackground{

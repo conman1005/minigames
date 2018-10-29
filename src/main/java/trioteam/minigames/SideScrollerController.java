@@ -117,8 +117,16 @@ public class SideScrollerController implements Initializable {
     private ImageView picStartButton;
 //missile
     @FXML
-    private ImageView picMissile;
+    private ImageView picAmmo;
+    @FXML
+    private Pane panMissile;
+    @FXML
+    private Rectangle recMissile;
     Timeline missile;
+    int missiles = 3;
+//God mode
+    boolean godMode = false;
+
     /* @FXML
     private Button btnControl;*/
     @FXML
@@ -212,20 +220,78 @@ public class SideScrollerController implements Initializable {
 
             timmer.play();*/
             }
-            if((event.getCode() ==  KeyCode.E)){
-                picMissile.setTranslateY(panShip.getTranslateY()+35);
-                picMissile.setTranslateX(panShip.getTranslateX()+180);
-                picMissile.setVisible(true);
-                 missile = new Timeline(new KeyFrame(Duration.millis(2), ae -> missileMove()));
-                   missile.setCycleCount(Timeline.INDEFINITE);
-                missile.play();
+            if ((event.getCode() == KeyCode.E)) {
+                if (missiles > 0) {
+                    panMissile.setTranslateY(panShip.getTranslateY() + 35);
+                    panMissile.setTranslateX(panShip.getTranslateX() + 180);
+                    panMissile.setVisible(true);
+                    missile = new Timeline(new KeyFrame(Duration.millis(2), ae -> missileMove()));
+                    missile.setCycleCount(Timeline.INDEFINITE);
+                    missile.play();
+                    missiles = missiles - 1;
+                    switch (missiles) {
+                        case 2:
+                            picAmmo.getStyleClass().clear();
+                            picAmmo.getStyleClass().add("twoAmmo");
+                            break;
+                        case 1:
+                            picAmmo.getStyleClass().clear();
+                            picAmmo.getStyleClass().add("oneAmmo");
+                            break;
+                        case 0:
+                            picAmmo.getStyleClass().clear();
+                            picAmmo.getStyleClass().add("noAmmo");
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+
             }
-        } else if (gameOver == true) {
+            if ((event.getCode() == KeyCode.G)) {
+                godMode = true;
+                picHealth.getStyleClass().clear();
+                picHealth.getStyleClass().add("godHeart");
+            }
+            if ((event.getCode() == KeyCode.M)) {
+                godMode = false;
+                picHealth.getStyleClass().clear();
+                switch (health) {
+                    case 3:
+                        picHealth.getStyleClass().add("threeHeart");
+                        break;
+                    case 2:
+                        picHealth.getStyleClass().add("twoHeart");
+                        break;
+                    case 1:
+                        picHealth.getStyleClass().add("oneHeart");
+                        break;
+                    default:
+                        break;
+                }
+            } else if (gameOver == true) {
+
+            }
 
         }
     }
-    private void missileMove(){
-        picMissile.setTranslateX(picMissile.getTranslateX() + 1);
+
+    private void missileMove() {
+        panMissile.setTranslateX(panMissile.getTranslateX() + 1);
+        if (checkCol(recMissile, ovlAstroCol2)) {
+            panAstro.setTranslateX(-2000);
+            missile.pause();
+            panMissile.setVisible(false);
+        } else if (checkCol(recMissile, ovlAstroCol22)) {
+            panAstro2.setTranslateX(-2000);
+            missile.pause();
+            panMissile.setVisible(false);
+        } else if (panMissile.getTranslateX() > 1360) {
+            missile.pause();
+            panMissile.setVisible(false);
+        }
+
     }
 
     /* private void shipMove(String direction) {
@@ -273,7 +339,10 @@ public class SideScrollerController implements Initializable {
             panAstro2.setTranslateX(x2);
             panAstro2.setTranslateY(y2);
         }
-        collision();
+        if (godMode == false) {
+            astroCollision();
+        }
+
     }
 
     private boolean checkCol(Shape obj1, Shape obj2) {
@@ -284,7 +353,7 @@ public class SideScrollerController implements Initializable {
     }
 
     @FXML
-    private void collision() {
+    private void astroCollision() {
         for (int i = 0; i <= 1; i++) {
             for (int r = 2; r <= 5; r++) {
 
@@ -302,19 +371,19 @@ public class SideScrollerController implements Initializable {
         if (health >= 1) {
             health = health - 1;
             astroLoop = true;
-
+            picHealth.getStyleClass().clear();
         }
         switch (health) {
             case 2:
-                picHealth.getStyleClass().clear();
+
                 picHealth.getStyleClass().add("twoHeart");
                 break;
             case 1:
-                picHealth.getStyleClass().clear();
+
                 picHealth.getStyleClass().add("oneHeart");
                 break;
             case 0:
-                picHealth.getStyleClass().clear();
+
                 picHealth.getStyleClass().add("noHeart");
                 timmer.pause();
                 movement.pause();
@@ -324,7 +393,7 @@ public class SideScrollerController implements Initializable {
                 if (backgroundMove.getStatus() == Animation.Status.RUNNING) {
                     pauseAnimation();
                 }
-                picShip.getStyleClass().clear();
+
                 picShip.getStyleClass().add("death");
                 picStartButton.setVisible(true);
                 picStartButton.getStyleClass().clear();
@@ -367,7 +436,11 @@ public class SideScrollerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         panShip.getChildren().add(createBoundsRectangle(recAstroCol1.getBoundsInParent()));  //make copy of astro block in ship
+        panShip.getChildren().add(createBoundsRectangle(recAstroCol21.getBoundsInParent()));
         panShip.getChildren().add(createBoundsEllipse(ovlAstroCol2.getBoundsInParent()));  //make copy of astro ovel in ship
+        panShip.getChildren().add(createBoundsEllipse(ovlAstroCol22.getBoundsInParent()));
+        panMissile.getChildren().add(createBoundsEllipse(ovlAstroCol2.getBoundsInParent()));
+        panMissile.getChildren().add(createBoundsEllipse(ovlAstroCol22.getBoundsInParent()));
         // setting up collision array 
         grid[0] = recShipCol1;
         grid[1] = recShipCol2;

@@ -47,7 +47,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="panShip" translateX="155.0" translateY="339.0">
+      <Pane fx:id="panShip" translateX="100.0" translateY="339.0">
          <children>
             <ImageView fx:id="picShip" fitHeight="98.0" fitWidth="273.0" layoutX="7.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" styleClass="ship" />
             <Rectangle fx:id="recShipCol1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="33.0" layoutX="9.0" layoutY="34.0" stroke="#ff000000" strokeType="INSIDE" width="206.0" />
@@ -82,7 +82,12 @@
          </font>
       </Label>
       <ImageView fx:id="picHealth" fitHeight="55.0" fitWidth="185.0" layoutY="840.0" pickOnBounds="true" preserveRatio="true" styleClass="threeHeart" />
-      <ImageView fx:id="picShots" fitHeight="55.0" fitWidth="185.0" layoutX="185.0" layoutY="840.0" pickOnBounds="true" preserveRatio="true" styleClass="threeAmmo" />
-      <ImageView fx:id="picMissile" fitHeight="42.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true" styleClass="missile" translateX="834.0" translateY="816.0" visible="false" />
+      <ImageView fx:id="picAmmo" fitHeight="55.0" fitWidth="185.0" layoutX="185.0" layoutY="840.0" pickOnBounds="true" preserveRatio="true" styleClass="threeAmmo" />
+      <Pane fx:id="panMissile" translateX="830.0" translateY="816.0" visible="false">
+         <children>
+            <ImageView fx:id="picMissile" fitHeight="42.0" fitWidth="156.0" layoutX="4.0" pickOnBounds="true" preserveRatio="true" styleClass="missile" />
+            <Rectangle fx:id="recMissile" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="42.0" stroke="#ff000000" strokeType="INSIDE" width="121.0" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
