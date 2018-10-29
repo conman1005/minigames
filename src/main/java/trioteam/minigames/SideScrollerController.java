@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.ThreadLocalRandom;
 import javafx.animation.Animation;
+import javafx.animation.Animation.Status;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.ParallelTransition;
@@ -92,8 +93,8 @@ public class SideScrollerController implements Initializable {
 //Astro moving loop on off
     boolean astroLoop = false;
 //timer
-    Timeline timmer;
-    Timeline movement;
+    Timeline  timmer = new Timeline(new KeyFrame(Duration.seconds(1), ae -> time()));
+    Timeline  movement = new Timeline(new KeyFrame(Duration.millis(8), ae -> move()));;
     int min = 0;
     int sec = 0;
     @FXML
@@ -113,7 +114,7 @@ public class SideScrollerController implements Initializable {
     private int BACKGROUND_WIDTH = 3900;
     private ParallelTransition backgroundMove;
 //game over
-    boolean gameOver = true;
+    boolean gameOver = false;
     @FXML
     private Label lblText;
 //start button
@@ -126,7 +127,7 @@ public class SideScrollerController implements Initializable {
     private Pane panMissile;
     @FXML
     private Rectangle recMissile;
-    Timeline missile;
+    Timeline  missile = new Timeline(new KeyFrame(Duration.millis(2), ae -> missileMove()));;
     int missiles = 3;
 //God mode
     boolean godMode = false;
@@ -135,48 +136,48 @@ public class SideScrollerController implements Initializable {
     MediaPlayer music = new MediaPlayer((new Media(getClass().getResource("/sideScroller/backgroundMusic.mp3").toString())));
 //menu
     @FXML
-    private MenuItem munMenu;
-    @FXML
     private Slider sliVolume;
     @FXML
     private Slider sliSoundEff;
     @FXML
     double soundVol = 1;
     double soundEff = 1;
+//pause
+    boolean gamePause = false;
+    boolean lockKey = true;
 
     /* @FXML
     private Button btnControl;*/
-
     @FXML
     private void musicApply() {
         soundVol = sliVolume.getValue();
         soundEff = sliSoundEff.getValue();
         music.setVolume(soundVol);
     }
-@FXML
-private void returnToMenu(Event event)  throws IOException{
-    music.pause();
-    Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml")); //where FXMLPage2 is the name of the scene
+
+    @FXML
+    private void returnToMenu(Event event) throws IOException {
+        music.pause();
+        Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml")); //where FXMLPage2 is the name of the scene
 
         Scene home_page_scene = new Scene(home_page_parent);
         home_page_scene.getRoot().requestFocus();
         //get reference to the stage 
-       
 
         MainApp.mainStage.hide(); //optional
-         MainApp.mainStage.setScene(home_page_scene); //puts the new scence in the stage
+        MainApp.mainStage.setScene(home_page_scene); //puts the new scence in the stage
 
-         MainApp.mainStage.setTitle("MiniGames"); //changes the title
-         MainApp.mainStage.show(); //shows the new page 
-}
-    
+        MainApp.mainStage.setTitle("MiniGames"); //changes the title
+        MainApp.mainStage.show(); //shows the new page 
+    }
+
     @FXML
     private void start(Event event) {
         if (gameOver == false) {
             panAstro.setVisible(true);
             panAstro2.setVisible(true);
             picStartButton.setVisible(false);
-            gameOver = false;
+            lockKey = false;
             startAmination();
             astroSetup();
             timeStart();
@@ -201,13 +202,13 @@ private void returnToMenu(Event event)  throws IOException{
     }
 
     private void timeStart() {
-        timmer = new Timeline(new KeyFrame(Duration.seconds(1), ae -> time()));
+       // timmer = new Timeline(new KeyFrame(Duration.seconds(1), ae -> time()));
         timmer.setCycleCount(Timeline.INDEFINITE);
         timmer.play();
     }
 
     private void astroSetup() {
-        movement = new Timeline(new KeyFrame(Duration.millis(8), ae -> move()));
+     //   movement = new Timeline(new KeyFrame(Duration.millis(8), ae -> move()));
         movement.setCycleCount(Timeline.INDEFINITE);
         movement.play();
         astroLoop = true;
@@ -234,7 +235,7 @@ private void returnToMenu(Event event)  throws IOException{
 
     @FXML
     public void keyPressed(KeyEvent event) {
-        if (gameOver == false) {
+        if (lockKey == false) {
             if ((event.getCode() == KeyCode.W)) {
                 if (checkCol(recShipCol2, recTopBar)) {
                     panShip.setTranslateY(panShip.getTranslateY() + 10);
@@ -269,7 +270,7 @@ private void returnToMenu(Event event)  throws IOException{
                     panMissile.setTranslateY(panShip.getTranslateY() + 35);
                     panMissile.setTranslateX(panShip.getTranslateX() + 180);
                     panMissile.setVisible(true);
-                    missile = new Timeline(new KeyFrame(Duration.millis(2), ae -> missileMove()));
+                   // missile = new Timeline(new KeyFrame(Duration.millis(2), ae -> missileMove()));
                     missile.setCycleCount(Timeline.INDEFINITE);
                     missile.play();
                     missiles = missiles - 1;
@@ -317,10 +318,48 @@ private void returnToMenu(Event event)  throws IOException{
                     default:
                         break;
                 }
-            } else if (gameOver == true) {
 
             }
+        } else if (lockKey == true) {
 
+        }
+        if ((event.getCode() == KeyCode.TAB)) {
+         
+            if (gamePause == false) {
+                gamePause = true;
+                lockKey = true;
+                if (Status.RUNNING == missile.getStatus()) {
+                    missile.pause();
+                }
+                if (Status.RUNNING == timmer.getStatus()) {
+                    timmer.pause();
+                }
+                if (Status.RUNNING == movement.getStatus()) {
+                    movement.pause();
+                }
+                if (backgroundMove.getStatus() == Animation.Status.RUNNING) {
+                    pauseAnimation();
+                }
+            } else if (gamePause == true) {
+                gamePause = false;
+                lockKey = false;
+                
+                if (Timeline.Status.PAUSED == missile.getStatus()) {
+                    missile.setCycleCount(Timeline.INDEFINITE);
+                    missile.play();
+                }
+                if (Timeline.Status.PAUSED == timmer.getStatus()) {
+                    timmer.setCycleCount(Timeline.INDEFINITE);
+                    timmer.play();
+                }
+                if (Timeline.Status.PAUSED == movement.getStatus()) {
+                    movement.setCycleCount(Timeline.INDEFINITE);
+                    movement.play();
+                }
+                if (backgroundMove.getStatus() == Animation.Status.PAUSED) {
+                    startAmination();
+                }
+            }
         }
     }
 
@@ -441,6 +480,7 @@ private void returnToMenu(Event event)  throws IOException{
                 timmer.pause();
                 movement.pause();
                 gameOver = true;
+                lockKey = true;
                 panAstro.setVisible(false);
                 panAstro2.setVisible(false);
                 if (backgroundMove.getStatus() == Animation.Status.RUNNING) {
