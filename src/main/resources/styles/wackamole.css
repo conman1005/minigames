@@ -2,6 +2,18 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
 
+ .picture-man {
+-fx-background-image: url(../PICTURES/man.png);
+
+ }
+ .duck{
+-fx-background-image: url(../PICTURES/duck.png);
+ }
+ .bulbasoarFront {
+    -fx-background-image: url(../pokemonimages/bulbasaurFront.png);
+ }
+ 
+.squirtleFront {
+    -fx-background-image: url(../pokemonimages/squirtleFront.png);
 }
