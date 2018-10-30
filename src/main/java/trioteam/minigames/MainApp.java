@@ -18,14 +18,14 @@ public class MainApp extends Application {
     public static double credits = 0;
     public static Stage mainStage;
     public static Scene sideScroller;
-    
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
 
         Scene scene = new Scene(root);
-        
-mainStage = stage;
+
+        mainStage = stage;
         stage.setTitle("MiniGames");
         stage.setScene(scene);
         stage.show();
