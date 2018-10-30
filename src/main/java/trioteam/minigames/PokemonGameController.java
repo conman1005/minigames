@@ -253,10 +253,9 @@ public class PokemonGameController implements Initializable {
         if (enemyTurn == false) {
             if (animate >= 25) {
                 picPokemon.setTranslateX(picPokemon.getTranslateX() - 1);
-                animate++;
-                if (animate == 50) {
+                if (animate >= 50) {
                     animate = 0;
-                    animation.stop();
+                    //animation.stop();
                 }
             } else {
                 picPokemon.setTranslateX(picPokemon.getTranslateX() + 1);
@@ -264,10 +263,9 @@ public class PokemonGameController implements Initializable {
         } else {
             if (animate >= 25) {
                 picEnemy.setTranslateX(picEnemy.getTranslateX() + 1);
-                animate++;
-                if (animate == 50) {
+                if (animate >= 50) {
                     animate = 0;
-                    animation.stop();
+                    //animation.stop();
                 }
             } else {
                 picEnemy.setTranslateX(picEnemy.getTranslateX() - 1);
