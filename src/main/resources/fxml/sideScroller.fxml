@@ -129,7 +129,7 @@
             <Font name="Bell MT" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="btnNext" layoutX="1251.0" layoutY="833.0" mnemonicParsing="false" onAction="#next" prefHeight="25.0" prefWidth="88.0" text="Next" visible="false">
+      <Button fx:id="btnNext" layoutX="1251.0" layoutY="840.0" mnemonicParsing="false" onAction="#next" prefHeight="25.0" prefWidth="88.0" text="Next" visible="false">
          <font>
             <Font name="Impact" size="26.0" />
          </font>
