@@ -521,8 +521,8 @@ public class SideScrollerController implements Initializable {
    
     private void move() {
         
-        int x1 = ThreadLocalRandom.current().nextInt(1360, 1440 + 1);
-        int x2 = ThreadLocalRandom.current().nextInt(1360, 1440 + 1);
+        int x1 = ThreadLocalRandom.current().nextInt(1360, 1640 + 1);
+        int x2 = ThreadLocalRandom.current().nextInt(1360, 1640 + 1);
         int y1 = ThreadLocalRandom.current().nextInt(30, 280 + 1);
         int y2 = ThreadLocalRandom.current().nextInt(390, 680 + 1);
         
@@ -666,7 +666,7 @@ public class SideScrollerController implements Initializable {
 
         //background mover
         /*This Transititon creates a move/translate animation that spans its duration. This is done by updating the translateX, Y and Z vsrisbles at regular interval*/
-        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(16000), picBack1);
+        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(14000), picBack1);
         /*It strats from the (fromX, fromY, fromZ) value if proided else uses the items translateX, Y, Z vales*/
         translateTransition.setFromX(0);
         /*It stops at the (toX, toY, toZ) value if provided else it will use  start value plus (byX,byY, byZ) value*/
@@ -675,7 +675,7 @@ public class SideScrollerController implements Initializable {
         translateTransition.setInterpolator(Interpolator.LINEAR);
         
         TranslateTransition translateTransition2
-                = new TranslateTransition(Duration.millis(16000), picBack2);
+                = new TranslateTransition(Duration.millis(14000), picBack2);
         translateTransition2.setFromX(0);
         translateTransition2.setToX(-1 * BACKGROUND_WIDTH);//goes to the opsite 
         translateTransition2.setInterpolator(Interpolator.LINEAR);
