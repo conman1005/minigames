@@ -21,7 +21,7 @@
     .astaroid{
         -fx-image: url(../sideScroller/astaroid.png);
     }
-    .GodHeart{
+    .godHeart{
         -fx-image: url(../sideScroller/godMode.png);
     }
     .tempBackground{
@@ -34,3 +34,22 @@
        -fx-image:url(../sideScroller/explotion.gif) 
            
     }
+    .gameOver{
+         -fx-image:url(../sideScroller/gameOver.gif) 
+    }
+    .missile{
+        -fx-image:url(../sideScroller/missile.png)
+    }
+    .noAmmo{
+         -fx-image:url(../sideScroller/noAmmo.png)
+    }
+    .oneAmmo{
+        -fx-image:url(../sideScroller/oneAmmo.png)
+    }
+    .twoAmmo{
+        -fx-image:url(../sideScroller/twoAmmo.png)
+    }
+    .threeAmmo{
+        -fx-image:url(../sideScroller/threeAmmo.png)
+    }
+ 

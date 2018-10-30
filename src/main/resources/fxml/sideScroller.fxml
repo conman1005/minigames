@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,18 +21,30 @@
           <Menu mnemonicParsing="false" text="File">
             <items>
               <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem fx:id="munMenu" mnemonicParsing="false" onAction="#returnToMenu" text="Return To Menu" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
+          <Menu mnemonicParsing="false" text="Options">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Music Volume">
+                     <graphic>
+                        <Slider fx:id="sliVolume" max="1.0" value="1.0" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" text="Sound Effects Volume">
+                     <graphic>
+                        <Slider fx:id="sliSoundEff" max="1.0" value="1.0" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem fx:id="munApply" mnemonicParsing="false" onAction="#musicApply" text="Apply Changes" />
+               </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#objective" text="Objective" />
+                  <MenuItem mnemonicParsing="false" onAction="#tutorial" text="Turtorial" />
+              </items>
+            </Menu>
         </menus>
       </MenuBar>
       <Pane fx:id="panBack" prefHeight="815.0" prefWidth="1356.0" translateY="24.0">
@@ -47,7 +61,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="panShip" translateX="155.0" translateY="339.0">
+      <Pane fx:id="panShip" translateX="100.0" translateY="339.0">
          <children>
             <ImageView fx:id="picShip" fitHeight="98.0" fitWidth="273.0" layoutX="7.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" styleClass="ship" />
             <Rectangle fx:id="recShipCol1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="33.0" layoutX="9.0" layoutY="34.0" stroke="#ff000000" strokeType="INSIDE" width="206.0" />
@@ -68,14 +82,72 @@
             <Ellipse fx:id="ovlAstroCol22" fill="#1f93ff00" layoutX="71.0" layoutY="68.0" radiusX="54.0" radiusY="70.0" stroke="#ff000000" strokeType="INSIDE" />
          </children>
       </Pane>
-      <Rectangle fx:id="recBlackBar" arcHeight="5.0" arcWidth="5.0" height="57.0" layoutY="836.0" stroke="BLACK" strokeType="INSIDE" width="1356.0" />
+      <Rectangle fx:id="recBlackBar" arcHeight="5.0" arcWidth="5.0" height="57.0" layoutY="837.0" stroke="BLACK" strokeType="INSIDE" width="1356.0" />
       <Rectangle fx:id="recTopBar" arcHeight="5.0" arcWidth="5.0" height="1.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="1356.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Label fx:id="lblTime" layoutX="190.0" layoutY="839.0" prefHeight="51.0" prefWidth="416.0" text="Time Survived: 00:00" textFill="WHITE">
+      <Label fx:id="lblTime" layoutX="316.0" layoutY="842.0" prefHeight="51.0" prefWidth="416.0" text="Time Survived: 00:00" textFill="WHITE">
          <font>
             <Font name="Magneto Bold" size="32.0" />
          </font>
       </Label>
-      <ImageView fx:id="picStartButton" fitHeight="384.0" fitWidth="715.0" layoutX="277.0" layoutY="192.0" onMouseClicked="#start" pickOnBounds="true" preserveRatio="true" styleClass="start" />
+      <ImageView fx:id="picStartButton" fitHeight="349.0" fitWidth="740.0" onMouseClicked="#start" pickOnBounds="true" preserveRatio="true" styleClass="start" translateX="371.0" translateY="192.0" />
+      <Label fx:id="lblText" alignment="CENTER" prefHeight="109.0" prefWidth="662.0" text="You Survived:" textFill="WHITE" translateX="400.0" translateY="500.0" visible="false">
+         <font>
+            <Font name="Bauhaus 93" size="51.0" />
+         </font>
+      </Label>
       <ImageView fx:id="picHealth" fitHeight="55.0" fitWidth="185.0" layoutY="840.0" pickOnBounds="true" preserveRatio="true" styleClass="threeHeart" />
+      <ImageView fx:id="picAmmo" fitHeight="55.0" fitWidth="185.0" layoutX="185.0" layoutY="840.0" pickOnBounds="true" preserveRatio="true" styleClass="threeAmmo" />
+      <Pane fx:id="panMissile" translateX="830.0" translateY="816.0" visible="false">
+         <children>
+            <ImageView fx:id="picMissile" fitHeight="42.0" fitWidth="156.0" layoutX="4.0" pickOnBounds="true" preserveRatio="true" styleClass="missile" />
+            <Rectangle fx:id="recMissile" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="42.0" stroke="#ff000000" strokeType="INSIDE" width="121.0" />
+         </children>
+      </Pane>
+      <Label fx:id="lblAmmoHelp" alignment="TOP_LEFT" layoutX="114.0" layoutY="633.0" prefHeight="202.0" prefWidth="168.0" text="This is how much Ammo you have, you have 3 shots only. You can Fire rockets using the E key.&#10;&#9;&#9;|&#10;&#9;&#9;V" textFill="WHITE" visible="false" wrapText="true">
+         <font>
+            <Font name="Bell MT" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblHealthHelp" alignment="TOP_LEFT" layoutX="5.0" layoutY="633.0" prefHeight="202.0" prefWidth="185.0" text="This is how much health you have, every time you hit an astaroid you will lose a heart. Once you are out of hearts you lose!&#10;&#9;&#9;|&#10;&#9;&#9;V" textFill="WHITE" visible="false" wrapText="true">
+         <font>
+            <Font name="Bell MT" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTimeHelp" alignment="TOP_LEFT" layoutX="310.0" layoutY="744.0" prefHeight="98.0" prefWidth="344.0" text="This is how long you have survived.&#10;&#9;&#9;|&#10;&#9;&#9;V" textFill="WHITE" visible="false" wrapText="true">
+         <font>
+            <Font name="Bell MT" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblShipHelp" alignment="TOP_LEFT" prefHeight="161.0" prefWidth="234.0" text="This is your ship you must use the W key to go up and the S key to go down to avoid oncoming astaroids.&#10;&#9;&#9;|&#10;&#9;&#9;V" textFill="WHITE" translateX="82.0" translateY="170.0" visible="false" wrapText="true">
+         <font>
+            <Font name="Bell MT" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="picAstroHelp" fitHeight="161.0" fitWidth="206.0" layoutX="508.0" layoutY="534.0" pickOnBounds="true" preserveRatio="true" styleClass="astaroid" visible="false" />
+      <Label fx:id="lblAstroHelp" alignment="TOP_LEFT" layoutX="688.0" layoutY="562.0" prefHeight="140.0" prefWidth="266.0" text="This is an astroid. Astroids will move towards you, you must move your ship so you do not hit them.&#10;&lt;--" textFill="WHITE" visible="false" wrapText="true">
+         <font>
+            <Font name="Bell MT" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnNext" layoutX="1251.0" layoutY="833.0" mnemonicParsing="false" onAction="#next" prefHeight="25.0" prefWidth="88.0" text="Next" visible="false">
+         <font>
+            <Font name="Impact" size="26.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnPrev" layoutX="1163.0" layoutY="840.0" mnemonicParsing="false" onAction="#prev" prefHeight="25.0" prefWidth="88.0" text="Prev" visible="false">
+         <font>
+            <Font name="Impact" size="26.0" />
+         </font>
+      </Button>
+      <Label fx:id="lblButtonHelp" alignment="TOP_LEFT" layoutX="1073.0" layoutY="662.0" prefHeight="169.0" prefWidth="266.0" text="As you Click Next different information will pop up around the screen telling you what it is, you may go back to a pervious pop up at anytime by pressing the Prev button." textFill="WHITE" visible="false" wrapText="true">
+         <font>
+            <Font name="Bell MT" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTime1" layoutX="741.0" layoutY="840.0" prefHeight="51.0" prefWidth="234.0" text="Credits:" textFill="#ebc23c">
+         <font>
+            <Font name="Magneto Bold" size="32.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
