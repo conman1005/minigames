@@ -101,12 +101,7 @@ public class SideScrollerController implements Initializable {
 //timer
     Timeline timmer = new Timeline(new KeyFrame(Duration.seconds(1), ae -> time()));
     Timeline movement = new Timeline(new KeyFrame(Duration.millis(8), ae -> move()));
-<<<<<<< HEAD
-     Timeline shipmover= new Timeline(new KeyFrame(Duration.millis(.1), ae -> shipMove("")));
-    
-=======
-    ;
->>>>>>> parent of c2d34fe... TEST
+
     int min = 0;
     int sec = 0;
     @FXML
@@ -259,7 +254,7 @@ public class SideScrollerController implements Initializable {
                 lblTimeHelp.setVisible(false);
                 btnNext.setVisible(false);
                 btnPrev.setVisible(false);
-             
+                MainApp.sideScroller.getRoot().requestFocus();
                 break;
             default:
                 break;
@@ -381,16 +376,7 @@ public class SideScrollerController implements Initializable {
             lblTime.setText("Time Survived: " + min + ":" + sec);
         }
     }
-<<<<<<< HEAD
-    @FXML
-    public void keyReleased(KeyEvent event) {
-        if(lockKey == false){
-            shipMove("");
-        }
-    }
-=======
-    
->>>>>>> parent of c2d34fe... TEST
+
     @FXML
     public void keyPressed(KeyEvent event) {
         if (lockKey == false) {
@@ -400,13 +386,7 @@ public class SideScrollerController implements Initializable {
                 } else {
                     panShip.setTranslateY(panShip.getTranslateY() - 10);
                 }
-                /*timmer = new Timeline(new KeyFrame(Duration.millis(50), ae -> shipMove("up")));
-            timmer.setCycleCount(Timeline.INDEFINITE);
-            if (Status.RUNNING == timmer.getStatus()) {
-                timmer.stop();
-            }
-
-            timmer.play();*/
+              
             }
             
             if ((event.getCode() == KeyCode.S)) {
@@ -415,13 +395,7 @@ public class SideScrollerController implements Initializable {
                 } else {
                     panShip.setTranslateY(panShip.getTranslateY() + 10);
                 }
-                /* timmer = new Timeline(new KeyFrame(Duration.millis(50), ae -> shipMove("down")));
-            timmer.setCycleCount(Timeline.INDEFINITE);
-            if (Status.RUNNING == timmer.getStatus()) {
-                timmer.stop();
-            }
-
-            timmer.play();*/
+               
             }
             if ((event.getCode() == KeyCode.E)) {
                 if (missiles > 0) {
@@ -481,7 +455,7 @@ public class SideScrollerController implements Initializable {
         } else if (lockKey == true) {
             
         }
-        if ((event.getCode() == KeyCode.ESCAPE)) {
+        if ((event.getCode() == KeyCode.TAB)) {
             
             if (gamePause == false) {
                 gamePause = true;
@@ -524,14 +498,14 @@ public class SideScrollerController implements Initializable {
     private void missileMove() {
         panMissile.setTranslateX(panMissile.getTranslateX() + 1);
         if (checkCol(recMissile, ovlAstroCol2)) {
-            panAstro.setTranslateX(-2000);
+          panAstro.setTranslateY(4000);
             missile.pause();
             panMissile.setVisible(false);
             soundEffects = new MediaPlayer((new Media(getClass().getResource("/sideScroller/astroBoom.mp3").toString())));
             soundEffects.setVolume(soundEff);
             soundEffects.play();
         } else if (checkCol(recMissile, ovlAstroCol22)) {
-            panAstro2.setTranslateX(-2000);
+         panAstro2.setTranslateY(4000);
             missile.pause();
             panMissile.setVisible(false);
             soundEffects = new MediaPlayer((new Media(getClass().getResource("/sideScroller/astroBoom.mp3").toString())));
@@ -544,22 +518,7 @@ public class SideScrollerController implements Initializable {
         
     }
 
-    /* private void shipMove(String direction) {
-        if ("up".equals(direction)) {
-            if (checkCol(recShipCol2, recTopBar)) {
-                panShip.setTranslateY(panShip.getTranslateY() + 10);
-            } else {
-                panShip.setTranslateY(panShip.getTranslateY() - 10);
-            }
-
-        } else if ("down".equals(direction)) {
-            if (checkCol(recShipCol2, recBlackBar)) {
-                panShip.setTranslateY(panShip.getTranslateY() - 10);
-            } else {
-                panShip.setTranslateY(panShip.getTranslateY() + 10);
-            }
-        }
-    }*/
+   
     private void move() {
         
         int x1 = ThreadLocalRandom.current().nextInt(1360, 1440 + 1);
@@ -585,9 +544,11 @@ public class SideScrollerController implements Initializable {
         if (panAstro.getTranslateX() <= -1000) {
             panAstro.setTranslateX(x1);
             panAstro.setTranslateY(y1);
+           
         } else if (panAstro2.getTranslateX() <= -1000) {
             panAstro2.setTranslateX(x2);
             panAstro2.setTranslateY(y2);
+           
         }
         if (godMode == false) {
             astroCollision();
@@ -604,6 +565,7 @@ public class SideScrollerController implements Initializable {
     
     @FXML
     private void astroCollision() {
+        
         for (int i = 0; i <= 1; i++) {
             for (int r = 2; r <= 5; r++) {
                 
