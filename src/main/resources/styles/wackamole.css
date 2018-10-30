@@ -2,6 +2,12 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
-
+.button {
+    -fx-font-family: "ArcadeClassic";
+    -fx-font-size: 64;
+}
+.label {
+    -fx-font-family: "ArcadeClassic";
+    -fx-font-size: 64;
+    -fx-border-width: 5;
 }

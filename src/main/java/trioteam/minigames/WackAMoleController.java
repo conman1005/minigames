@@ -8,8 +8,10 @@ package trioteam.minigames;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
+import static javafx.animation.Animation.INDEFINITE;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -42,13 +44,22 @@ public class WackAMoleController implements Initializable {
     
     Label mole[] = new Label[9];
     
-    Timeline timeline = new Timeline(new KeyFrame(Duration.millis(50), ae -> moles()));
+    Timeline timer = new Timeline(new KeyFrame(Duration.millis(5), ae -> moles()));
+    
+    @FXML
+    private void btnPlay(ActionEvent event) {
+        timer.setCycleCount(INDEFINITE);
+        timer.play();
+    }
     
     private void moles() {
         Random rand = new Random();
             
         if (rand.nextInt(50) == 0) {
             mole[rand.nextInt(9)].setVisible(true);
+        }
+        if (rand.nextInt(50) == 1) {
+            mole[rand.nextInt(9)].setVisible(false);
         }
     }
     
