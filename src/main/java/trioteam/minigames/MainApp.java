@@ -18,6 +18,7 @@ public class MainApp extends Application {
     public static double credits = 0;
     public static Stage mainStage;
     public static Scene sideScroller;
+    public static String wacImage;
     
     @Override
     public void start(Stage stage) throws Exception {
