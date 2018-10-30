@@ -3,6 +3,7 @@
  */
 
 
+
 .background {
     -fx-background-image: url(../pokemonimages/background.png);
     -fx-background-size: contain;
@@ -15,6 +16,11 @@
     -fx-background-image: url(../PICTURES/duck.png);
     -fx-background-size: stretch;
 }
+
+.bowser{
+    -fx-background-image: url(../PICTURES/bowser.png);
+    -fx-background-size: stretch;
+}
 .bulbasoarFront {
     -fx-background-image: url(../pokemonimages/bulbasaurFront.png);
     -fx-background-size: stretch;
@@ -24,13 +30,33 @@
     -fx-background-image: url(../pokemonimages/squirtleFront.png);
     -fx-background-size: stretch;
 }
+.pacman-ghost{
+    -fx-background-image: url(../PICTURES/pacman-ghost.png);
+    -fx-background-size: stretch;
+}
+.picture-boo{
+    -fx-background-image: url(../PICTURES/boo.png);
+    -fx-background-size: stretch;
+}
+.picture-star-wars{
+    -fx-background-image: url(../PICTURES/star-wars.jpg);
+    -fx-background-size: stretch;
+}
+.picture-sonic{
+    -fx-background-image: url(../PICTURES/sonic.jpg);
+    -fx-background-size: stretch;
+}
+.mole{
+    -fx-background-image: url(../wacAMole/mole.png);
+    -fx-background-size: stretch;
+}
 
-.button {
+.buttonWac {
     -fx-font-family: "ArcadeClassic";
     -fx-font-size: 64;
 }
 
-.label {
+.labelWac {
     -fx-font-family: "ArcadeClassic";
     -fx-font-size: 64;
     -fx-border-width: 5;
