@@ -24,6 +24,12 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import static javafx.scene.media.MediaPlayer.INDEFINITE;
 import javafx.stage.Stage;
 import static trioteam.minigames.MainApp.enemyLevel;
 import static trioteam.minigames.MainApp.pokeLevel;
@@ -54,9 +60,12 @@ public class PokemonMenuController implements Initializable {
     @FXML
     private Label lblLevelNext;
 
+    @FXML
+    private TextField txtCheat;
+
     DecimalFormat myFormat = new DecimalFormat("0");
 
-    
+    MediaPlayer music = new MediaPlayer((new Media(getClass().getResource("/pokemonimages/opening.mp3").toString())));
 
     @FXML
     private void btnCharmander(ActionEvent event) throws IOException {
@@ -79,6 +88,8 @@ public class PokemonMenuController implements Initializable {
             Optional<ButtonType> result = alert.showAndWait();
 
             if (result.get() == ButtonType.OK) {
+                music.stop();
+
                 MainApp.pokeInfoE = new pkmn("charmander", "Fire", 30 * (1 + (Double.parseDouble(myFormat.format(sldLevel.getValue())) / 10)), "Scratch", "Normal", 5, "Ember", "Fire", 10);
 
                 Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/pokemonGame.fxml")); //where FXMLPage2 is the name of the scene
@@ -116,6 +127,8 @@ public class PokemonMenuController implements Initializable {
             Optional<ButtonType> result = alert.showAndWait();
 
             if (result.get() == ButtonType.OK) {
+                music.stop();
+
                 MainApp.pokeInfoE = new pkmn("squirtle", "Water", 30 * (1 + (Double.parseDouble(myFormat.format(sldLevel.getValue())) / 10)), "Scratch", "Normal", 5, "Watergun", "Water", 10);
 
                 Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/pokemonGame.fxml")); //where FXMLPage2 is the name of the scene
@@ -153,6 +166,8 @@ public class PokemonMenuController implements Initializable {
             Optional<ButtonType> result = alert.showAndWait();
 
             if (result.get() == ButtonType.OK) {
+                music.stop();
+
                 MainApp.pokeInfoE = new pkmn("bulbasoar", "Grass", 30 * (1 + (Double.parseDouble(myFormat.format(sldLevel.getValue())) / 10)), "Scratch", "Normal", 5, "Vine Whip", "Grass", 10);
 
                 Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/pokemonGame.fxml")); //where FXMLPage2 is the name of the scene
@@ -169,7 +184,7 @@ public class PokemonMenuController implements Initializable {
             }
         }
     }
-    
+
     @FXML
     private void sldLevel(Event event) {
         lblLevel.setText("Enemy Level: " + myFormat.format(sldLevel.getValue()));
@@ -188,6 +203,8 @@ public class PokemonMenuController implements Initializable {
 
     @FXML
     private void btnMenu(ActionEvent event) throws IOException {
+        music.stop();
+
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml")); //where FXMLPage2 is the name of the scene
 
         Scene home_page_scene = new Scene(home_page_parent);
@@ -201,6 +218,35 @@ public class PokemonMenuController implements Initializable {
         stage.show(); //shows the new page
     }
 
+    @FXML
+    private void cheat(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ESCAPE) {
+            if (txtCheat.isVisible()) {
+                if ((txtCheat.getText().equals("pokemon.set('missingno')")) && (chooseEnemy == true)) {
+                    
+                    music.stop();
+
+                    MainApp.pokeInfoE = new pkmn("missingno", "Unknown", 666, "Scratch", "Normal", 5, "Tackle", "Grass", 10);
+
+                    Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/pokemonGame.fxml")); //where FXMLPage2 is the name of the scene
+
+                    Scene home_page_scene = new Scene(home_page_parent);
+                    //get reference to the stage 
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                    stage.hide(); //optional
+                    stage.setScene(home_page_scene); //puts the new scence in the stage
+
+                    stage.setTitle("Qplfnpo"); //changes the title
+                    stage.show(); //shows the new page
+                }
+                txtCheat.setVisible(false);
+            } else {
+                txtCheat.setVisible(true);
+            }
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         lblLevelCur.setText("Level: " + myFormat.format(pokeLevel));
@@ -208,6 +254,10 @@ public class PokemonMenuController implements Initializable {
         prgLevel.setProgress(pokeXP / pokeXPNeeded);
 
         enemyLevel = 0;
+
+        music.setCycleCount(INDEFINITE);
+        music.setVolume(0.5);
+        music.play();
     }
 
 }

@@ -54,3 +54,13 @@
     -fx-background-size: stretch;
 }
 
+.missingnoFront {
+    -fx-background-image: url(../pokemonimages/missingno.png);
+    -fx-background-size: contain;
+}
+
+@font-face {
+    font-family: ArcadeClassic;
+    src: url(../pokemonimages/ARCADECLASSIC.TTF);
+}
+

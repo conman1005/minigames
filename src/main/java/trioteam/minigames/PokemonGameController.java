@@ -297,9 +297,18 @@ public class PokemonGameController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         alert.setTitle("Pokemon");
         alert.setHeaderText(null);
         alert.setContentText("You have been faced by " + pokeInfoE.pkmn + "!");
+        
+        
+        if ("missingno".equals(pokeInfoE.pkmn)) {
+            alert.setContentText("cY_*RK`O*LHYUO ^RO*QKWO*KXN*ROVOK]ON*WS]]SXQNY");
+            alert.setTitle("Qplfnpo");
+            music = new MediaPlayer((new Media(getClass().getResource("/pokemonimages/secret.mp3").toString())));
+        }
+        
         Platform.runLater(alert::showAndWait);
 
         //Basic Pokemon Data

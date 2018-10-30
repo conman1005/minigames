@@ -4,10 +4,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="591.0" prefWidth="878.0" styleClass="mainFxmlClass" stylesheets="@../styles/pokemon.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trioteam.minigames.PokemonMenuController">
+<AnchorPane id="AnchorPane" onKeyPressed="#cheat" prefHeight="591.0" prefWidth="878.0" styleClass="mainFxmlClass" stylesheets="@../styles/pokemon.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trioteam.minigames.PokemonMenuController">
    <children>
       <Label fx:id="lblTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="121.0" layoutY="14.0" prefHeight="54.0" prefWidth="639.0" styleClass="title" text="Choose Your Pokemon" textAlignment="CENTER">
          <font>
@@ -39,5 +40,6 @@
          </font>
       </Label>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnHTP" text="How to Play" />
+      <TextField fx:id="txtCheat" layoutX="14.0" layoutY="552.0" prefHeight="25.0" prefWidth="852.0" visible="false" />
    </children>
 </AnchorPane>
