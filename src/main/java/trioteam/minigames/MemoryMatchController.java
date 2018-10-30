@@ -32,14 +32,16 @@ public class MemoryMatchController implements Initializable {
     @FXML
     private MenuItem menuInstructions;
     
-    @FXML
-    private Button btnB1;    @FXML private Button btnB2;    @FXML private Button btnB3;
+
     
     @FXML
-    private Button btnB4;   @FXML private Button btnB5;     @FXML private Button btnB6;
+    private Button btnB01;    @FXML private Button btnB02;    @FXML private Button btnB03;
     
     @FXML
-    private Button btnB7;   @FXML private Button btnB8;     @FXML private Button btnB9;
+    private Button btnB04;   @FXML private Button btnB05;     @FXML private Button btnB06;
+    
+    @FXML
+    private Button btnB07;   @FXML private Button btnB08;     @FXML private Button btnB09;
     
     @FXML
     private Button btnB10;  @FXML private Button btnB11;    @FXML private Button btnB12;
@@ -104,6 +106,11 @@ public class MemoryMatchController implements Initializable {
     private Label lblRandom;
     
     @FXML
+    private Label lblPair;
+    
+    int add = 0;
+    
+    @FXML
     private void exit(ActionEvent event) {
         System.exit(0);
     }
@@ -123,161 +130,168 @@ public class MemoryMatchController implements Initializable {
     
     @FXML
     private void play(ActionEvent event){           
-        btnB1.setVisible(true); btnB2.setVisible(true);  btnB3.setVisible(true);  btnB4.setVisible(true);
-        btnB5.setVisible(true); btnB6.setVisible(true);  btnB7.setVisible(true);  btnB8.setVisible(true);
-        btnB9.setVisible(true); btnB10.setVisible(true); btnB11.setVisible(true); btnB12.setVisible(true);
+        btnB01.setVisible(true); btnB02.setVisible(true);  btnB03.setVisible(true);  btnB04.setVisible(true);
+        btnB05.setVisible(true); btnB06.setVisible(true);  btnB07.setVisible(true);  btnB08.setVisible(true);
+        btnB09.setVisible(true); btnB10.setVisible(true); btnB11.setVisible(true); btnB12.setVisible(true);
         btnB13.setVisible(true); btnB14.setVisible(true); btnB15.setVisible(true); btnB16.setVisible(true);
         btnB17.setVisible(true); btnB18.setVisible(true); btnB19.setVisible(true); btnB20.setVisible(true);
         btnB21.setVisible(true); btnB22.setVisible(true); btnB23.setVisible(true); btnB24.setVisible(true);
         btnB25.setVisible(true); btnB26.setVisible(true); btnB27.setVisible(true); btnB28.setVisible(true);
         btnB29.setVisible(true); btnB30.setVisible(true);
         btnPlay.setVisible(false);
-        
         Button btn = (Button) event.getSource();
-        ImageView img = (ImageView) event.getSource();
+      
         btn.setDisable(true);
-        int add = +1;
         
-        
+        add++;
+        if (btn.isDisabled() == true){
+            lblShots.setText(""+add);
+        }      
         //random 1
-        if (btnB1.isDisabled() == true && answer == 1){    
+        if (btnB01.isDisabled() == true && answer == 1){    
             img7.setVisible(true);
-            lblShots.setText(""+add++);
+            img7.setOpacity(1);
         }  
-        if (btnB2.isDisabled() == true && answer == 1){
+        if (btnB02.isDisabled() == true && answer == 1){
             img28.setVisible(true);
-            lblShots.setText(""+add++);
+            img28.setOpacity(1);
         }
-        if (btnB3.isDisabled() == true && answer == 1){
+        if (btnB03.isDisabled() == true && answer == 1){
             img10.setVisible(true);
-            lblShots.setText(""+add++);
+            img10.setOpacity(1);
         }
-        if (btnB4.isDisabled() == true && answer == 1){
+        if (btnB04.isDisabled() == true && answer == 1){
             img1.setVisible(true);
-            lblShots.setText(""+add++);
+            img1.setOpacity(1);
         }
-        if (btnB5.isDisabled() == true && answer == 1){
+        if (btnB05.isDisabled() == true && answer == 1){
             img20.setVisible(true);
-            lblShots.setText(""+add++);
+            img20.setOpacity(1);
         }
-        if (btnB6.isDisabled() == true && answer == 1){
+        if (btnB06.isDisabled() == true && answer == 1){
             img15.setVisible(true);
-            lblShots.setText(""+add++);
+            img15.setOpacity(1);
         }
-        if (btnB7.isDisabled() == true && answer == 1){
+        if (btnB07.isDisabled() == true && answer == 1){
             img18.setVisible(true);
-            lblShots.setText(""+add++);
+            img18.setOpacity(1);
         }
-        if (btnB8.isDisabled() == true && answer == 1){
+        if (btnB08.isDisabled() == true && answer == 1){
             img9.setVisible(true);
-            lblShots.setText(""+add++);
+            img9.setOpacity(1);
         }
-        if (btnB9.isDisabled() == true && answer == 1){
+        if (btnB09.isDisabled() == true && answer == 1){
             img4.setVisible(true);
-            lblShots.setText(""+add++);
+            img4.setOpacity(1);
         }
         if (btnB10.isDisabled() == true && answer == 1){
             img3.setVisible(true);
-            lblShots.setText(""+add++);
+            img3.setOpacity(1);
         }
         if (btnB11.isDisabled() == true && answer == 1){
             img2.setVisible(true);
-            lblShots.setText(""+add++);
+            img2.setOpacity(1);
         }
         if (btnB12.isDisabled() == true && answer == 1){
             img17.setVisible(true);
-            lblShots.setText(""+add++);
+            img17.setOpacity(1);
         }
         if (btnB13.isDisabled() == true && answer == 1){
             img12.setVisible(true);
-            lblShots.setText(""+add++);
+            img12.setOpacity(1);
         }
         if (btnB14.isDisabled() == true && answer == 1){
             img11.setVisible(true);
-            lblShots.setText(""+add++);
+            img11.setOpacity(1);
         }
         if (btnB15.isDisabled() == true && answer == 1){
             img23.setVisible(true);
-            lblShots.setText(""+add++);
+            img23.setOpacity(1);
         } 
         if (btnB16.isDisabled() == true && answer == 1){
             img5.setVisible(true);
-            lblShots.setText(""+add++);
+            img5.setOpacity(1);
         }
         if (btnB17.isDisabled() == true && answer == 1){
             img22.setVisible(true);
-            lblShots.setText(""+add++);
+            img22.setOpacity(1);
         }
         if (btnB18.isDisabled() == true && answer == 1){
             img24.setVisible(true);
-            lblShots.setText(""+add++);
+            img24.setOpacity(1);
         }
         if (btnB19.isDisabled() == true && answer == 1){
             img6.setVisible(true);
-            lblShots.setText(""+add++);
+            img6.setOpacity(1);
         }
         if (btnB20.isDisabled() == true && answer == 1){
             img8.setVisible(true);
-            lblShots.setText(""+add++);
+            img8.setOpacity(1);
         }
         if (btnB21.isDisabled() == true && answer == 1){
             img13.setVisible(true);
-            lblShots.setText(""+add++);
+            img13.setOpacity(1);
         }
         if (btnB22.isDisabled() == true && answer == 1){
             img14.setVisible(true);
-            lblShots.setText(""+add++);
+            img14.setOpacity(1);
         }
         if (btnB23.isDisabled() == true && answer == 1){
             img25.setVisible(true);
-            lblShots.setText(""+add++);
+            img25.setOpacity(1);
         }
         if (btnB24.isDisabled() == true && answer == 1){
             img29.setVisible(true);
-            lblShots.setText(""+add++);
+            img29.setOpacity(1);
         }
         if (btnB25.isDisabled() == true && answer == 1){
             img20.setVisible(true);
-            lblShots.setText(""+add++);
+            img20.setOpacity(1);
         }
         if (btnB26.isDisabled() == true && answer == 1){
             img19.setVisible(true);
-            lblShots.setText(""+add++);
+            img19.setOpacity(1);
         }
         if (btnB27.isDisabled() == true && answer == 1){
             img30.setVisible(true);
-            lblShots.setText(""+add++);
+            img30.setOpacity(1);
         }
         if (btnB28.isDisabled() == true && answer == 1){
             img26.setVisible(true);
-            lblShots.setText(""+add++);
+            img26.setOpacity(1);
         }
         if (btnB29.isDisabled() == true && answer == 1){
             img16.setVisible(true);
-            lblShots.setText(""+add++);
+            img16.setOpacity(1);
         }
         if (btnB30.isDisabled() == true && answer == 1){
             img21.setVisible(true);
-            lblShots.setText(""+add++);
+            img21.setOpacity(1);
         }
         
-        if (lblShots.getText().equals("2") && btnB1.isDisabled() == true && answer == 1 && img7.isVisible() == true && btnB18.isDisabled() == true && img28.isVisible()){
+        //winning conditions for random 1
+        if (lblShots.getText().equals("3") && btnB01.isDisabled() == true && answer == 1 && img7.isVisible() == true && btnB18.isDisabled() == true && img24.isVisible()){
             Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Winner");
         alert.setHeaderText(null);
         alert.setContentText("yay you found a pair");
         alert.showAndWait();
-        lblShots.setText("");
         }
-        if (lblShots.getText().equals("2") && btnB2.isDisabled() == true && img28.isVisible() == true && btnB23.isDisabled() == true && img25.isVisible() == true && answer == 1){
+        if (lblShots.getText().equals("3") && btnB02.isDisabled() == true && img28.isVisible() == true && btnB23.isDisabled() == true && img25.isVisible() == true && answer == 1){
             Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Winner");
         alert.setHeaderText(null);
         alert.setContentText("yay you found a pair");
         alert.showAndWait();
-        lblShots.setText("");
         }
-        if (lblShots.getText().equals("2") && btnB3.isDisabled() == true && img10.isVisible() == true && btnB21.isDisabled() == true && img3.isVisible() == true && answer == 1){
+        if (lblShots.getText().equals("3") && btnB03.isDisabled() == true && img10.isVisible() == true && btnB21.isDisabled() == true && img3.isVisible() == true && answer == 1){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
+        }
+        if (lblShots.getText().equals("3") && btnB04.isDisabled() == true && img1.isVisible() == true && btnB26.isDisabled() == true && img19.isVisible() == true && answer == 1){
            Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Winner");
         alert.setHeaderText(null);
@@ -285,363 +299,556 @@ public class MemoryMatchController implements Initializable {
         alert.showAndWait(); 
         lblShots.setText("");
         }
-        if (lblShots.getText().equals("2") && btnB4.isDisabled() == true && img1.isVisible() == true && btnB26.isDisabled() == true && img19.isVisible() == true && answer == 1){
+        if (lblShots.getText().equals("3") && btnB05.isDisabled() == true && img20.isVisible() == true && btnB25.isDisabled() == true && img20.isVisible() == true && answer == 1){
            Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Winner");
         alert.setHeaderText(null);
         alert.setContentText("yay you found a pair");
         alert.showAndWait(); 
-        lblShots.setText("");
         }
-        if (lblShots.getText().equals("2") && btnB5.isDisabled() == true && img20.isVisible() == true && btnB25.isDisabled() == true && img20.isVisible() == true && answer == 1){
+        if (lblShots.getText().equals("3") && btnB06.isDisabled() == true && img15.isVisible() == true && btnB29.isDisabled() == true && img16.isVisible() == true && answer == 1){
            Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Winner");
         alert.setHeaderText(null);
         alert.setContentText("yay you found a pair");
         alert.showAndWait(); 
-        lblShots.setText("");
         }
-        if (lblShots.getText().equals("2") && btnB6.isDisabled() == true && img15.isVisible() == true && btnB29.isDisabled() == true && img16.isVisible() == true && answer == 1){
+        if (lblShots.getText().equals("3") && btnB07.isDisabled() == true && img18.isVisible() == true && btnB30.isDisabled() == true && img21.isVisible() == true && answer == 1){
            Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Winner");
         alert.setHeaderText(null);
         alert.setContentText("yay you found a pair");
         alert.showAndWait(); 
-        lblShots.setText("");
         }
-        if (lblShots.getText().equals("2") && btnB7.isDisabled() == true && img18.isVisible() == true && btnB30.isDisabled() == true && img21.isVisible() == true && answer == 1){
+        if (lblShots.getText().equals("3") && btnB08.isDisabled() == true && img9.isVisible() == true && btnB24.isDisabled() == true && img29.isVisible() == true && answer == 1){
            Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Winner");
         alert.setHeaderText(null);
         alert.setContentText("yay you found a pair");
         alert.showAndWait(); 
-        lblShots.setText("");
         }
-        if (lblShots.getText().equals("2") && btnB8.isDisabled() == true && img9.isVisible() == true && btnB24.isDisabled() == true && img29.isVisible() == true && answer == 1){
+        if (lblShots.getText().equals("3") && btnB09.isDisabled() == true && img4.isVisible() == true && btnB12.isDisabled() == true && img17.isVisible() == true && answer == 1){
            Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Winner");
         alert.setHeaderText(null);
         alert.setContentText("yay you found a pair");
         alert.showAndWait(); 
-        lblShots.setText("");
         }
-        if (lblShots.getText().equals("2") && btnB9.isDisabled() == true && img4.isVisible() == true && btnB12.isDisabled() == true && img17.isVisible() == true && answer == 1){
+        if (lblShots.getText().equals("3") && btnB10.isDisabled() == true && img3.isVisible() == true && btnB22.isDisabled() == true && img14.isVisible() == true && answer == 1){
            Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Winner");
         alert.setHeaderText(null);
         alert.setContentText("yay you found a pair");
         alert.showAndWait(); 
-        lblShots.setText("");
         }
-        if (lblShots.getText().equals("2") && btnB10.isDisabled() == true && img3.isVisible() == true && btnB22.isDisabled() == true && img14.isVisible() == true && answer == 1){
-           Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Winner");
-        alert.setHeaderText(null);
-        alert.setContentText("yay you found a pair");
-        alert.showAndWait(); 
-        lblShots.setText("");
-        }
-        if (lblShots.getText().equals("2") && btnB11.isDisabled() == true && img2.isVisible() == true && btnB17.isDisabled() == true && img22.isVisible() == true && answer == 1){
+        if (lblShots.getText().equals("3") && btnB11.isDisabled() == true && img2.isVisible() == true && btnB17.isDisabled() == true && img22.isVisible() == true && answer == 1){
            Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Winner");
         alert.setHeaderText(null);
         alert.setContentText("yay you found a pair");
         alert.showAndWait();
-        lblShots.setText("");
         }
-        if (lblShots.getText().equals("2") && btnB13.isDisabled() == true && img12.isVisible() == true && btnB15.isDisabled() == true && img23.isVisible() == true && answer == 1){
+        if (lblShots.getText().equals("3") && btnB13.isDisabled() == true && img12.isVisible() == true && btnB15.isDisabled() == true && img23.isVisible() == true && answer == 1){
            Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Winner");
         alert.setHeaderText(null);
         alert.setContentText("yay you found a pair");
         alert.showAndWait(); 
-        lblShots.setText("");
         }
-        if (lblShots.getText().equals("2") && btnB14.isDisabled() == true && img11.isVisible() == true && btnB28.isDisabled() == true && img26.isVisible() == true && answer == 1){
+        if (lblShots.getText().equals("3") && btnB14.isDisabled() == true && img11.isVisible() == true && btnB28.isDisabled() == true && img26.isVisible() == true && answer == 1){
            Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Winner");
         alert.setHeaderText(null);
         alert.setContentText("yay you found a pair");
         alert.showAndWait(); 
-        lblShots.setText("");
         }
-        if (lblShots.getText().equals("") && btnB16.isDisabled() == true && img5.isVisible() == true && btnB20.isDisabled() == true && img8.isVisible() == true && answer == 1){
+        if (lblShots.getText().equals("3") && btnB16.isDisabled() == true && img5.isVisible() == true && btnB20.isDisabled() == true && img8.isVisible() == true && answer == 1){
            Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Winner");
         alert.setHeaderText(null);
         alert.setContentText("yay you found a pair");
         alert.showAndWait(); 
-        lblShots.setText("");
         }
-        if (lblShots.getText().equals("2") && btnB19.isDisabled() == true && img6.isVisible() == true && btnB27.isDisabled() == true && img30.isVisible() == true && answer == 1){
+        if (lblShots.getText().equals("3") && btnB19.isDisabled() == true && img6.isVisible() == true && btnB27.isDisabled() == true && img30.isVisible() == true && answer == 1){
            Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Winner");
         alert.setHeaderText(null);
         alert.setContentText("yay you found a pair");
         alert.showAndWait(); 
-        lblShots.setText("");
-        }
-        else if (lblShots.getText().equals("2")){
+        }      
+        if (lblShots.getText().equals("3") && answer == 1 && img1.isPressed()){
             Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Loser");
         alert.setHeaderText(null);
         alert.setContentText("oh no these are not a pair");
         alert.showAndWait();
-        lblShots.setText("");
         btn.setDisable(false);
-        img.setVisible(false);
+        lblShots.setText("0");
+        img1.setVisible(false);
         }
         
         
         //random 2
-        if (btnB1.isDisabled() == true && answer == 2){    
+        if (btnB01.isDisabled() == true && answer == 2){    
             img3.setVisible(true);
-            lblShots.setText(""+add++);
         }   
-        if (btnB2.isDisabled() == true && answer == 2){
+        if (btnB02.isDisabled() == true && answer == 2){
             img12.setVisible(true);
-            lblShots.setText(""+add++);
         }
-        if (btnB3.isDisabled() == true && answer == 2){
+        if (btnB03.isDisabled() == true && answer == 2){
             img25.setVisible(true);
-            lblShots.setText(""+add++);
         }
-        if (btnB4.isDisabled() == true && answer == 2){
+        if (btnB04.isDisabled() == true && answer == 2){
             img4.setVisible(true);
-            lblShots.setText(""+add++);
         }
-        if (btnB5.isDisabled() == true && answer == 2){
+        if (btnB05.isDisabled() == true && answer == 2){
             img17.setVisible(true);
-            lblShots.setText(""+add++);
         }
-        if (btnB6.isDisabled() == true && answer == 2){
+        if (btnB06.isDisabled() == true && answer == 2){
             img18.setVisible(true);
-            lblShots.setText(""+add++);
         }
-        if (btnB7.isDisabled() == true && answer == 2){
+        if (btnB07.isDisabled() == true && answer == 2){
             img5.setVisible(true);
-            lblShots.setText(""+add++);
         }
-        if (btnB8.isDisabled() == true && answer == 2){
+        if (btnB08.isDisabled() == true && answer == 2){
             img1.setVisible(true);
-            lblShots.setText(""+add++);
         }
-        if (btnB9.isDisabled() == true && answer == 2){
+        if (btnB09.isDisabled() == true && answer == 2){
             img11.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB10.isDisabled() == true && answer == 2){
             img7.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB11.isDisabled() == true && answer == 2){
             img19.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB12.isDisabled() == true && answer == 2){
             img10.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB13.isDisabled() == true && answer == 2){
             img15.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB14.isDisabled() == true && answer == 2){
             img20.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB15.isDisabled() == true && answer == 2){
             img6.setVisible(true);
-            lblShots.setText(""+add++);
         } 
         if (btnB16.isDisabled() == true && answer == 2){
             img2.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB17.isDisabled() == true && answer == 2){
             img9.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB18.isDisabled() == true && answer == 2){
             img24.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB19.isDisabled() == true && answer == 2){
             img30.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB20.isDisabled() == true && answer == 2){
             img21.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB21.isDisabled() == true && answer == 2){
             img29.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB22.isDisabled() == true && answer == 2){
             img13.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB23.isDisabled() == true && answer == 2){
             img23.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB24.isDisabled() == true && answer == 2){
             img22.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB25.isDisabled() == true && answer == 2){
             img8.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB26.isDisabled() == true && answer == 2){
             img26.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB27.isDisabled() == true && answer == 2){
             img28.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB28.isDisabled() == true && answer == 2){
             img16.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB29.isDisabled() == true && answer == 2){
             img14.setVisible(true);
-            lblShots.setText(""+add++);
         }
         if (btnB30.isDisabled() == true && answer == 2){
             img27.setVisible(true);
-            lblShots.setText(""+add++);
         }
-        //random 3
-        if (btnB1.isDisabled() == true && answer == 3){    
-            img18.setVisible(true);
-            lblShots.setText(""+add++);
-        }   
-        if (btnB2.isDisabled() == true && answer == 3){
-            img9.setVisible(true);
-            lblShots.setText(""+add++);
+        
+        //winning conditions for random 2
+        if (lblShots.getText().equals("3") && btnB01.isDisabled() == true && answer == 2 && img3.isVisible() == true && btnB29.isDisabled() == true && img14.isVisible()){
+            Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait();
         }
-        if (btnB3.isDisabled() == true && answer == 3){
-            img25.setVisible(true);
-            lblShots.setText(""+add++);
+        if (lblShots.getText().equals("3") && btnB02.isDisabled() == true && img12.isVisible() == true && btnB23.isDisabled() == true && img23.isVisible() == true && answer == 2){
+            Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait();
         }
-        if (btnB4.isDisabled() == true && answer == 3){
-            img4.setVisible(true);
-            lblShots.setText(""+add++);
+        if (lblShots.getText().equals("3") && btnB03.isDisabled() == true && img25.isVisible() == true && btnB27.isDisabled() == true && img28.isVisible() == true && answer == 2){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
         }
-        if (btnB5.isDisabled() == true && answer == 3){
-            img2.setVisible(true);
-            lblShots.setText(""+add++);
+        if (lblShots.getText().equals("3") && btnB04.isDisabled() == true && img4.isVisible() == true && btnB05.isDisabled() == true && img17.isVisible() == true && answer == 2){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
         }
-        if (btnB6.isDisabled() == true && answer == 3){
-            img10.setVisible(true);
-            lblShots.setText(""+add++);
+        if (lblShots.getText().equals("3") && btnB06.isDisabled() == true && img18.isVisible() == true && btnB20.isDisabled() == true && img21.isVisible() == true && answer == 2){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
         }
-        if (btnB7.isDisabled() == true && answer == 3){
-            img20.setVisible(true);
-            lblShots.setText(""+add++);
+        if (lblShots.getText().equals("3") && btnB07.isDisabled() == true && img5.isVisible() == true && btnB25.isDisabled() == true && img8.isVisible() == true && answer == 2){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
         }
-        if (btnB8.isDisabled() == true && answer == 3){
-            img6.setVisible(true);
-            lblShots.setText(""+add++);
+        if (lblShots.getText().equals("3") && btnB08.isDisabled() == true && img1.isVisible() == true && btnB11.isDisabled() == true && img19.isVisible() == true && answer == 2){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
         }
-        if (btnB9.isDisabled() == true && answer == 3){
-            img12.setVisible(true);
-            lblShots.setText(""+add++);
+        if (lblShots.getText().equals("3") && btnB09.isDisabled() == true && img11.isVisible() == true && btnB26.isDisabled() == true && img26.isVisible() == true && answer == 2){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
         }
-        if (btnB10.isDisabled() == true && answer == 3){
-            img5.setVisible(true);
-            lblShots.setText(""+add++);
+        if (lblShots.getText().equals("3") && btnB10.isDisabled() == true && img7.isVisible() == true && btnB18.isDisabled() == true && img24.isVisible() == true && answer == 2){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
         }
-        if (btnB11.isDisabled() == true && answer == 3){
-            img1.setVisible(true);
-            lblShots.setText(""+add++);
+        if (lblShots.getText().equals("3") && btnB11.isDisabled() == true && img19.isVisible() == true && btnB08.isDisabled() == true && img1.isVisible() == true && answer == 2){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait();
         }
-        if (btnB12.isDisabled() == true && answer == 3){
-            img11.setVisible(true);
-            lblShots.setText(""+add++);
+        if (lblShots.getText().equals("3") && btnB12.isDisabled() == true && img10.isVisible() == true && btnB22.isDisabled() == true && img13.isVisible() == true && answer == 2){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
         }
-        if (btnB13.isDisabled() == true && answer == 3){
-            img3.setVisible(true);
-            lblShots.setText(""+add++);
+        if (lblShots.getText().equals("3") && btnB13.isDisabled() == true && img15.isVisible() == true && btnB28.isDisabled() == true && img16.isVisible() == true && answer == 2){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
         }
-        if (btnB14.isDisabled() == true && answer == 3){
-            img7.setVisible(true);
-            lblShots.setText(""+add++);
+        if (lblShots.getText().equals("3") && btnB14.isDisabled() == true && img20.isVisible() == true && btnB30.isDisabled() == true && img27.isVisible() == true && answer == 2){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
         }
-        if (btnB15.isDisabled() == true && answer == 3){
-            img15.setVisible(true);
-            lblShots.setText(""+add++);
-        } 
-        if (btnB16.isDisabled() == true && answer == 3){
-            img30.setVisible(true);
-            lblShots.setText(""+add++);
+        if (lblShots.getText().equals("3") && btnB15.isDisabled() == true && img6.isVisible() == true && btnB19.isDisabled() == true && img30.isVisible() == true && answer == 2){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
         }
-        if (btnB17.isDisabled() == true && answer == 3){
-            img17.setVisible(true);
-            lblShots.setText(""+add++);
+        if (lblShots.getText().equals("3") && btnB16.isDisabled() == true && img2.isVisible() == true && btnB24.isDisabled() == true && img22.isVisible() == true && answer == 2){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
         }
-        if (btnB18.isDisabled() == true && answer == 3){
-            img28.setVisible(true);
-            lblShots.setText(""+add++);
-        }
-        if (btnB19.isDisabled() == true && answer == 3){
-            img13.setVisible(true);
-            lblShots.setText(""+add++);
-        }
-        if (btnB20.isDisabled() == true && answer == 3){
-            img21.setVisible(true);
-            lblShots.setText(""+add++);
-        }
-        if (btnB21.isDisabled() == true && answer == 3){
-            img24.setVisible(true);
-            lblShots.setText(""+add++);
-        }
-        if (btnB22.isDisabled() == true && answer == 3){
-            img8.setVisible(true);
-            lblShots.setText(""+add++);
-        }
-        if (btnB23.isDisabled() == true && answer == 3){
-            img19.setVisible(true);
-            lblShots.setText(""+add++);
-        }
-        if (btnB24.isDisabled() == true && answer == 3){
-            img23.setVisible(true);
-            lblShots.setText(""+add++);
-        }
-        if (btnB25.isDisabled() == true && answer == 3){
-            img16.setVisible(true);
-            lblShots.setText(""+add++);
-        }
-        if (btnB26.isDisabled() == true && answer == 3){
-            img22.setVisible(true);
-            lblShots.setText(""+add++);
-        }
-        if (btnB27.isDisabled() == true && answer == 3){
-            img27.setVisible(true);
-            lblShots.setText(""+add++);
-        }
-        if (btnB28.isDisabled() == true && answer == 3){
-            img26.setVisible(true);
-            lblShots.setText(""+add++);
-        }
-        if (btnB29.isDisabled() == true && answer == 3){
-            img29.setVisible(true);
-            lblShots.setText(""+add++);
-        }
-        if (btnB30.isDisabled() == true && answer == 3){
-            img14.setVisible(true);
-            lblShots.setText(""+add++);
-        }
-        if (lblShots.getText().equals("2")){
+        if (lblShots.getText().equals("3") && btnB17.isDisabled() == true && img9.isVisible() == true && btnB21.isDisabled() == true && img29.isVisible() == true && answer == 2){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
+        }       
+        if (lblShots.getText().equals("3") && answer == 2 && img1.isPressed()){
             Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Loser");
         alert.setHeaderText(null);
         alert.setContentText("oh no these are not a pair");
         alert.showAndWait();
+        btn.setDisable(false);
+        lblShots.setText("0");
+        img1.setVisible(false);
         }
+        
+        
+        
+        
+        
+        //random 3
+        if (btnB01.isDisabled() == true && answer == 3){    
+            img18.setVisible(true);
+        }   
+        if (btnB02.isDisabled() == true && answer == 3){
+            img9.setVisible(true);
+        }
+        if (btnB03.isDisabled() == true && answer == 3){
+            img25.setVisible(true);
+        }
+        if (btnB04.isDisabled() == true && answer == 3){
+            img4.setVisible(true);
+        }
+        if (btnB05.isDisabled() == true && answer == 3){
+            img2.setVisible(true);
+        }
+        if (btnB06.isDisabled() == true && answer == 3){
+            img10.setVisible(true);
+        }
+        if (btnB07.isDisabled() == true && answer == 3){
+            img20.setVisible(true);
+        }
+        if (btnB08.isDisabled() == true && answer == 3){
+            img6.setVisible(true);
+        }
+        if (btnB09.isDisabled() == true && answer == 3){
+            img12.setVisible(true);
+        }
+        if (btnB10.isDisabled() == true && answer == 3){
+            img5.setVisible(true);
+        }
+        if (btnB11.isDisabled() == true && answer == 3){
+            img1.setVisible(true);
+        }
+        if (btnB12.isDisabled() == true && answer == 3){
+            img11.setVisible(true);
+        }
+        if (btnB13.isDisabled() == true && answer == 3){
+            img3.setVisible(true);
+        }
+        if (btnB14.isDisabled() == true && answer == 3){
+            img7.setVisible(true);
+        }
+        if (btnB15.isDisabled() == true && answer == 3){
+            img15.setVisible(true);
+        } 
+        if (btnB16.isDisabled() == true && answer == 3){
+            img30.setVisible(true);
+        }
+        if (btnB17.isDisabled() == true && answer == 3){
+            img17.setVisible(true);
+        }
+        if (btnB18.isDisabled() == true && answer == 3){
+            img28.setVisible(true);
+        }
+        if (btnB19.isDisabled() == true && answer == 3){
+            img13.setVisible(true);
+        }
+        if (btnB20.isDisabled() == true && answer == 3){
+            img21.setVisible(true);
+        }
+        if (btnB21.isDisabled() == true && answer == 3){
+            img24.setVisible(true);
+        }
+        if (btnB22.isDisabled() == true && answer == 3){
+            img8.setVisible(true);
+        }
+        if (btnB23.isDisabled() == true && answer == 3){
+            img19.setVisible(true);
+        }
+        if (btnB24.isDisabled() == true && answer == 3){
+            img23.setVisible(true);
+        }
+        if (btnB25.isDisabled() == true && answer == 3){
+            img16.setVisible(true);
+        }
+        if (btnB26.isDisabled() == true && answer == 3){
+            img22.setVisible(true);
+        }
+        if (btnB27.isDisabled() == true && answer == 3){
+            img27.setVisible(true);
+        }
+        if (btnB28.isDisabled() == true && answer == 3){
+            img26.setVisible(true);
+        }
+        if (btnB29.isDisabled() == true && answer == 3){
+            img29.setVisible(true);
+        }
+        if (btnB30.isDisabled() == true && answer == 3){
+            img14.setVisible(true);
+        }
+        
+        //winning conditions for random 3
+        if (lblShots.getText().equals("3") && btnB01.isDisabled() == true && answer == 3 && img18.isVisible() == true && btnB20.isDisabled() == true && img21.isVisible()){
+            Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait();
+        }
+        if (lblShots.getText().equals("3") && btnB02.isDisabled() == true && img9.isVisible() == true && btnB29.isDisabled() == true && img29.isVisible() == true && answer == 3){
+            Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait();
+        }
+        if (lblShots.getText().equals("3") && btnB03.isDisabled() == true && img25.isVisible() == true && btnB18.isDisabled() == true && img28.isVisible() == true && answer == 3){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
+        }
+        if (lblShots.getText().equals("3") && btnB04.isDisabled() == true && img4.isVisible() == true && btnB17.isDisabled() == true && img17.isVisible() == true && answer == 3){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
+        }
+        if (lblShots.getText().equals("3") && btnB05.isDisabled() == true && img2.isVisible() == true && btnB26.isDisabled() == true && img22.isVisible() == true && answer == 3){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
+        }
+        if (lblShots.getText().equals("3") && btnB06.isDisabled() == true && img10.isVisible() == true && btnB19.isDisabled() == true && img13.isVisible() == true && answer == 3){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
+        }
+        if (lblShots.getText().equals("3") && btnB07.isDisabled() == true && img20.isVisible() == true && btnB27.isDisabled() == true && img27.isVisible() == true && answer == 3){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
+        }
+        if (lblShots.getText().equals("3") && btnB08.isDisabled() == true && img6.isVisible() == true && btnB16.isDisabled() == true && img30.isVisible() == true && answer == 3){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
+        }
+        if (lblShots.getText().equals("3") && btnB09.isDisabled() == true && img12.isVisible() == true && btnB24.isDisabled() == true && img23.isVisible() == true && answer == 3){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
+        }
+        if (lblShots.getText().equals("3") && btnB10.isDisabled() == true && img5.isVisible() == true && btnB22.isDisabled() == true && img8.isVisible() == true && answer == 3){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait();
+        }
+        if (lblShots.getText().equals("3") && btnB11.isDisabled() == true && img1.isVisible() == true && btnB23.isDisabled() == true && img19.isVisible() == true && answer == 3){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
+        }
+        if (lblShots.getText().equals("3") && btnB12.isDisabled() == true && img11.isVisible() == true && btnB28.isDisabled() == true && img26.isVisible() == true && answer == 3){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
+        }
+        if (lblShots.getText().equals("3") && btnB13.isDisabled() == true && img3.isVisible() == true && btnB30.isDisabled() == true && img14.isVisible() == true && answer == 3){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
+        }
+        if (lblShots.getText().equals("3") && btnB14.isDisabled() == true && img7.isVisible() == true && btnB21.isDisabled() == true && img24.isVisible() == true && answer == 3){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
+        }
+        if (lblShots.getText().equals("3") && btnB15.isDisabled() == true && img15.isVisible() == true && btnB25.isDisabled() == true && img16.isVisible() == true && answer == 3){
+           Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("yay you found a pair");
+        alert.showAndWait(); 
+        }
+        if (lblShots.getText().equals("3") && answer == 3 && btnB01.isDisabled() == true && img18.isVisible() == true){
+            Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Loser");
+        alert.setHeaderText(null);
+        alert.setContentText("oh no these are not a pair");
+        alert.showAndWait();
+        btn.setDisable(false);
+        lblShots.setText("0");
+        img18.setVisible(false);
+        }
+        if (lblShots.getText().equals("3") && answer == 3 && btnB02.isDisabled() == true){
+            Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Loser");
+        alert.setHeaderText(null);
+        alert.setContentText("oh no these are not a pair");
+        alert.showAndWait();
+        btn.setDisable(false);
+        lblShots.setText("0");
+        img9.setVisible(false);
+        }
+        if (lblShots.getText().equals("3") && answer == 3 && btnB03.isDisabled() == true){
+            Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Loser");
+        alert.setHeaderText(null);
+        alert.setContentText("oh no these are not a pair");
+        alert.showAndWait();
+        btn.setDisable(false);
+        lblShots.setText("0");
+        img25.setVisible(false);
+        }
+        if (lblShots.getText().equals("3") && answer == 3 && btnB04.isDisabled() == true){
+            Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Loser");
+        alert.setHeaderText(null);
+        alert.setContentText("oh no these are not a pair");
+        alert.showAndWait();
+        btn.setDisable(false);
+        lblShots.setText("0");
+        img18.setVisible(false);
+        }
+        
+        
+        
         
     }
     
@@ -649,7 +856,11 @@ public class MemoryMatchController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      if (answer==1){     
+   
+        
+        
+        
+        if (answer==1){     
             lblRandom.setText("1");
         img1.setLayoutX(130);   img1.setLayoutY(440);
         img2.setLayoutX(293);   img2.setLayoutY(226);
@@ -743,8 +954,8 @@ public class MemoryMatchController implements Initializable {
         img24.setLayoutX(463);  img24.setLayoutY(228);
         img25.setLayoutX(130);  img25.setLayoutY(368);
         img26.setLayoutX(553);  img26.setLayoutY(370);
-        img27.setLayoutX(376);  img27.setLayoutY(368);
-        img28.setLayoutX(553);  img28.setLayoutY(297);
+        img27.setLayoutX(553);  img27.setLayoutY(297);
+        img28.setLayoutX(376);  img28.setLayoutY(368);
         img29.setLayoutX(549);  img29.setLayoutY(442);
         img30.setLayoutX(377);  img30.setLayoutY(226);    
         }  
