@@ -10,9 +10,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import static trioteam.minigames.MainApp.sideScroller;
 
 public class FXMLController implements Initializable {
 
@@ -36,13 +35,14 @@ public class FXMLController implements Initializable {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/sideScroller.fxml")); //where FXMLPage2 is the name of the scene
 
         Scene home_page_scene = new Scene(home_page_parent);
+        sideScroller =   home_page_scene;
         //get reference to the stage 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         stage.hide(); //optional
         stage.setScene(home_page_scene); //puts the new scence in the stage
 
-        stage.setTitle("Asoride Dogge"); //changes the title
+        stage.setTitle("Ateroid Dodge"); //changes the title
         stage.show(); //shows the new page
         home_page_scene.getRoot().requestFocus();
     }
@@ -58,6 +58,20 @@ public class FXMLController implements Initializable {
         stage.setScene(home_page_scene); //puts the new scence in the stage
 
         stage.setTitle("Pokemon"); //changes the title
+        stage.show(); //shows the new page
+    }
+    @FXML
+    private void btnWac(ActionEvent event) throws IOException {
+        Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/wacMenu.fxml")); //where FXMLPage2 is the name of the scene
+
+        Scene home_page_scene = new Scene(home_page_parent);
+        //get reference to the stage 
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        stage.hide(); //optional
+        stage.setScene(home_page_scene); //puts the new scence in the stage
+
+        stage.setTitle("Wac A Wac Character Picker"); //changes the title
         stage.show(); //shows the new page
     }
     @Override
