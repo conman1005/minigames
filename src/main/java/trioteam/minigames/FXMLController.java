@@ -10,8 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class FXMLController implements Initializable {
@@ -42,7 +40,7 @@ public class FXMLController implements Initializable {
         stage.hide(); //optional
         stage.setScene(home_page_scene); //puts the new scence in the stage
 
-        stage.setTitle("Asoride Dogge"); //changes the title
+        stage.setTitle("Ateroid Dodge"); //changes the title
         stage.show(); //shows the new page
         home_page_scene.getRoot().requestFocus();
     }

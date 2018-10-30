@@ -254,6 +254,7 @@ public class SideScrollerController implements Initializable {
                 lblTimeHelp.setVisible(false);
                 btnNext.setVisible(false);
                 btnPrev.setVisible(false);
+             
                 break;
             default:
                 break;
@@ -466,7 +467,7 @@ public class SideScrollerController implements Initializable {
         } else if (lockKey == true) {
             
         }
-        if ((event.getCode() == KeyCode.TAB)) {
+        if ((event.getCode() == KeyCode.ESCAPE)) {
             
             if (gamePause == false) {
                 gamePause = true;
