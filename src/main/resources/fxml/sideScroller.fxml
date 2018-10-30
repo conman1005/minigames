@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" onKeyPressed="#keyPressed" prefHeight="893.0" prefWidth="1356.0" styleClass="tempBackground" stylesheets="@../styles/sidescroller.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trioteam.minigames.SideScrollerController">
+<AnchorPane id="AnchorPane" onKeyPressed="#keyPressed" onKeyReleased="#keyReleased" prefHeight="893.0" prefWidth="1356.0" styleClass="tempBackground" stylesheets="@../styles/sidescroller.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trioteam.minigames.SideScrollerController">
    <children>
       <MenuBar layoutY="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -28,12 +28,12 @@
                <items>
                   <MenuItem mnemonicParsing="false" text="Music Volume">
                      <graphic>
-                        <Slider fx:id="sliVolume" max="1.0" value="1.0" />
+                        <Slider fx:id="sliVolume" max="1.0" value="0.2" />
                      </graphic>
                   </MenuItem>
                   <MenuItem mnemonicParsing="false" text="Sound Effects Volume">
                      <graphic>
-                        <Slider fx:id="sliSoundEff" max="1.0" value="1.0" />
+                        <Slider fx:id="sliSoundEff" max="1.0" value="0.2" />
                      </graphic>
                   </MenuItem>
                   <MenuItem fx:id="munApply" mnemonicParsing="false" onAction="#musicApply" text="Apply Changes" />

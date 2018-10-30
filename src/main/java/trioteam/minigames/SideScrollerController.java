@@ -101,7 +101,8 @@ public class SideScrollerController implements Initializable {
 //timer
     Timeline timmer = new Timeline(new KeyFrame(Duration.seconds(1), ae -> time()));
     Timeline movement = new Timeline(new KeyFrame(Duration.millis(8), ae -> move()));
-    ;
+     Timeline shipmover= new Timeline(new KeyFrame(Duration.millis(1), ae -> shipMove("")));
+    
     int min = 0;
     int sec = 0;
     @FXML
@@ -325,6 +326,8 @@ public class SideScrollerController implements Initializable {
             startAmination();
             astroSetup();
             timeStart();
+             shipmover.setCycleCount(Timeline.INDEFINITE);
+       shipmover.play();
         } else if (gameOver == true) {
             gameOver = false;
             picStartButton.getStyleClass().clear();
@@ -376,23 +379,17 @@ public class SideScrollerController implements Initializable {
             lblTime.setText("Time Survived: " + min + ":" + sec);
         }
     }
-    
+    @FXML
+    public void keyReleased(KeyEvent event) {
+        if(lockKey == false){
+            
+        }
+    }
     @FXML
     public void keyPressed(KeyEvent event) {
         if (lockKey == false) {
             if ((event.getCode() == KeyCode.W)) {
-                if (checkCol(recShipCol2, recTopBar)) {
-                    panShip.setTranslateY(panShip.getTranslateY() + 10);
-                } else {
-                    panShip.setTranslateY(panShip.getTranslateY() - 10);
-                }
-                /*timmer = new Timeline(new KeyFrame(Duration.millis(50), ae -> shipMove("up")));
-            timmer.setCycleCount(Timeline.INDEFINITE);
-            if (Status.RUNNING == timmer.getStatus()) {
-                timmer.stop();
-            }
-
-            timmer.play();*/
+               shipMove("up");
             }
             
             if ((event.getCode() == KeyCode.S)) {
@@ -530,7 +527,7 @@ public class SideScrollerController implements Initializable {
         
     }
 
-    /* private void shipMove(String direction) {
+     private void shipMove(String direction) {
         if ("up".equals(direction)) {
             if (checkCol(recShipCol2, recTopBar)) {
                 panShip.setTranslateY(panShip.getTranslateY() + 10);
@@ -545,7 +542,8 @@ public class SideScrollerController implements Initializable {
                 panShip.setTranslateY(panShip.getTranslateY() + 10);
             }
         }
-    }*/
+    }
+     
     private void move() {
         
         int x1 = ThreadLocalRandom.current().nextInt(1360, 1440 + 1);
@@ -721,6 +719,8 @@ public class SideScrollerController implements Initializable {
         music.setCycleCount(INDEFINITE);
         music.setVolume(1.5);
         music.play();
+  
+      
     }
     
     private Rectangle createBoundsRectangle(Bounds bounds) {  //method used to make the blank copy in other pane
