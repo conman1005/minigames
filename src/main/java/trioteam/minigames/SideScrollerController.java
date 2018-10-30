@@ -101,7 +101,7 @@ public class SideScrollerController implements Initializable {
 //timer
     Timeline timmer = new Timeline(new KeyFrame(Duration.seconds(1), ae -> time()));
     Timeline movement = new Timeline(new KeyFrame(Duration.millis(8), ae -> move()));
-     Timeline shipmover= new Timeline(new KeyFrame(Duration.millis(1), ae -> shipMove("")));
+     Timeline shipmover= new Timeline(new KeyFrame(Duration.millis(.1), ae -> shipMove("")));
     
     int min = 0;
     int sec = 0;
@@ -149,8 +149,8 @@ public class SideScrollerController implements Initializable {
     @FXML
     private Slider sliSoundEff;
     @FXML
-    double soundVol = 1;
-    double soundEff = 1;
+    double soundVol = .2;
+    double soundEff = .2;
 //pause
     boolean gamePause = false;
     boolean lockKey = true;
@@ -382,7 +382,7 @@ public class SideScrollerController implements Initializable {
     @FXML
     public void keyReleased(KeyEvent event) {
         if(lockKey == false){
-            
+            shipMove("");
         }
     }
     @FXML
