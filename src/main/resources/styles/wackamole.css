@@ -17,3 +17,14 @@
 .squirtleFront {
     -fx-background-image: url(../pokemonimages/squirtleFront.png);
 }
+
+.button {
+    -fx-font-family: "ArcadeClassic";
+    -fx-font-size: 64;
+}
+
+.label {
+    -fx-font-family: "ArcadeClassic";
+    -fx-font-size: 64;
+    -fx-border-width: 5;
+}
