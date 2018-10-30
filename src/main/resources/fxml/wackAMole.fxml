@@ -5,14 +5,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="693.0" prefWidth="531.0" stylesheets="@../styles/wackamole.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="trioteam.minigames.WackAMoleController">
+<AnchorPane id="AnchorPane" prefHeight="806.0" prefWidth="606.0" styleClass="background" stylesheets="@../styles/wackamole.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trioteam.minigames.WackAMoleController">
    <children>
-      <Label layoutX="99.0" layoutY="14.0" text="Wack A Mole" textAlignment="CENTER">
+      <Label layoutX="136.0" layoutY="14.0" text="Wack A Mole" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="187.0" layoutY="591.0" mnemonicParsing="false" text="Play" />
-      <Label layoutX="93.0" layoutY="156.0" prefHeight="181.0" prefWidth="130.0" />
+      <Button layoutX="400.0" layoutY="678.0" mnemonicParsing="false" onAction="#btnPlay" text="Play" />
+      <Label fx:id="mole0" layoutX="71.0" layoutY="165.0" prefHeight="181.0" prefWidth="130.0" styleClass="bulbasoarFront" visible="false" />
+      <Label fx:id="mole1" layoutX="245.0" layoutY="165.0" prefHeight="181.0" prefWidth="130.0" styleClass="bulbasoarFront" visible="false" />
+      <Label fx:id="mole2" layoutX="435.0" layoutY="165.0" prefHeight="181.0" prefWidth="130.0" styleClass="bulbasoarFront" visible="false" />
+      <Label fx:id="mole3" layoutX="71.0" layoutY="276.0" prefHeight="181.0" prefWidth="130.0" styleClass="bulbasoarFront" visible="false" />
+      <Label fx:id="mole4" layoutX="245.0" layoutY="276.0" prefHeight="181.0" prefWidth="130.0" styleClass="bulbasoarFront" visible="false" />
+      <Label fx:id="mole5" layoutX="435.0" layoutY="276.0" prefHeight="181.0" prefWidth="130.0" styleClass="bulbasoarFront" visible="false" />
+      <Label fx:id="mole6" layoutX="63.0" layoutY="389.0" prefHeight="181.0" prefWidth="130.0" styleClass="bulbasoarFront" visible="false" />
+      <Label fx:id="mole7" layoutX="237.0" layoutY="389.0" prefHeight="181.0" prefWidth="130.0" styleClass="bulbasoarFront" visible="false" />
+      <Label fx:id="mole8" layoutX="427.0" layoutY="389.0" prefHeight="181.0" prefWidth="130.0" styleClass="bulbasoarFront" visible="false" />
+      <Label fx:id="lblPoints" layoutX="31.0" layoutY="686.0" text="Points: " />
    </children>
 </AnchorPane>
