@@ -59,5 +59,8 @@
 .labelWac {
     -fx-font-family: "ArcadeClassic";
     -fx-font-size: 64;
-    -fx-border-width: 5;
+}
+.labelWacSmall {
+    -fx-font-family: "ArcadeClassic";
+    -fx-font-size: 36;
 }

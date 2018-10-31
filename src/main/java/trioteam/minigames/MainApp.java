@@ -29,7 +29,7 @@ public class MainApp extends Application {
     public static  boolean sonic = false;
     
     
-
+    public static int wacHighScore = 0;
 
 
     @Override
