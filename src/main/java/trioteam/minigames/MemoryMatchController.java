@@ -20,6 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -106,7 +107,13 @@ int pairsLeft = 15;
         alert.showAndWait();
     }
     
-    public void putCard(ActionEvent event) {
+    @FXML
+    private void play(ActionEvent event){
+        btnPlay.setVisible(false);
+    }
+
+    
+    public void putCard(MouseEvent event) {
       ImageView btn = (ImageView) event.getSource();
       int cardNum=Integer.parseInt(btn.getId().substring(btn.getId().length()-2));
         //Check to see if the card has already been used or they clicked on the same one again. If so stop the code
@@ -117,8 +124,9 @@ int pairsLeft = 15;
         //Checks to see if two cards are showing, if they are flip them
         if (firstCard != 100 && secondCard != 100) {
         //clear the image
-        buttons.get(firstCard).setImage(null);
-        buttons.get(secondCard).setImage(null);
+        Image blank = new Image(getClass().getResource("/PICTURES/grey-background.png").toString());
+        buttons.get(firstCard).setImage(blank);
+        buttons.get(secondCard).setImage(blank);
         //resets the cards
         firstCard = 100;
         secondCard = 100;
@@ -128,14 +136,14 @@ int pairsLeft = 15;
         if (firstCard == 100 && secondCard == 100) {
         firstCard = cardNum;
         //Load the image
-        Image name = new Image(getClass().getResource("/"+imageList.get(cardNum) + ".jpg").toString());
+        Image name = new Image(getClass().getResource("/PICTURES/"+imageList.get(cardNum) + ".png").toString());
         buttons.get(cardNum).setImage(name);
         
     }
         //Checks to see if this is the second card they pushed
         else if (firstCard != 100 && secondCard == 100) {
         secondCard = cardNum;
-         Image name = new Image(getClass().getResource("/"+imageList.get(cardNum) + ".jpg").toString());
+         Image name = new Image(getClass().getResource("/PICTURES/"+imageList.get(cardNum) + ".png").toString());
         buttons.get(cardNum).setImage(name);
         //Check to see if the cards match
         if (imageList.get(firstCard).equals(imageList.get(secondCard))) {
