@@ -27,7 +27,7 @@ import javafx.scene.image.ImageView;
  */
 public class MemoryMatchController implements Initializable {
 
-    @FXML
+  /*  @FXML
     private MenuItem menuExit;
 
     @FXML
@@ -189,12 +189,11 @@ int pairsLeft = 15;
     }
     
     
-    
-    
+    */
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    buttons.add(btnB01);
+    /*buttons.add(btnB01);
     buttons.add(btnB02);
     buttons.add(btnB03);
     buttons.add(btnB04);
@@ -225,6 +224,6 @@ int pairsLeft = 15;
     buttons.add(btnB29);
     buttons.add(btnB30);
           
-
+*/
 }
 }

@@ -23,7 +23,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
-import javafx.scene.Node;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -32,7 +32,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
+
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -118,7 +118,7 @@ public class SideScrollerController implements Initializable {
     private ImageView picBack1;
     @FXML
     private ImageView picBack2;
-    private int BACKGROUND_WIDTH = 3900;
+    private final int BACKGROUND_WIDTH = 3900;
     private ParallelTransition backgroundMove;
 //game over
     boolean gameOver = false;
