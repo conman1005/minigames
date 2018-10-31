@@ -18,8 +18,16 @@ public class MainApp extends Application {
     public static double credits = 0;
     public static Stage mainStage;
     public static Scene sideScroller;
-
+   
     public static String wacImage;
+    public static  boolean boo = false;
+    public static  boolean bowser = false;
+    public static  boolean bulbasoar = false;
+    public static  boolean squirtle = false;
+    public static  boolean ghost = false;
+    public static  boolean darthVader = false;
+    public static  boolean sonic = false;
+    
     
 
 
