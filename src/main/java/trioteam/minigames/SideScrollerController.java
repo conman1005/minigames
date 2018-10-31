@@ -45,7 +45,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
@@ -74,8 +73,6 @@ public class SideScrollerController implements Initializable {
 //Astaroid one
     @FXML
     private Pane panAstro;
-    @FXML
-    private ImageView picAstaroid;
 //Hit boxes
     @FXML
     private Rectangle recAstroCol1;
@@ -85,8 +82,6 @@ public class SideScrollerController implements Initializable {
 //Astaroid two
     @FXML
     private Pane panAstro2;
-    @FXML
-    private ImageView picAstaroid2;
 //Hit boxes
     @FXML
     private Rectangle recAstroCol21;
@@ -176,6 +171,9 @@ public class SideScrollerController implements Initializable {
     Alert obj = new Alert(AlertType.INFORMATION);
     Alert tutor = new Alert(AlertType.CONFIRMATION);
     int turCount = 0;
+    int score =0;
+    @FXML
+    private Label lblCredits;
 
     /* @FXML
     private Button btnControl;*/
@@ -622,14 +620,21 @@ public class SideScrollerController implements Initializable {
                 picStartButton.getStyleClass().clear();
                 picStartButton.getStyleClass().add("gameOver");
                 lblText.setVisible(true);
+                score = sec + min*20;
+                MainApp.credits = MainApp.credits + score;
+                lblCredits.setText(MainApp.credits+"");
                 if (sec < 10) {
-                    lblText.setText("You Survived: " + min + ":0" + sec);
+                    lblText.setText("You Survived: " + min + ":0" + sec + "\n"
+                            + "You have Gained " + score + "Credits");
                 } else if (sec < 10 && min < 10) {
-                    lblText.setText("You Survived: 0" + min + ":0" + sec);
+                    lblText.setText("You Survived: 0" + min + ":0" + sec +"\n"
+                            + "You have Gained " + score + "Credits");
                 } else if (min < 10) {
-                    lblText.setText("You Survived: 0" + min + ":" + sec);
+                    lblText.setText("You Survived: 0" + min + ":" + sec + "\n"
+                            + "You have Gained " + score + "Credits");
                 } else {
-                    lblText.setText("You Survived: " + min + ":" + sec);
+                    lblText.setText("You Survived: " + min + ":" + sec + "\n"
+                            + "You have Gained " + score + "Credits");
                 }
                 //you lose
                 break;
@@ -704,8 +709,9 @@ public class SideScrollerController implements Initializable {
             }
         });*/
         music.setCycleCount(INDEFINITE);
-        music.setVolume(1.5);
+        music.setVolume(1);
         music.play();
+        lblCredits.setText(MainApp.credits+"");
     }
 
     private Rectangle createBoundsRectangle(Bounds bounds) {  //method used to make the blank copy in other pane
