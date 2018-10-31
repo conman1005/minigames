@@ -22,25 +22,11 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Button fx:id="btnB11" layoutX="293.0" layoutY="226.0" mnemonicParsing="false" onAction="#play" prefHeight="62.0" prefWidth="62.0" visible="false" />
-      <Button fx:id="btnB16" layoutX="377.0" layoutY="226.0" mnemonicParsing="false" onAction="#play" prefHeight="62.0" prefWidth="62.0" visible="false" />
       <Label layoutX="240.0" layoutY="25.0" text="Memory Match">
          <font>
             <Font name="ArcadeClassic" size="46.0" />
          </font>
       </Label>
-      <Button fx:id="btnB21" layoutX="463.0" layoutY="226.0" mnemonicParsing="false" onAction="#play" prefHeight="62.0" prefWidth="62.0" visible="false" />
-      <Button fx:id="btnB26" layoutX="548.0" layoutY="226.0" mnemonicParsing="false" onAction="#play" prefHeight="62.0" prefWidth="62.0" visible="false" />
-      <Button fx:id="btnB06" layoutX="210.0" layoutY="226.0" mnemonicParsing="false" onAction="#play" prefHeight="62.0" prefWidth="62.0" visible="false" />
-      <Button fx:id="btnB07" layoutX="210.0" layoutY="297.0" mnemonicParsing="false" onAction="#play" prefHeight="62.0" prefWidth="62.0" visible="false" />
-      <Button fx:id="btnB12" layoutX="293.0" layoutY="297.0" mnemonicParsing="false" onAction="#play" prefHeight="62.0" prefWidth="62.0" visible="false" />
-      <Button fx:id="btnB17" layoutX="377.0" layoutY="297.0" mnemonicParsing="false" onAction="#play" prefHeight="62.0" prefWidth="62.0" visible="false" />
-      <Button fx:id="btnB22" layoutX="463.0" layoutY="297.0" mnemonicParsing="false" onAction="#play" prefHeight="62.0" prefWidth="62.0" visible="false" />
-      <Button fx:id="btnB27" layoutX="549.0" layoutY="297.0" mnemonicParsing="false" onAction="#play" prefHeight="62.0" prefWidth="62.0" visible="false" />
-      <Button fx:id="btnB08" layoutX="210.0" layoutY="368.0" mnemonicParsing="false" onAction="#play" prefHeight="62.0" prefWidth="62.0" visible="false" />
-      <Button fx:id="btnB13" layoutX="293.0" layoutY="368.0" mnemonicParsing="false" onAction="#play" prefHeight="62.0" prefWidth="62.0" visible="false" />
-      <Button fx:id="btnB18" layoutX="377.0" layoutY="368.0" mnemonicParsing="false" onAction="#play" prefHeight="62.0" prefWidth="62.0" visible="false" />
-      <Button fx:id="btnB23" layoutX="463.0" layoutY="368.0" mnemonicParsing="false" onAction="#play" prefHeight="62.0" prefWidth="62.0" visible="false" />
       <Button fx:id="btnB28" layoutX="550.0" layoutY="368.0" mnemonicParsing="false" onAction="#play" prefHeight="62.0" prefWidth="62.0" visible="false" />
       <Button fx:id="btnB09" layoutX="210.0" layoutY="440.0" mnemonicParsing="false" onAction="#play" prefHeight="62.0" prefWidth="62.0" visible="false" />
       <Button fx:id="btnB10" layoutX="210.0" layoutY="512.0" mnemonicParsing="false" onAction="#play" prefHeight="62.0" prefWidth="62.0" visible="false" />

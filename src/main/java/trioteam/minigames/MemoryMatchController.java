@@ -18,6 +18,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
@@ -40,49 +41,20 @@ private Button cBtn1=null;
 private Button cBtn2=null;
     
 ArrayList<Integer> imageList = new <Integer>ArrayList();
-ArrayList<Button> buttons = new <Button>ArrayList();
+ArrayList<ImageView> buttons = new <ImageView>ArrayList();
 int firstCard = 100;
 int secondCard = 100;
 int pairsLeft = 15;
 
+ 
     @FXML
-    private Button btnB01;    @FXML private Button btnB02;    @FXML private Button btnB03;
-    
-    @FXML
-    private Button btnB04;   @FXML private Button btnB05;     @FXML private Button btnB06;
+    private ImageView img01;     @FXML private ImageView img02;   @FXML private ImageView img03;
     
     @FXML
-    private Button btnB07;   @FXML private Button btnB08;     @FXML private Button btnB09;
+    private ImageView img04;     @FXML private ImageView img05;   @FXML private ImageView img06;
     
     @FXML
-    private Button btnB10;  @FXML private Button btnB11;    @FXML private Button btnB12;
-    
-    @FXML 
-    private Button btnB13;  @FXML private Button btnB14;    @FXML private Button btnB15;
-    
-    @FXML
-    private Button btnB16;  @FXML private Button btnB17;    @FXML private Button btnB18;
-    
-    @FXML
-    private Button btnB19;  @FXML private Button btnB20;    @FXML private Button btnB21;
-    
-    @FXML
-    private Button btnB22;  @FXML private Button btnB23;    @FXML private Button btnB24;
-    
-    @FXML
-    private Button btnB25;  @FXML private Button btnB26;    @FXML private Button btnB27;
-    
-    @FXML 
-    private Button btnB28;  @FXML private Button btnB29;    @FXML private Button btnB30;
-    
-    @FXML
-    private ImageView img1;     @FXML private ImageView img2;   @FXML private ImageView img3;
-    
-    @FXML
-    private ImageView img4;     @FXML private ImageView img5;   @FXML private ImageView img6;
-    
-    @FXML
-    private ImageView img7;     @FXML private ImageView img8;   @FXML private ImageView img9;
+    private ImageView img07;     @FXML private ImageView img08;   @FXML private ImageView img09;
     
     @FXML
     private ImageView img10;    @FXML private ImageView img11;  @FXML private ImageView img12;
@@ -108,7 +80,7 @@ int pairsLeft = 15;
     @FXML
     private Button btnPlay;
 
-    int answer = ThreadLocalRandom.current().nextInt(1,3+1);
+   
     
     @FXML
     private Label lblShots;
@@ -134,12 +106,9 @@ int pairsLeft = 15;
         alert.showAndWait();
     }
     
-    public void putCard(int cardNum) {
-        for (int i = 0; i < 15; i++) {
-            imageList.add(i);
-            imageList.add(i);
-        }
-        Collections.shuffle(imageList);
+    public void putCard(ActionEvent event) {
+      ImageView btn = (ImageView) event.getSource();
+      int cardNum=Integer.parseInt(btn.getId().substring(btn.getId().length()-2));
         //Check to see if the card has already been used or they clicked on the same one again. If so stop the code
         if (buttons.get(cardNum).isDisabled() == true || firstCard == cardNum) {
         return;
@@ -156,23 +125,26 @@ int pairsLeft = 15;
 }
 
         //Checks to see if this is the first card they pushed
-        if (firstCard == 20 && secondCard == 20) {
+        if (firstCard == 100 && secondCard == 100) {
         firstCard = cardNum;
         //Load the image
-        buttons.get(cardNum).setIcon(new Image(this.getClass().getResource(imageList.get(cardNum) + ".jpg")));
+        Image name = new Image(getClass().getResource("/"+imageList.get(cardNum) + ".jpg").toString());
+        buttons.get(cardNum).setImage(name);
+        
     }
         //Checks to see if this is the second card they pushed
-        else if (firstCard != 20 && secondCard == 20) {
+        else if (firstCard != 100 && secondCard == 100) {
         secondCard = cardNum;
-        buttons.get(cardNum).setIcon(new Image(this.getClass().getResource(imageList.get(cardNum) + ".jpg")));
+         Image name = new Image(getClass().getResource("/"+imageList.get(cardNum) + ".jpg").toString());
+        buttons.get(cardNum).setImage(name);
         //Check to see if the cards match
         if (imageList.get(firstCard).equals(imageList.get(secondCard))) {
         //Turn the labels off
         buttons.get(firstCard).setDisable(true);
         buttons.get(secondCard).setDisable(true);
         //Reset the card hold varable
-        firstCard = 20;
-        secondCard = 20;
+        firstCard = 100;
+        secondCard = 100;
         //One less pair to find
         pairsLeft--;
         }
@@ -194,37 +166,43 @@ int pairsLeft = 15;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    buttons.add(btnB01);
-    buttons.add(btnB02);
-    buttons.add(btnB03);
-    buttons.add(btnB04);
-    buttons.add(btnB05);
-    buttons.add(btnB06);
-    buttons.add(btnB07);
-    buttons.add(btnB08);
-    buttons.add(btnB09);
-    buttons.add(btnB10);
-    buttons.add(btnB11);
-    buttons.add(btnB12);
-    buttons.add(btnB13);
-    buttons.add(btnB14);
-    buttons.add(btnB15);
-    buttons.add(btnB16);
-    buttons.add(btnB17);
-    buttons.add(btnB18);
-    buttons.add(btnB19);
-    buttons.add(btnB20);
-    buttons.add(btnB21);
-    buttons.add(btnB22);
-    buttons.add(btnB23);
-    buttons.add(btnB24);     
-    buttons.add(btnB25);
-    buttons.add(btnB26);
-    buttons.add(btnB27);
-    buttons.add(btnB28);
-    buttons.add(btnB29);
-    buttons.add(btnB30);
-          
+    buttons.add(img01);
+    buttons.add(img02);
+    buttons.add(img03);
+    buttons.add(img04);
+    buttons.add(img05);
+    buttons.add(img06);
+    buttons.add(img07);
+    buttons.add(img08);
+    buttons.add(img09);
+    buttons.add(img10);
+    buttons.add(img11);
+    buttons.add(img12);
+    buttons.add(img13);
+    buttons.add(img14);
+    buttons.add(img15);
+    buttons.add(img16);
+    buttons.add(img17);
+    buttons.add(img18);
+    buttons.add(img19);
+    buttons.add(img20);
+    buttons.add(img21);
+    buttons.add(img22);
+    buttons.add(img23);
+    buttons.add(img24);     
+    buttons.add(img25);
+    buttons.add(img26);
+    buttons.add(img27);
+    buttons.add(img28);
+    buttons.add(img29);
+    buttons.add(img30);
+      //Add two of each of the possible cards to an array
+        for (int i = 0; i < 15; i++) {
+            imageList.add(i);
+            imageList.add(i);
+        }
+        //This randomly sorts the array to move the images around
+        Collections.shuffle(imageList);    
 
 }
 }
