@@ -599,7 +599,7 @@
 }
 
 
-/*
+
 @FXML
     private void play(ActionEvent event){           
         btnB01.setVisible(true); btnB02.setVisible(true);  btnB03.setVisible(true);  btnB04.setVisible(true);
@@ -2643,5 +2643,5 @@
         
         
     }
-*/
+
 
