@@ -151,8 +151,8 @@ int pairsLeft = 15;
         buttons.get(firstCard).setImage(null);
         buttons.get(secondCard).setImage(null);
         //resets the cards
-        firstCard = 20;
-        secondCard = 20;
+        firstCard = 100;
+        secondCard = 100;
 }
 
         //Checks to see if this is the first card they pushed
