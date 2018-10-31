@@ -852,11 +852,7 @@ public class MemoryMatchController implements Initializable {
         
     }
     
-    
-<<<<<<< HEAD
-    
-=======
->>>>>>> parent of 5b40f6c... Merge branch 'Erica'
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
