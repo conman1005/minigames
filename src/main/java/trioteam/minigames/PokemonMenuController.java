@@ -218,12 +218,14 @@ public class PokemonMenuController implements Initializable {
         stage.show(); //shows the new page
     }
 
+    String command;
+
     @FXML
     private void cheat(KeyEvent event) throws IOException {
         if (event.getCode() == KeyCode.ESCAPE) {
             if (txtCheat.isVisible()) {
                 if ((txtCheat.getText().equals("pokemon.set('missingno')")) && (chooseEnemy == true)) {
-                    
+
                     music.stop();
 
                     MainApp.pokeInfoE = new pkmn("missingno", "Unknown", 666, "Scratch", "Normal", 5, "Tackle", "Grass", 10);
@@ -239,8 +241,33 @@ public class PokemonMenuController implements Initializable {
 
                     stage.setTitle("Qplfnpo"); //changes the title
                     stage.show(); //shows the new page
+                } else if (txtCheat.getText().equals("level.set")) {
+                    command = "level.set";
+                    txtCheat.setText("");
+                    txtCheat.setPromptText(command);
+                } else if ("level.set".equals(command)) {
+                    try {
+                        pokeLevel = Integer.parseInt(txtCheat.getText());
+                        pokeXP = 0;
+                        pokeXPNeeded = 500 + (500 * pokeLevel);
+                        lblLevelCur.setText("Level: " + myFormat.format(pokeLevel));
+                        lblLevelNext.setText("Level: " + myFormat.format(pokeLevel + 1));
+                        txtCheat.setPromptText("");
+                        txtCheat.setText("");
+                        txtCheat.setVisible(false);
+                        command = null;
+                    } catch (NumberFormatException numberFormatException) {
+                        txtCheat.setPromptText(command + " WHOLE NUMBERS ONLY");
+                    }
+                } else if (txtCheat.getText().equals("level++")) {
+                    pokeLevel++;
+                    pokeXP = 0;
+                    pokeXPNeeded = 500 + (500 * pokeLevel);
+                    lblLevelCur.setText("Level: " + myFormat.format(pokeLevel));
+                    lblLevelNext.setText("Level: " + myFormat.format(pokeLevel + 1));
+                    txtCheat.setText("");
+                    txtCheat.setVisible(false);
                 }
-                txtCheat.setVisible(false);
             } else {
                 txtCheat.setVisible(true);
             }
@@ -248,7 +275,8 @@ public class PokemonMenuController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb
+    ) {
         lblLevelCur.setText("Level: " + myFormat.format(pokeLevel));
         lblLevelNext.setText("Level: " + myFormat.format(pokeLevel + 1));
         prgLevel.setProgress(pokeXP / pokeXPNeeded);

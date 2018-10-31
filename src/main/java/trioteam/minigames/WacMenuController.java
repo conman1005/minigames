@@ -5,12 +5,19 @@
  */
 package trioteam.minigames;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -138,9 +145,21 @@ public class WacMenuController implements Initializable {
     }
     
     @FXML
-    private void confirm(){
+    private void confirm(ActionEvent event) throws IOException{
         bought[image]=true;
         
+        
+        Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/wackAMole.fxml")); //where FXMLPage2 is the name of the scene
+
+        Scene home_page_scene = new Scene(home_page_parent);
+        //get reference to the stage 
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        stage.hide(); //optional
+        stage.setScene(home_page_scene); //puts the new scence in the stage
+
+        stage.setTitle("Wac A Wac"); //changes the title
+        stage.show(); //shows the new page
     }
 
     @Override

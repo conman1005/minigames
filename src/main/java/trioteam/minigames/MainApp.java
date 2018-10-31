@@ -21,7 +21,7 @@ public class MainApp extends Application {
 
     public static String wacImage;
     
-
+    public static int wacHighScore = 0;
 
 
     @Override
