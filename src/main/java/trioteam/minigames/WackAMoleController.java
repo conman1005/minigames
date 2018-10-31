@@ -12,6 +12,7 @@ import static javafx.animation.Animation.INDEFINITE;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -42,7 +43,12 @@ public class WackAMoleController implements Initializable {
     @FXML
     private Label mole8;
     
+    @FXML
+    private Label lblPoints;
+    
     Label mole[] = new Label[9];
+    
+    int points = 0;
     
     Timeline timer = new Timeline(new KeyFrame(Duration.millis(5), ae -> moles()));
     
@@ -61,6 +67,14 @@ public class WackAMoleController implements Initializable {
         if (rand.nextInt(50) == 1) {
             mole[rand.nextInt(9)].setVisible(false);
         }
+    }
+    
+    @FXML
+    private void moleClick(Event event) {
+        Label lbl = (Label) event.getSource();
+        lbl.setVisible(false);
+        points++;
+        lblPoints.setText("Points: " + points);
     }
     
     @Override
