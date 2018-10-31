@@ -153,7 +153,7 @@ public class WacMenuController implements Initializable {
                 lblPrice.setText("Mole the Mole Face \n"
                         + "Price: Free");
                 btnBack.setDisable(true);
-                btnCon.setText("Confrim");
+                btnCon.setText("Confirm");
                 break;
             case 1:
                 if (MainApp.boo == true) {

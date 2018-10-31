@@ -15,7 +15,7 @@ public class MainApp extends Application {
     public static double pokeXP = 0;
     public static double pokeXPNeeded = 500;
     public static double enemyLevel = 0;
-    public static double credits = 0;
+    public static double credits = 1000;
     public static Stage mainStage;
     public static Scene sideScroller;
    

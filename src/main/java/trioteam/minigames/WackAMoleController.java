@@ -82,6 +82,7 @@ public class WackAMoleController implements Initializable {
         Random rand = new Random();
 
         if (rand.nextInt(50) == 0) {
+          
             mole[rand.nextInt(9)].setVisible(true);
         }
         if (rand.nextInt(50) == 1) {
@@ -143,6 +144,13 @@ public class WackAMoleController implements Initializable {
         mole[6] = mole6;
         mole[7] = mole7;
         mole[8] = mole8;
+        
+         for (int r = 0; r <= 8; r++) {
+              mole[r].getStyleClass().clear();
+                mole[r].getStyleClass().add(MainApp.wacImage);
+               
+                }
+            
     }
 
 }
