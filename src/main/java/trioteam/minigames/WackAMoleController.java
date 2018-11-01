@@ -152,6 +152,7 @@ public class WackAMoleController implements Initializable {
     private void moleClick(Event event) {
         Label lbl = (Label) event.getSource();
         lbl.setVisible(false);
+        punch.stop();
         punch.play();
         points++;
         lblPoints.setText("Points: " + points);

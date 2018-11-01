@@ -191,7 +191,6 @@ public class PokemonMenuController implements Initializable {
     private void sldLevel(Event event) {
         lblLevel.setText("Enemy Level: " + myFormat.format(sldLevel.getValue()));
         enemyLevel = Integer.parseInt(myFormat.format(sldLevel.getValue()));
-        System.out.println("Enemy Level: " + enemyLevel);
     }
 
     @FXML

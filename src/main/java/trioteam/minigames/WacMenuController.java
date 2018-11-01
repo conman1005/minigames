@@ -321,7 +321,6 @@ public class WacMenuController implements Initializable {
 
             }
         } else if ("Confirm".equals(btnCon.getText())) {
-                System.out.println("hbnjk");
                 MainApp.wacImage = grid[image];
                 Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/wackAMole.fxml")); //where FXMLPage2 is the name of the scene
 

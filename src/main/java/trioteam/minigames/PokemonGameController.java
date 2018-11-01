@@ -117,8 +117,6 @@ public class PokemonGameController implements Initializable {
                 pokeXP = pokeXP + 100 + (100 * (enemyLevel - pokeLevel));
                 credits = credits + (100 * (enemyLevel - pokeLevel));
             }
-            System.out.println("XP: " + pokeXP);
-            System.out.println("XP needed: " + pokeXPNeeded);
             if (pokeXP >= pokeXPNeeded) {
                 pokeXP = 0;
                 pokeLevel++;
@@ -170,8 +168,6 @@ public class PokemonGameController implements Initializable {
                 pokeXP = pokeXP + 100 + (100 * (enemyLevel - pokeLevel));
                 credits = credits + (10 * (enemyLevel - pokeLevel));
             }
-            System.out.println("XP: " + pokeXP);
-            System.out.println("XP needed: " + pokeXPNeeded);
             if (pokeXP >= pokeXPNeeded) {
                 pokeXP = 0;
                 pokeLevel++;
@@ -322,7 +318,6 @@ public class PokemonGameController implements Initializable {
 
         hp = pokeInfo.maxHP;
         enemyHP = pokeInfoE.maxHP;
-        System.out.println("HP: " + pokeInfo.maxHP + " Enemy HP: " + pokeInfoE.maxHP);
 
         lblPokemonHP.setText("HP: " + hp + "/" + pokeInfo.maxHP);
         lblEnemyHP.setText("HP: " + enemyHP + "/" + pokeInfoE.maxHP);
