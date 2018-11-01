@@ -188,5 +188,10 @@
             <Font size="22.0" />
          </font>
       </Label>
+      <Label fx:id="lblScore" layoutX="66.0" layoutY="100.0" onDragDetected="#putCard" text="0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
