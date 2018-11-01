@@ -59,6 +59,8 @@ public class PokemonMenuController implements Initializable {
     private Label lblLevelCur;
     @FXML
     private Label lblLevelNext;
+    @FXML
+    private Label lblCredits;
 
     @FXML
     private TextField txtCheat;
@@ -288,6 +290,8 @@ public class PokemonMenuController implements Initializable {
         lblLevelCur.setText("Level: " + myFormat.format(pokeLevel));
         lblLevelNext.setText("Level: " + myFormat.format(pokeLevel + 1));
         prgLevel.setProgress(pokeXP / pokeXPNeeded);
+        
+        lblCredits.setText("Credits: " + MainApp.credits);
 
         enemyLevel = 0;
 

@@ -36,5 +36,6 @@
             </Menu>
          </menus>
       </MenuBar>
+      <Label fx:id="lblCredits" alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="145.0" prefHeight="40.0" prefWidth="568.0" styleClass="labelWacSmall" text="Credits:" textAlignment="CENTER" />
    </children>
 </AnchorPane>
