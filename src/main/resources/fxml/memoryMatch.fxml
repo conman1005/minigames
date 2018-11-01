@@ -28,152 +28,152 @@
             <Font name="ArcadeClassic" size="46.0" />
          </font>
       </Label>
-      <ImageView fx:id="img01" fitHeight="75.0" fitWidth="93.0" layoutX="84.0" layoutY="218.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img14" fitHeight="65.0" fitWidth="65.0" layoutX="293.0" layoutY="461.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img02" fitHeight="75.0" fitWidth="93.0" layoutX="84.0" layoutY="304.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img01" fitHeight="65.0" fitWidth="65.0" layoutX="84.0" layoutY="218.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img03" fitHeight="75.0" fitWidth="93.0" layoutX="84.0" layoutY="384.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img02" fitHeight="65.0" fitWidth="65.0" layoutX="84.0" layoutY="304.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img04" fitHeight="75.0" fitWidth="93.0" layoutX="84.0" layoutY="461.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img03" fitHeight="65.0" fitWidth="65.0" layoutX="84.0" layoutY="384.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img05" fitHeight="75.0" fitWidth="93.0" layoutX="84.0" layoutY="541.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img04" fitHeight="65.0" fitWidth="65.0" layoutX="84.0" layoutY="461.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img06" fitHeight="75.0" fitWidth="93.0" layoutX="187.0" layoutY="218.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img05" fitHeight="65.0" fitWidth="65.0" layoutX="84.0" layoutY="541.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img07" fitHeight="75.0" fitWidth="93.0" layoutX="187.0" layoutY="304.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img06" fitHeight="65.0" fitWidth="65.0" layoutX="187.0" layoutY="218.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img08" fitHeight="75.0" fitWidth="93.0" layoutX="187.0" layoutY="384.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img07" fitHeight="65.0" fitWidth="65.0" layoutX="187.0" layoutY="304.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img09" fitHeight="75.0" fitWidth="93.0" layoutX="187.0" layoutY="461.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img08" fitHeight="65.0" fitWidth="65.0" layoutX="187.0" layoutY="384.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img10" fitHeight="75.0" fitWidth="93.0" layoutX="187.0" layoutY="541.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img09" fitHeight="65.0" fitWidth="65.0" layoutX="187.0" layoutY="461.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img11" fitHeight="75.0" fitWidth="93.0" layoutX="293.0" layoutY="218.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img10" fitHeight="65.0" fitWidth="65.0" layoutX="187.0" layoutY="541.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img12" fitHeight="75.0" fitWidth="93.0" layoutX="293.0" layoutY="304.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img11" fitHeight="65.0" fitWidth="65.0" layoutX="293.0" layoutY="218.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img13" fitHeight="75.0" fitWidth="93.0" layoutX="293.0" layoutY="384.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img12" fitHeight="65.0" fitWidth="65.0" layoutX="293.0" layoutY="304.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img14" fitHeight="75.0" fitWidth="93.0" layoutX="293.0" layoutY="461.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img13" fitHeight="65.0" fitWidth="65.0" layoutX="293.0" layoutY="384.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img15" fitHeight="75.0" fitWidth="93.0" layoutX="293.0" layoutY="541.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img15" fitHeight="65.0" fitWidth="65.0" layoutX="293.0" layoutY="541.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img16" fitHeight="75.0" fitWidth="93.0" layoutX="396.0" layoutY="218.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img16" fitHeight="65.0" fitWidth="65.0" layoutX="396.0" layoutY="218.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img17" fitHeight="75.0" fitWidth="93.0" layoutX="396.0" layoutY="304.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img17" fitHeight="65.0" fitWidth="65.0" layoutX="396.0" layoutY="304.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img18" fitHeight="75.0" fitWidth="93.0" layoutX="396.0" layoutY="384.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img18" fitHeight="65.0" fitWidth="65.0" layoutX="396.0" layoutY="384.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img19" fitHeight="75.0" fitWidth="93.0" layoutX="396.0" layoutY="461.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img19" fitHeight="65.0" fitWidth="65.0" layoutX="396.0" layoutY="461.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img20" fitHeight="75.0" fitWidth="93.0" layoutX="396.0" layoutY="541.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img20" fitHeight="65.0" fitWidth="65.0" layoutX="396.0" layoutY="541.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img21" fitHeight="75.0" fitWidth="93.0" layoutX="502.0" layoutY="218.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img21" fitHeight="65.0" fitWidth="65.0" layoutX="502.0" layoutY="218.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img22" fitHeight="75.0" fitWidth="93.0" layoutX="502.0" layoutY="304.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img22" fitHeight="65.0" fitWidth="65.0" layoutX="502.0" layoutY="304.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img23" fitHeight="75.0" fitWidth="93.0" layoutX="502.0" layoutY="384.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img23" fitHeight="65.0" fitWidth="65.0" layoutX="502.0" layoutY="384.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img24" fitHeight="75.0" fitWidth="93.0" layoutX="502.0" layoutY="461.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img24" fitHeight="65.0" fitWidth="65.0" layoutX="502.0" layoutY="461.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img25" fitHeight="75.0" fitWidth="93.0" layoutX="503.0" layoutY="541.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img25" fitHeight="65.0" fitWidth="65.0" layoutX="503.0" layoutY="541.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img26" fitHeight="75.0" fitWidth="93.0" layoutX="614.0" layoutY="218.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img26" fitHeight="65.0" fitWidth="65.0" layoutX="614.0" layoutY="218.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img27" fitHeight="75.0" fitWidth="93.0" layoutX="614.0" layoutY="304.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img27" fitHeight="65.0" fitWidth="65.0" layoutX="614.0" layoutY="304.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img28" fitHeight="75.0" fitWidth="93.0" layoutX="614.0" layoutY="384.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img28" fitHeight="65.0" fitWidth="65.0" layoutX="614.0" layoutY="384.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img29" fitHeight="75.0" fitWidth="93.0" layoutX="614.0" layoutY="461.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img29" fitHeight="65.0" fitWidth="65.0" layoutX="614.0" layoutY="461.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="img30" fitHeight="75.0" fitWidth="93.0" layoutX="614.0" layoutY="541.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img30" fitHeight="65.0" fitWidth="65.0" layoutX="614.0" layoutY="541.0" onMouseClicked="#putCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PICTURES/background-new.jpg" />
          </image>
@@ -191,6 +191,11 @@
       <Label fx:id="lblScore" layoutX="66.0" layoutY="100.0" onDragDetected="#putCard" text="0">
          <font>
             <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblHighScore" layoutX="216.0" layoutY="88.0" onDragDetected="#putCard" prefHeight="89.0" prefWidth="369.0">
+         <font>
+            <Font name="ArcadeClassic" size="34.0" />
          </font>
       </Label>
    </children>

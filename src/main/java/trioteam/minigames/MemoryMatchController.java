@@ -28,6 +28,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -57,6 +59,8 @@ ArrayList<ImageView> buttons = new <ImageView>ArrayList();
 int firstCard = 100;
 int secondCard = 100;
 int pairsLeft = 15;
+
+MediaPlayer player;
 
  
     @FXML
@@ -99,6 +103,9 @@ int pairsLeft = 15;
     private Label lblTime;
     
     @FXML
+    private Label lblHighScore;
+    
+    @FXML
     private MenuItem menuBack;
        
     int add = 0;
@@ -138,7 +145,6 @@ int pairsLeft = 15;
     
     @FXML
     private void moveSeconds() {
-        
         time++;
         lblTime.setText(minute + ":" + time);
         if (time >= 60) {
@@ -187,6 +193,9 @@ int pairsLeft = 15;
         //Turn the labels off
         buttons.get(firstCard).setVisible(false);
         buttons.get(secondCard).setVisible(false);
+        MainApp.credits = 0;
+        MainApp.credits ++;
+        lblScore.setText(""+MainApp.credits);
         //Reset the card hold varable
         firstCard = 100;
         secondCard = 100;
@@ -203,6 +212,10 @@ int pairsLeft = 15;
         alert.showAndWait();
         highscore = minute * 60 + time;
         lblScore.setText("" + highscore + "seconds");
+        timeline.stop();
+        highscore = minute * 60 + time;
+            lblHighScore.setText("" + highscore + "seconds");
+        MainApp.credits = highscore;
     }
 
     }
@@ -215,6 +228,7 @@ int pairsLeft = 15;
     public void initialize(URL url, ResourceBundle rb) {
     timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+        player = new MediaPlayer((new Media(getClass().getResource("/PICTURES/music.mp3").toString())));
     buttons.add(img01);
     buttons.add(img02);
     buttons.add(img03);
