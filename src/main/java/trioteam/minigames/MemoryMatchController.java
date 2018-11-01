@@ -47,13 +47,7 @@ public class MemoryMatchController implements Initializable {
 
     @FXML
     private MenuItem menuInstructions;
-    
-private ImageView cImg1=null;
-private ImageView cImg2=null;
-
-private Button cBtn1=null;
-private Button cBtn2=null;
-    
+        
 ArrayList<Integer> imageList = new <Integer>ArrayList();
 ArrayList<ImageView> buttons = new <ImageView>ArrayList();
 int firstCard = 100;
@@ -154,8 +148,7 @@ MediaPlayer player;
         }
 
     }
-    
-    
+ 
     public void putCard(MouseEvent event) {
       ImageView btn = (ImageView) event.getSource();
       int cardNum=Integer.parseInt(btn.getId().substring(btn.getId().length()-2));
