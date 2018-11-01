@@ -533,70 +533,47 @@
     -fx-background-radius: 3,2,1;
     -fx-text-fill: black; 
 }
-.picture-boo{
--fx-background-image: url(../PICTURES/boo.png);
--fx-background-size: 62 62;
+.pixel{
+    -fx-background-color: 
+        #ff0f0b,
+        linear-gradient(#ea0e0a 10%, #dfdf08 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black; 
 }
-.picture-bowser{
--fx-background-image: url(../PICTURES/bowser.png);
--fx-background-size: 62 62;
+.pokemon{
+    -fx-background-color: 
+        white,
+        linear-gradient(green 10%, green 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black; 
 }
-.picture-controller{
--fx-background-image: url(../PICTURES/controller.png);
--fx-background-size: 62 62;
+.side-scroller{
+    -fx-background-color: 
+        black,
+        linear-gradient(#0033cc 10%, #0033cc 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black; 
 }
-.picture-donkey-kong{
--fx-background-image: url(../PICTURES/donkey-kong.png);
--fx-background-size: 62 62;
+.memory-match{
+    -fx-background-color: 
+        white,
+        linear-gradient(purple 10%, purple 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black; 
 }
-.picture-game-boy{
--fx-background-image: url(../PICTURES/game-boy.png);
--fx-background-size: 62 62;
+.wac{
+    -fx-background-color: 
+        black,
+        linear-gradient(orange 10%, orange 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black; 
 }
-.picture-mario-star{
--fx-background-image: url(../PICTURES/mario-square.png);
--fx-background-size: 62 62;
-}
-.picture-mario{
--fx-background-image: url(../PICTURES/mario.png);
--fx-background-size: 62 62;
-}
-.picture-pacman-ghost{
--fx-background-image: url(../PICTURES/pacman-ghost.png);
--fx-background-size: 62 62;
-}
-.picture-pacman{
--fx-background-image: url(../PICTURES/pacman.jpg);
--fx-background-size: 62 62;
-}
-.picture-poke-ball{
--fx-background-image: url(../PICTURES/poke-ball.png);
--fx-background-size: 62 62;
-}
-.picture-sonic{
--fx-background-image: url(../PICTURES/sonic.jpg);
--fx-background-size: 62 62;
-}
-.picture-space-invaders{
--fx-background-image: url(../PICTURES/space-invaders.jpg);
--fx-background-size: 62 62;
-}
-.picture-star-wars{
--fx-background-image: url(../PICTURES/star-wars.jpg);
--fx-background-size: 62 62;
-}
-.picture-toad{
--fx-background-image: url(../PICTURES/toad.jpg);
--fx-background-size: 62 62;
-}
-.picture-yoshi{
--fx-background-image: url(../PICTURES/yoshi.png);
--fx-background-size: 62 62;
-}
-.picture-lucky-seven{
--fx-background-image: url(../PICTURES/lucky-seven.png);
--fx-background-size: 62 62;    
-}
+
 
 
 
