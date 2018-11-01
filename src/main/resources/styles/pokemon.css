@@ -19,6 +19,12 @@
 .menuButton {
     -fx-font-family: "ArcadeClassic";
     -fx-font-size: 36;
+    -fx-background-color: 
+        white,
+        linear-gradient(#ffe529 12%, #ffd34a 35% );
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black;   
 }
 
 .battleBackgroundImage {
@@ -57,6 +63,33 @@
 .missingnoFront {
     -fx-background-image: url(../pokemonimages/missingno.png);
     -fx-background-size: contain;
+}
+
+.theme-background{
+    -fx-background-color: 
+        red,
+        linear-gradient(#ffffda 12%, #ff1700 35% );
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: white;   
+}
+
+.charmander{
+    -fx-background-color: 
+        white,
+        linear-gradient(#0050ff 12%, #0032a0 35% );
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: white;  
+}
+
+.back{
+   -fx-background-color: 
+        white,
+        linear-gradient(#ffe529 12%, #ffd34a 35% );
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black;   
 }
 
 @font-face {

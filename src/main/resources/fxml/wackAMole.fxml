@@ -6,9 +6,11 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane id="AnchorPane" prefHeight="806.0" prefWidth="606.0" styleClass="background" stylesheets="@../styles/wackamole.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trioteam.minigames.WackAMoleController">
    <children>
+      <Rectangle fill="#1f93ff00" height="565.0" layoutX="6.0" layoutY="99.0" onMouseClicked="#recMiss" stroke="TRANSPARENT" strokeType="INSIDE" width="603.0" />
       <Label layoutX="143.0" layoutY="14.0" styleClass="labelWac" text="Wack A Mole" textAlignment="CENTER">
          <font>
             
@@ -36,5 +38,6 @@
             </Menu>
          </menus>
       </MenuBar>
+      <Label fx:id="lblCredits" alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="145.0" prefHeight="40.0" prefWidth="568.0" styleClass="labelWacSmall" text="Credits:" textAlignment="CENTER" />
    </children>
 </AnchorPane>

@@ -30,6 +30,7 @@ import javafx.scene.media.MediaPlayer;
 import static javafx.scene.media.MediaPlayer.INDEFINITE;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import static trioteam.minigames.MainApp.credits;
 import static trioteam.minigames.MainApp.enemyLevel;
 import static trioteam.minigames.MainApp.pokeInfo;
 import static trioteam.minigames.MainApp.pokeInfoE;
@@ -109,10 +110,12 @@ public class PokemonGameController implements Initializable {
             lblEnemyHP.setText("HP: 0" + "/" + pokeInfoE.maxHP);
             alert.setContentText("You have defeated the enemy " + pokeInfoE.pkmn);
             Platform.runLater(alert::showAndWait);
-            if (enemyLevel < pokeLevel) {
+            if (enemyLevel <= pokeLevel) {
                 pokeXP = pokeXP + 100;
+                credits = credits + 10;
             } else {
                 pokeXP = pokeXP + 100 + (100 * (enemyLevel - pokeLevel));
+                credits = credits + (100 * (enemyLevel - pokeLevel));
             }
             System.out.println("XP: " + pokeXP);
             System.out.println("XP needed: " + pokeXPNeeded);
@@ -160,10 +163,12 @@ public class PokemonGameController implements Initializable {
             lblEnemyHP.setText("HP: 0" + "/" + pokeInfoE.maxHP);
             alert.setContentText("You have defeated the enemy " + pokeInfoE.pkmn);
             Platform.runLater(alert::showAndWait);
-            if (enemyLevel < pokeLevel) {
+            if (enemyLevel <= pokeLevel) {
                 pokeXP = pokeXP + 100;
+                credits = credits + 10;
             } else {
                 pokeXP = pokeXP + 100 + (100 * (enemyLevel - pokeLevel));
+                credits = credits + (10 * (enemyLevel - pokeLevel));
             }
             System.out.println("XP: " + pokeXP);
             System.out.println("XP needed: " + pokeXPNeeded);
@@ -249,13 +254,12 @@ public class PokemonGameController implements Initializable {
     int animate = 0;
     private void animate() {
         animate++;
-        System.out.println("animate: " + animate);
         if (enemyTurn == false) {
             if (animate >= 25) {
                 picPokemon.setTranslateX(picPokemon.getTranslateX() - 1);
                 if (animate >= 50) {
                     animate = 0;
-                    //animation.stop();
+                    picPokemon.setTranslateX(0);
                 }
             } else {
                 picPokemon.setTranslateX(picPokemon.getTranslateX() + 1);
@@ -265,7 +269,7 @@ public class PokemonGameController implements Initializable {
                 picEnemy.setTranslateX(picEnemy.getTranslateX() + 1);
                 if (animate >= 50) {
                     animate = 0;
-                    //animation.stop();
+                    picEnemy.setTranslateX(0);
                 }
             } else {
                 picEnemy.setTranslateX(picEnemy.getTranslateX() - 1);

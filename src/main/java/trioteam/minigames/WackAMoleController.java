@@ -24,7 +24,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import static trioteam.minigames.MainApp.credits;
 import static trioteam.minigames.MainApp.wacHighScore;
 
 /**
@@ -63,30 +67,40 @@ public class WackAMoleController implements Initializable {
     private Label lblHighScore;
 
     @FXML
+    private Label lblCredits;
+
+    @FXML
     private Button btnPlay;
+    
 
     Label mole[] = new Label[9];
 
     int points = 0;
 
     int time = 30;
+    
+    boolean gameOn = false;
 
     Timeline timer = new Timeline(new KeyFrame(Duration.millis(5), ae -> moles()));
 
     Alert alert = new Alert(AlertType.INFORMATION);
+    
+    MediaPlayer punch = new MediaPlayer((new Media(getClass().getResource("/pokemonimages/punch.mp3").toString())));
 
     @FXML
     private void btnPlay(ActionEvent event) {
         timer.setCycleCount(INDEFINITE);
         timer.play();
         btnPlay.setDisable(true);
+        gameOn = true;
     }
 
     private void moles() {
+        
         Random rand = new Random();
 
         if (rand.nextInt(50) == 0) {
-          
+
             mole[rand.nextInt(9)].setVisible(true);
         }
         if (rand.nextInt(50) == 1) {
@@ -103,6 +117,9 @@ public class WackAMoleController implements Initializable {
                 alert.setHeaderText("Game Over");
                 alert.setContentText("You got " + points + " Points!");
 
+                credits = credits + points;
+                lblCredits.setText("Credits: " + credits);
+
                 if (points > wacHighScore) {
                     wacHighScore = points;
                     lblHighScore.setText("High Score: " + wacHighScore);
@@ -114,11 +131,13 @@ public class WackAMoleController implements Initializable {
                 timee = 0;
                 time = 30;
                 lblTime.setText("Time: 30");
-                
+
                 points = 0;
                 lblPoints.setText("Points: 0");
 
                 btnPlay.setDisable(false);
+                
+                gameOn = false;
 
                 for (int i = 0; i < mole.length; i++) {
                     mole[i].setVisible(false);
@@ -133,9 +152,18 @@ public class WackAMoleController implements Initializable {
     private void moleClick(Event event) {
         Label lbl = (Label) event.getSource();
         lbl.setVisible(false);
+        punch.play();
         points++;
         lblPoints.setText("Points: " + points);
     }
+    @FXML
+    private void recMiss() {
+        if ((gameOn == true) && (points > 0)) {
+            points--;
+            lblPoints.setText("Points: " + points);
+        } 
+    }
+
     @FXML
     private void returnToMenu(Event event) throws IOException {
 
@@ -164,12 +192,16 @@ public class WackAMoleController implements Initializable {
         mole[7] = mole7;
         mole[8] = mole8;
         
-         for (int r = 0; r <= 8; r++) {
-              mole[r].getStyleClass().clear();
-                mole[r].getStyleClass().add(MainApp.wacImage);
-               
-                }
-            
+        lblHighScore.setText("High Score: " + wacHighScore);
+        lblCredits.setText("Credits: " + credits);
+        
+
+        for (int r = 0; r <= 8; r++) {
+            mole[r].getStyleClass().clear();
+            mole[r].getStyleClass().add(MainApp.wacImage);
+
+        }
+
     }
 
 }
