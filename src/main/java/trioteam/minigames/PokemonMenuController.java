@@ -222,6 +222,10 @@ public class PokemonMenuController implements Initializable {
 
     @FXML
     private void cheat(KeyEvent event) throws IOException {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setTitle("Command");
+
         if (event.getCode() == KeyCode.ESCAPE) {
             if (txtCheat.isVisible()) {
                 if ((txtCheat.getText().equals("pokemon.set('missingno')")) && (chooseEnemy == true)) {
@@ -247,6 +251,10 @@ public class PokemonMenuController implements Initializable {
                     txtCheat.setPromptText(command);
                 } else if ("level.set".equals(command)) {
                     try {
+                        if (Integer.parseInt(txtCheat.getText()) < 0) {
+                            txtCheat.setText("");
+                            return;
+                        }
                         pokeLevel = Integer.parseInt(txtCheat.getText());
                         pokeXP = 0;
                         pokeXPNeeded = 500 + (500 * pokeLevel);
@@ -257,7 +265,7 @@ public class PokemonMenuController implements Initializable {
                         txtCheat.setVisible(false);
                         command = null;
                     } catch (NumberFormatException numberFormatException) {
-                        txtCheat.setPromptText(command + " WHOLE NUMBERS ONLY");
+                        txtCheat.setText("");
                     }
                 } else if (txtCheat.getText().equals("level++")) {
                     pokeLevel++;

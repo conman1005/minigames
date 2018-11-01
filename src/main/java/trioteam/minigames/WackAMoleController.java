@@ -5,6 +5,7 @@
  */
 package trioteam.minigames;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -15,7 +16,10 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -82,6 +86,7 @@ public class WackAMoleController implements Initializable {
         Random rand = new Random();
 
         if (rand.nextInt(50) == 0) {
+          
             mole[rand.nextInt(9)].setVisible(true);
         }
         if (rand.nextInt(50) == 1) {
@@ -131,6 +136,21 @@ public class WackAMoleController implements Initializable {
         points++;
         lblPoints.setText("Points: " + points);
     }
+    @FXML
+    private void returnToMenu(Event event) throws IOException {
+
+        Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/wacMenu.fxml")); //where FXMLPage2 is the name of the scene
+
+        Scene home_page_scene = new Scene(home_page_parent);
+        home_page_scene.getRoot().requestFocus();
+        //get reference to the stage 
+
+        MainApp.mainStage.hide(); //optional
+        MainApp.mainStage.setScene(home_page_scene); //puts the new scence in the stage
+
+        MainApp.mainStage.setTitle("MiniGames"); //changes the title
+        MainApp.mainStage.show(); //shows the new page 
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -143,6 +163,13 @@ public class WackAMoleController implements Initializable {
         mole[6] = mole6;
         mole[7] = mole7;
         mole[8] = mole8;
+        
+         for (int r = 0; r <= 8; r++) {
+              mole[r].getStyleClass().clear();
+                mole[r].getStyleClass().add(MainApp.wacImage);
+               
+                }
+            
     }
 
 }

@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.concurrent.ThreadLocalRandom;
 import javafx.animation.KeyFrame;
@@ -47,7 +48,9 @@ public class MemoryMatchController implements Initializable {
 
     @FXML
     private MenuItem menuInstructions;
+
         
+
 ArrayList<Integer> imageList = new <Integer>ArrayList();
 ArrayList<ImageView> buttons = new <ImageView>ArrayList();
 int firstCard = 100;
@@ -57,6 +60,7 @@ int pairsLeft = 15;
 MediaPlayer player;
 
  
+
     @FXML
     private ImageView img01;     @FXML private ImageView img02;   @FXML private ImageView img03;
     
@@ -97,11 +101,18 @@ MediaPlayer player;
     private Label lblTime;
     
     @FXML
+
+    private Label lblRandom;
+    
+    @FXML
+    private Label lblPair;
+   
     private Label lblHighScore;
     
     @FXML
     private MenuItem menuBack;
        
+
     int add = 0;
     int time = 0;
     int minute = 0;
@@ -122,6 +133,7 @@ MediaPlayer player;
         alert.showAndWait();
     }
     
+
     @FXML
     private void play(ActionEvent event){
         btnPlay.setVisible(false);
@@ -182,6 +194,7 @@ MediaPlayer player;
          Image name = new Image(getClass().getResource("/PICTURES/"+imageList.get(cardNum) + ".png").toString());
         buttons.get(cardNum).setImage(name);
         //Check to see if the cards match
+        }
         if (imageList.get(firstCard).equals(imageList.get(secondCard))) {
         //Turn the labels off
         buttons.get(firstCard).setVisible(false);
@@ -194,31 +207,21 @@ MediaPlayer player;
         secondCard = 100;
         //One less pair to find
         pairsLeft--;
-        }
-    }
-        //Check to see if you won
-        if (pairsLeft == 0) {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Winner");
-        alert.setHeaderText(null);
-        alert.setContentText("yay you found all the pairs");
-        alert.showAndWait();
         highscore = minute * 60 + time;
         lblScore.setText("" + highscore + "seconds");
         timeline.stop();
-        highscore = minute * 60 + time;
-            lblHighScore.setText("" + highscore + "seconds");
         MainApp.credits = highscore;
-    }
 
+    
+        }
     }
     
-    
-    
-    
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
     timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
         player = new MediaPlayer((new Media(getClass().getResource("/PICTURES/music.mp3").toString())));
@@ -260,5 +263,9 @@ MediaPlayer player;
         //This randomly sorts the array to move the images around
         Collections.shuffle(imageList);    
 
+
 }
 }
+        
+    
+

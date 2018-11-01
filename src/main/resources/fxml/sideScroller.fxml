@@ -14,14 +14,14 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" onKeyPressed="#keyPressed" prefHeight="893.0" prefWidth="1356.0" styleClass="tempBackground" stylesheets="@../styles/sidescroller.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trioteam.minigames.SideScrollerController">
+<AnchorPane id="AnchorPane" onKeyPressed="#keyPressed" onKeyReleased="#keyUp" prefHeight="893.0" prefWidth="1356.0" styleClass="tempBackground" stylesheets="@../styles/sidescroller.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trioteam.minigames.SideScrollerController">
    <children>
       <MenuBar layoutY="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
               <MenuItem mnemonicParsing="false" text="Close" />
-                  <MenuItem fx:id="munMenu" mnemonicParsing="false" onAction="#returnToMenu" text="Return To Menu" />
+                  <MenuItem mnemonicParsing="false" onAction="#returnToMenu" text="Return To Menu" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Options">
@@ -90,7 +90,7 @@
          </font>
       </Label>
       <ImageView fx:id="picStartButton" fitHeight="349.0" fitWidth="740.0" onMouseClicked="#start" pickOnBounds="true" preserveRatio="true" styleClass="start" translateX="371.0" translateY="192.0" />
-      <Label fx:id="lblText" alignment="CENTER" prefHeight="109.0" prefWidth="662.0" text="You Survived:" textFill="WHITE" translateX="400.0" translateY="500.0" visible="false">
+      <Label fx:id="lblText" alignment="CENTER" prefHeight="169.0" prefWidth="663.0" text="You Survived:" textFill="WHITE" translateX="400.0" translateY="500.0" visible="false">
          <font>
             <Font name="Bauhaus 93" size="51.0" />
          </font>
@@ -144,7 +144,7 @@
             <Font name="Bell MT" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lblTime1" layoutX="741.0" layoutY="840.0" prefHeight="51.0" prefWidth="234.0" text="Credits:" textFill="#ebc23c">
+      <Label fx:id="lblCredits" layoutX="741.0" layoutY="840.0" prefHeight="51.0" prefWidth="234.0" text="Credits:" textFill="#ebc23c">
          <font>
             <Font name="Magneto Bold" size="32.0" />
          </font>
