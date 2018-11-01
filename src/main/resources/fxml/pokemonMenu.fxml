@@ -8,18 +8,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" onKeyPressed="#cheat" prefHeight="591.0" prefWidth="878.0" styleClass="mainFxmlClass" stylesheets="@../styles/pokemon.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trioteam.minigames.PokemonMenuController">
+<AnchorPane id="AnchorPane" onKeyPressed="#cheat" prefHeight="591.0" prefWidth="878.0" styleClass="theme-background" stylesheets="@../styles/pokemon.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trioteam.minigames.PokemonMenuController">
    <children>
       <Label fx:id="lblTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="121.0" layoutY="14.0" prefHeight="54.0" prefWidth="639.0" styleClass="title" text="Choose Your Pokemon" textAlignment="CENTER">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <Button layoutX="77.0" layoutY="241.0" onAction="#btnCharmander" prefHeight="33.0" prefWidth="131.0" text="charmander" textAlignment="CENTER" />
+      <Button layoutX="88.0" layoutY="241.0" onAction="#btnCharmander" prefHeight="33.0" prefWidth="131.0" styleClass="charmander" text="charmander" textAlignment="CENTER" />
       <Label layoutX="81.0" layoutY="104.0" prefHeight="134.0" prefWidth="123.0" styleClass="charmanderFront" />
-      <Button layoutX="374.0" layoutY="241.0" onAction="#btnSquirtle" prefHeight="33.0" prefWidth="131.0" text="squirtle" textAlignment="CENTER" />
+      <Button layoutX="374.0" layoutY="241.0" onAction="#btnSquirtle" prefHeight="33.0" prefWidth="131.0" styleClass="charmander" text="squirtle" textAlignment="CENTER" />
       <Label layoutX="370.0" layoutY="104.0" prefHeight="134.0" prefWidth="140.0" styleClass="squirtleFront" />
-      <Button layoutX="670.0" layoutY="241.0" onAction="#btnBulbasoar" prefHeight="33.0" prefWidth="131.0" text="bulbasoar" textAlignment="CENTER" />
+      <Button layoutX="670.0" layoutY="241.0" onAction="#btnBulbasoar" prefHeight="33.0" prefWidth="131.0" styleClass="charmander" text="bulbasoar" textAlignment="CENTER" />
       <Label layoutX="670.0" layoutY="84.0" prefHeight="154.0" prefWidth="131.0" styleClass="bulbasoarFront" />
       <Button layoutX="77.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnMenu" styleClass="menuButton" text="Main Menu" />
       <Label fx:id="lblLevel" alignment="CENTER" contentDisplay="CENTER" layoutX="320.0" layoutY="319.0" prefHeight="28.0" prefWidth="238.0" styleClass="title" text="Enemy Level: 0" textAlignment="CENTER" visible="false">
@@ -29,17 +29,17 @@
       </Label>
       <Slider fx:id="sldLevel" layoutX="233.0" layoutY="347.0" majorTickUnit="10.0" minorTickCount="10" onKeyPressed="#sldLevel" onKeyTyped="#sldLevel" onMouseClicked="#sldLevel" onMouseDragged="#sldLevel" prefHeight="63.0" prefWidth="413.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" styleClass="button" value="1.0" visible="false" />
       <ProgressBar fx:id="prgLevel" layoutX="502.0" layoutY="507.0" prefHeight="33.0" prefWidth="226.0" progress="0.0" />
-      <Label fx:id="lblLevelCur" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="356.0" layoutY="510.0" prefHeight="28.0" prefWidth="131.0" text="Level: 0" textAlignment="RIGHT">
+      <Label fx:id="lblLevelCur" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="356.0" layoutY="510.0" prefHeight="28.0" prefWidth="131.0" text="Level: 0" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="lblLevelNext" layoutX="741.0" layoutY="510.0" prefHeight="28.0" prefWidth="123.0" text="Level: 1">
+      <Label fx:id="lblLevelNext" layoutX="741.0" layoutY="510.0" prefHeight="28.0" prefWidth="123.0" text="Level: 1" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnHTP" text="How to Play" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnHTP" styleClass="back" text="How to Play" />
       <TextField fx:id="txtCheat" layoutX="14.0" layoutY="552.0" prefHeight="25.0" prefWidth="852.0" visible="false" />
       <Label fx:id="lblCredits" alignment="CENTER" contentDisplay="CENTER" layoutX="206.0" layoutY="54.0" prefHeight="28.0" prefWidth="467.0" text="Credits: " textAlignment="CENTER">
          <font>
