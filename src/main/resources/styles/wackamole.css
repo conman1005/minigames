@@ -64,3 +64,11 @@
     -fx-font-family: "ArcadeClassic";
     -fx-font-size: 36;
 }
+.theme{
+    -fx-background-color: 
+        white,
+        linear-gradient(#000033 10%, #999999 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: black; 
+}

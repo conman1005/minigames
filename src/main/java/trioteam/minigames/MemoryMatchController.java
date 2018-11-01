@@ -5,14 +5,21 @@ package trioteam.minigames;
  * Date: 10/16/18
  * Description: Memory matchning game
  */
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
 import java.util.concurrent.ThreadLocalRandom;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -21,6 +28,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -29,6 +38,8 @@ import javafx.scene.input.MouseEvent;
  */
 public class MemoryMatchController implements Initializable {
 
+    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), ae -> moveSeconds()));
+    
     @FXML
     private MenuItem menuExit;
 
@@ -81,15 +92,19 @@ int pairsLeft = 15;
     @FXML
     private Button btnPlay;
 
-   
+   @FXML
+   private Label lblScore;
     
     @FXML
-    private Label lblShots;
+    private Label lblTime;
     
     @FXML
-    private Label lblRandom;
+    private MenuItem menuBack;
        
     int add = 0;
+    int time = 0;
+    int minute = 0;
+    int highscore = 0;
     
     @FXML
     private void exit(ActionEvent event) {
@@ -101,9 +116,8 @@ int pairsLeft = 15;
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Instructions");
         alert.setHeaderText(null);
-        alert.setContentText("A series of pictures will show up on the screen, memeorize the placements of the images"
-                + "The pictures will go away after 3 seconds"
-                + "Click on the buttons to try and find pairs in the fastest time possible");
+        alert.setContentText("Click on 2 spaces and tr and find all 15 pairs!"
+                + "Find all the pairs in the shortest time possible!");
         alert.showAndWait();
     }
     
@@ -112,6 +126,29 @@ int pairsLeft = 15;
         btnPlay.setVisible(false);
     }
 
+    @FXML
+    private void back(ActionEvent event) throws IOException{
+    Parent second = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
+        Scene first = new Scene(second);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(first);
+        stage.setTitle("Page 1");
+        stage.show();
+    }
+    
+    @FXML
+    private void moveSeconds() {
+        
+        time++;
+        lblTime.setText(minute + ":" + time);
+        if (time >= 60) {
+            minute++;
+            lblTime.setText(minute + ":" + time);
+            time = 0;
+        }
+
+    }
+    
     
     public void putCard(MouseEvent event) {
       ImageView btn = (ImageView) event.getSource();
@@ -124,7 +161,7 @@ int pairsLeft = 15;
         //Checks to see if two cards are showing, if they are flip them
         if (firstCard != 100 && secondCard != 100) {
         //clear the image
-        Image blank = new Image(getClass().getResource("/PICTURES/grey-background.png").toString());
+        Image blank = new Image(getClass().getResource("/PICTURES/background-new.jpg").toString());
         buttons.get(firstCard).setImage(blank);
         buttons.get(secondCard).setImage(blank);
         //resets the cards
@@ -148,8 +185,8 @@ int pairsLeft = 15;
         //Check to see if the cards match
         if (imageList.get(firstCard).equals(imageList.get(secondCard))) {
         //Turn the labels off
-        buttons.get(firstCard).setDisable(true);
-        buttons.get(secondCard).setDisable(true);
+        buttons.get(firstCard).setVisible(false);
+        buttons.get(secondCard).setVisible(false);
         //Reset the card hold varable
         firstCard = 100;
         secondCard = 100;
@@ -164,6 +201,8 @@ int pairsLeft = 15;
         alert.setHeaderText(null);
         alert.setContentText("yay you found all the pairs");
         alert.showAndWait();
+        highscore = minute * 60 + time;
+        lblScore.setText("" + highscore + "seconds");
     }
 
     }
@@ -174,6 +213,8 @@ int pairsLeft = 15;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+    timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
     buttons.add(img01);
     buttons.add(img02);
     buttons.add(img03);
