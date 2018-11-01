@@ -163,7 +163,7 @@ MediaPlayer player;
  
     public void putCard(MouseEvent event) {
       ImageView btn = (ImageView) event.getSource();
-      int cardNum=Integer.parseInt(btn.getId().substring(btn.getId().length()-2));
+      int cardNum=Integer.parseInt(btn.getId().substring(btn.getId().length()-2))-1;
         //Check to see if the card has already been used or they clicked on the same one again. If so stop the code
         if (buttons.get(cardNum).isDisabled() == true || firstCard == cardNum) {
         return;
@@ -207,11 +207,20 @@ MediaPlayer player;
         secondCard = 100;
         //One less pair to find
         pairsLeft--;
+        
+        
+        //Check to see if you won
+        if (pairsLeft == 0) {
+            Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Winner");
+        alert.setHeaderText(null);
+        alert.setContentText("You found all the pairs!");
+        alert.showAndWait();
         highscore = minute * 60 + time;
         lblScore.setText("" + highscore + "seconds");
+        MainApp.credits = MainApp.credits + highscore;
         timeline.stop();
-        MainApp.credits = highscore;
-
+        }       
     
         }
     }

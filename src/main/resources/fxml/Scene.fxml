@@ -7,22 +7,27 @@
 
 <AnchorPane id="AnchorPane" prefHeight="494.0" prefWidth="836.0" styleClass="pixel" stylesheets="@../styles/memorymatch.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trioteam.minigames.FXMLController">
     <children>
-        <Button layoutX="21.0" layoutY="34.0" onAction="#btnPokemon" prefHeight="103.0" prefWidth="210.0" styleClass="pokemon" text="Pokemon">
+        <Button layoutX="21.0" layoutY="99.0" onAction="#btnPokemon" prefHeight="103.0" prefWidth="210.0" styleClass="pokemon" text="Pokemon">
          <font>
             <Font name="ArcadeClassic" size="36.0" />
          </font></Button>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <Button layoutX="554.0" layoutY="247.0" onAction="#btnMemoryMatch" prefHeight="83.0" prefWidth="268.0" styleClass="memory-match" text="Memory Match">
+      <Button layoutX="554.0" layoutY="309.0" onAction="#btnMemoryMatch" prefHeight="83.0" prefWidth="268.0" styleClass="memory-match" text="Memory Match">
          <font>
             <Font name="ArcadeClassic" size="34.0" />
          </font></Button>
-      <Button layoutX="251.0" layoutY="137.0" onAction="#btnSideScroller" prefHeight="116.0" prefWidth="280.0" styleClass="side-scroller" text="Side Scroller">
+      <Button layoutX="251.0" layoutY="202.0" onAction="#btnSideScroller" prefHeight="116.0" prefWidth="280.0" styleClass="side-scroller" text="Side Scroller">
          <font>
             <Font name="ArcadeClassic" size="34.0" />
          </font></Button>
-      <Button layoutX="268.0" layoutY="337.0" onAction="#btnWac" prefHeight="83.0" prefWidth="246.0" styleClass="wac" text="Wac A Wac">
+      <Button layoutX="268.0" layoutY="387.0" onAction="#btnWac" prefHeight="83.0" prefWidth="246.0" styleClass="wac" text="Wac A Wac">
          <font>
             <Font name="ArcadeClassic" size="39.0" />
          </font></Button>
+      <Label layoutX="294.0" layoutY="21.0" text="PICK A GAME" textFill="WHITE">
+         <font>
+            <Font name="ArcadeClassic" size="47.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
