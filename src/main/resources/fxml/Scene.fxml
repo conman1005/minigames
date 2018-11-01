@@ -3,13 +3,26 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="433.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trioteam.minigames.FXMLController">
+<AnchorPane id="AnchorPane" prefHeight="494.0" prefWidth="836.0" styleClass="pixel" stylesheets="@../styles/memorymatch.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trioteam.minigames.FXMLController">
     <children>
-        <Button layoutX="99.0" layoutY="176.0" onAction="#btnPokemon" prefHeight="83.0" prefWidth="173.0" text="Pokemon" />
+        <Button layoutX="21.0" layoutY="34.0" onAction="#btnPokemon" prefHeight="103.0" prefWidth="210.0" styleClass="pokemon" text="Pokemon">
+         <font>
+            <Font name="ArcadeClassic" size="36.0" />
+         </font></Button>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <Button layoutX="463.0" layoutY="175.0" onAction="#btnMemoryMatch" prefHeight="83.0" prefWidth="173.0" text="Memory Match" />
-      <Button layoutX="282.0" layoutY="175.0" onAction="#btnSideScroller" prefHeight="83.0" prefWidth="173.0" text="Side Scroller" />
-      <Button layoutX="281.0" layoutY="289.0" onAction="#btnWac" prefHeight="83.0" prefWidth="173.0" text="Wac A Wac" />
+      <Button layoutX="554.0" layoutY="247.0" onAction="#btnMemoryMatch" prefHeight="83.0" prefWidth="268.0" styleClass="memory-match" text="Memory Match">
+         <font>
+            <Font name="ArcadeClassic" size="34.0" />
+         </font></Button>
+      <Button layoutX="251.0" layoutY="137.0" onAction="#btnSideScroller" prefHeight="116.0" prefWidth="280.0" styleClass="side-scroller" text="Side Scroller">
+         <font>
+            <Font name="ArcadeClassic" size="34.0" />
+         </font></Button>
+      <Button layoutX="268.0" layoutY="337.0" onAction="#btnWac" prefHeight="83.0" prefWidth="246.0" styleClass="wac" text="Wac A Wac">
+         <font>
+            <Font name="ArcadeClassic" size="39.0" />
+         </font></Button>
     </children>
 </AnchorPane>
