@@ -213,6 +213,7 @@ public class PokemonGameController implements Initializable {
     private void enemyTurn() {
         enemyTurn = true;
         Random rand = new Random();
+        //random number for random move
         int ans = rand.nextInt(2);
         if (ans == 0) {
             alert.setContentText(pokeInfoE.pkmn + " used " + pokeInfoE.move1 + "!");
