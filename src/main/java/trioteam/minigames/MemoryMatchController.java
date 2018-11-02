@@ -148,8 +148,10 @@ MediaPlayer player;
     
     @FXML
     private void moveSeconds() {
+        //adds one each time to the minute column 
         time++;
         lblTime.setText(minute + ":" + time);
+        //resets the second column to go back to 0 and start going back up by seconds
         if (time >= 60) {
             minute++;
             lblTime.setText(minute + ":" + time);
@@ -159,8 +161,10 @@ MediaPlayer player;
     }
  
     public void putCard(MouseEvent event) {
-      ImageView btn = (ImageView) event.getSource();
-      int cardNum=Integer.parseInt(btn.getId().substring(btn.getId().length()-2))-1;
+      //btn is the variable to tell the imageview to do something specific if it has been clicked
+        ImageView btn = (ImageView) event.getSource();
+      //reads the last two digits of the imageviews fx:id and can read what image is at that imageview
+        int cardNum=Integer.parseInt(btn.getId().substring(btn.getId().length()-2))-1;
         //Check to see if the card has already been used or they clicked on the same one again. If so stop the code
         if (buttons.get(cardNum).isDisabled() == true || firstCard == cardNum) {
         return;
@@ -170,6 +174,7 @@ MediaPlayer player;
         if (firstCard != 100 && secondCard != 100) {
         //clear the image
         Image blank = new Image(getClass().getResource("/PICTURES/background-new.jpg").toString());
+        //makes the two non pairing images back to the grey background 
         buttons.get(firstCard).setImage(blank);
         buttons.get(secondCard).setImage(blank);
         //resets the cards
@@ -180,7 +185,7 @@ MediaPlayer player;
         //Checks to see if this is the first card they pushed
         if (firstCard == 100 && secondCard == 100) {
         firstCard = cardNum;
-        //Load the image
+        //Loads the image that was shuffled in to the spot that the user clicked on
         Image name = new Image(getClass().getResource("/PICTURES/"+imageList.get(cardNum) + ".png").toString());
         buttons.get(cardNum).setImage(name);
         
@@ -188,12 +193,13 @@ MediaPlayer player;
         //Checks to see if this is the second card they pushed
         else if (firstCard != 100 && secondCard == 100) {
         secondCard = cardNum;
-         Image name = new Image(getClass().getResource("/PICTURES/"+imageList.get(cardNum) + ".png").toString());
+        //loads the second image that they click  
+        Image name = new Image(getClass().getResource("/PICTURES/"+imageList.get(cardNum) + ".png").toString());
         buttons.get(cardNum).setImage(name);
         //Check to see if the cards match
         }
         if (firstCard!=100 && secondCard!=100&& imageList.get(firstCard).equals(imageList.get(secondCard)) ) {
-        //Turn the labels off
+        //Make the imageview invisible so the user can't click it anymore
         buttons.get(firstCard).setVisible(false);
         buttons.get(secondCard).setVisible(false);        
         //Reset the card hold varable
@@ -205,14 +211,18 @@ MediaPlayer player;
         }
         //Check to see if you won
         if (pairsLeft == 0) {
+            //when there are no more pairs left then an alert message box will show up and tell the user they found all the pairs
             Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Winner");
         alert.setHeaderText(null);
         alert.setContentText("You found all the pairs!");
         alert.showAndWait();
+        //how ever long they took to complete the game will be turned into seconds and how ever many seconds it took will be their score
         highscore = minute * 60 + time;
+        //the score label box will become visible showing the user thei score they got
         lblScore.setVisible(true);
         lblScore.setText("" + highscore + " seconds");
+        //using the global variable "credits" to add theusers new score to the credits which they can use to buy things in the store
         MainApp.credits = MainApp.credits + highscore;
         timeline.stop();
         }       
