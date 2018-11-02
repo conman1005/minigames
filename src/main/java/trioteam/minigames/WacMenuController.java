@@ -1,3 +1,8 @@
+/*
+ spencer jones
+ allows user to pick charachter to wac image
+ 2018-11-01
+ */
 package trioteam.minigames;
 
 import java.io.IOException;
@@ -36,18 +41,19 @@ public class WacMenuController implements Initializable {
     private Label lblCredits;
     @FXML
     private Button btnCon;
-
+//image number
     int image = 0;
+	//image grid
     String grid[] = new String[8];
 
     int cost = 0;
 
     @FXML
-    private void next() {
+    private void next() { //next button code
         image = image + 1;
         lblDisplay.getStyleClass().clear();
         lblDisplay.getStyleClass().add(grid[image]);
-        switch (image) {
+        switch (image) {  //checks what image to show
             case 1:
                 btnBack.setDisable(false);
                 if (MainApp.boo == true) {
@@ -141,7 +147,7 @@ public class WacMenuController implements Initializable {
     }
 
     @FXML
-    private void back() {
+    private void back() {  
         image = image - 1;
         lblDisplay.getStyleClass().clear();
         lblDisplay.getStyleClass().add(grid[image]);
@@ -234,7 +240,7 @@ public class WacMenuController implements Initializable {
 
     @FXML
 
-    private void confirm(ActionEvent event) throws IOException {
+    private void confirm(ActionEvent event) throws IOException { //if button says buy than runs buy code and - cost form credits, if Comfrim changes screen and updates MainApp.wacImage
         if ("Buy".equals(btnCon.getText())) {
             if (cost <= MainApp.credits) {
                 MainApp.credits = MainApp.credits - cost;
