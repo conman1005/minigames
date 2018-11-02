@@ -549,10 +549,26 @@
     -fx-background-radius: 3,2,1;
     -fx-text-fill: white; 
 }
+.pokemon.hover{
+    -fx-background-color: 
+        white,
+        linear-gradient(darkgreen 10%, darkgreen 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: white; 
+}
 .side-scroller{
     -fx-background-color: 
         white,
         linear-gradient(#0033cc 10%, #0033cc 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: white; 
+}
+.side-scroller.hover{
+    -fx-background-color: 
+        white,
+        linear-gradient(#0000ff 10%, #0000ff 74%);
     -fx-background-insets: 0,1,2;
     -fx-background-radius: 3,2,1;
     -fx-text-fill: white; 
@@ -565,10 +581,27 @@
     -fx-background-radius: 3,2,1;
     -fx-text-fill: white; 
 }
+.memory-match.hover{
+    -fx-background-color: 
+        white,
+        linear-gradient(darkviolet 10%, darkviolet 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: white; 
+}
+
 .wac{
     -fx-background-color: 
         white,
         linear-gradient(orange 10%, orange 74%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: white; 
+}
+.wac-hover{
+    -fx-background-color: 
+        white,
+        linear-gradient(darkorange 10%, darkorange 74%);
     -fx-background-insets: 0,1,2;
     -fx-background-radius: 3,2,1;
     -fx-text-fill: white; 
