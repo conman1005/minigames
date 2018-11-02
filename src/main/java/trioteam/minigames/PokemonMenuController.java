@@ -2,9 +2,10 @@ package trioteam.minigames;
 
 /*
  * Made By: Conner Cullity
- * Date: 
- * Description: 
+ * Date: 11/1/2018
+ * Description: The pokemon menu
  */
+//imports
 import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
@@ -43,6 +44,7 @@ import static trioteam.minigames.MainApp.pokeXPNeeded;
  */
 public class PokemonMenuController implements Initializable {
 
+    //Declairing Labels, Buttons and other objects
     boolean chooseEnemy = false;
 
     @FXML
@@ -69,31 +71,36 @@ public class PokemonMenuController implements Initializable {
 
     MediaPlayer music = new MediaPlayer((new Media(getClass().getResource("/pokemonimages/opening.mp3").toString())));
 
+    //Picks Charmander
     @FXML
     private void btnCharmander(ActionEvent event) throws IOException {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setHeaderText("Charmander");
+        //checks if you're choosing for the enemy
         if (chooseEnemy == false) {
             alert.setContentText("Are you sure you want to chose Charmander?");
             Optional<ButtonType> result = alert.showAndWait();
 
+            //checks if you clicked OK, which picks charmander for your pokemon
             if (result.get() == ButtonType.OK) {
+                //sets the stats and information for your pokemon
                 MainApp.pokeInfo = new pkmn("charmander", "Fire", 30 * (1 + (pokeLevel / 10)), "Scratch", "Normal", 5, "Ember", "Fire", 10);
                 lblTitle.setText("Choose Your Enemy");
                 chooseEnemy = true;
                 lblLevel.setVisible(true);
                 sldLevel.setVisible(true);
             }
-
+            //picking for enemy
         } else {
             alert.setContentText("Are you sure you want to chose Charmander for the enemy?");
             Optional<ButtonType> result = alert.showAndWait();
-
+            //checks if you clicked OK, which picks charmander for the enemy pokemon
             if (result.get() == ButtonType.OK) {
                 music.stop();
-
+                //sets the stats and information for the enemy pokemon
                 MainApp.pokeInfoE = new pkmn("charmander", "Fire", 30 * (1 + (Double.parseDouble(myFormat.format(sldLevel.getValue())) / 10)), "Scratch", "Normal", 5, "Ember", "Fire", 10);
 
+                //Takes you to the game screen
                 Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/pokemonGame.fxml")); //where FXMLPage2 is the name of the scene
 
                 Scene home_page_scene = new Scene(home_page_parent);
@@ -113,26 +120,30 @@ public class PokemonMenuController implements Initializable {
     private void btnSquirtle(ActionEvent event) throws IOException {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setHeaderText("Squirtle");
+        //checks if you're choosing for the enemy
         if (chooseEnemy == false) {
             alert.setContentText("Are you sure you want to chose Squirtle?");
             Optional<ButtonType> result = alert.showAndWait();
+            //checks if you clicked OK, which picks charmander for your pokemon
             if (result.get() == ButtonType.OK) {
+                //sets the stats and information for your pokemon
                 MainApp.pokeInfo = new pkmn("squirtle", "Water", 30 * (1 + (pokeLevel / 10)), "Scratch", "Normal", 5, "Watergun", "Water", 10);
                 lblTitle.setText("Choose Your Enemy");
                 chooseEnemy = true;
                 lblLevel.setVisible(true);
                 sldLevel.setVisible(true);
             }
-
+            //picking for enemy
         } else {
             alert.setContentText("Are you sure you want to chose Squirtle for the enemy?");
             Optional<ButtonType> result = alert.showAndWait();
-
+            //checks if you clicked OK, which picks charmander for the enemy pokemon
             if (result.get() == ButtonType.OK) {
                 music.stop();
-
+                //sets the stats and information for the enemy pokemon
                 MainApp.pokeInfoE = new pkmn("squirtle", "Water", 30 * (1 + (Double.parseDouble(myFormat.format(sldLevel.getValue())) / 10)), "Scratch", "Normal", 5, "Watergun", "Water", 10);
 
+                //Takes you to the game screen
                 Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/pokemonGame.fxml")); //where FXMLPage2 is the name of the scene
 
                 Scene home_page_scene = new Scene(home_page_parent);
@@ -152,26 +163,30 @@ public class PokemonMenuController implements Initializable {
     private void btnBulbasoar(ActionEvent event) throws IOException {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setHeaderText("Bulbasoar");
+        //checks if you're choosing for the enemy
         if (chooseEnemy == false) {
             alert.setContentText("Are you sure you want to chose Bulbasoar?");
             Optional<ButtonType> result = alert.showAndWait();
+            //checks if you clicked OK, which picks charmander for your pokemon
             if (result.get() == ButtonType.OK) {
+                //sets the stats and information for your pokemon
                 MainApp.pokeInfo = new pkmn("bulbasoar", "Grass", 30 * (1 + (pokeLevel / 10)), "Scratch", "Normal", 5, "Vine Whip", "Grass", 10);
                 lblTitle.setText("Choose Your Enemy");
                 chooseEnemy = true;
                 lblLevel.setVisible(true);
                 sldLevel.setVisible(true);
             }
-
+            //picking for enemy
         } else {
             alert.setContentText("Are you sure you want to chose Bulbasaur for the enemy?");
             Optional<ButtonType> result = alert.showAndWait();
-
+            //checks if you clicked OK, which picks charmander for the enemy pokemon
             if (result.get() == ButtonType.OK) {
                 music.stop();
-
+                //sets the stats and information for the enemy pokemon
                 MainApp.pokeInfoE = new pkmn("bulbasoar", "Grass", 30 * (1 + (Double.parseDouble(myFormat.format(sldLevel.getValue())) / 10)), "Scratch", "Normal", 5, "Vine Whip", "Grass", 10);
 
+                //Takes you to the game screen
                 Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/pokemonGame.fxml")); //where FXMLPage2 is the name of the scene
 
                 Scene home_page_scene = new Scene(home_page_parent);
@@ -187,12 +202,14 @@ public class PokemonMenuController implements Initializable {
         }
     }
 
+    //Sets the enemy level by sliding from 0 to 100
     @FXML
     private void sldLevel(Event event) {
         lblLevel.setText("Enemy Level: " + myFormat.format(sldLevel.getValue()));
         enemyLevel = Integer.parseInt(myFormat.format(sldLevel.getValue()));
     }
 
+    //shows you an alert that tells you how to play the game
     @FXML
     private void btnHTP(ActionEvent event) {
         Alert alert = new Alert(AlertType.INFORMATION);
@@ -202,6 +219,7 @@ public class PokemonMenuController implements Initializable {
         alert.showAndWait();
     }
 
+    //Takes you to the main menu
     @FXML
     private void btnMenu(ActionEvent event) throws IOException {
         music.stop();
@@ -219,22 +237,20 @@ public class PokemonMenuController implements Initializable {
         stage.show(); //shows the new page
     }
 
-    String command;
-
+//Cheat Codes
     @FXML
     private void cheat(KeyEvent event) throws IOException {
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setHeaderText(null);
-        alert.setTitle("Command");
-
+        //pressing ESCAPE displays the cheat textbox/enables cheat
         if (event.getCode() == KeyCode.ESCAPE) {
             if (txtCheat.isVisible()) {
+                //checks if you types the missingno command and if you have already chose your pokemon
                 if ((txtCheat.getText().equals("pokemon.set('missingno')")) && (chooseEnemy == true)) {
 
                     music.stop();
 
+                    //sets enemy data to the missingno data
                     MainApp.pokeInfoE = new pkmn("missingno", "Unknown", 666, "Scratch", "Normal", 5, "Tackle", "Grass", 10);
-
+                    //takes you to the game screen
                     Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/pokemonGame.fxml")); //where FXMLPage2 is the name of the scene
 
                     Scene home_page_scene = new Scene(home_page_parent);
@@ -246,7 +262,7 @@ public class PokemonMenuController implements Initializable {
 
                     stage.setTitle("Qplfnpo"); //changes the title
                     stage.show(); //shows the new page
-
+                    //increases your level by 1, then does math to find out ho much XP you need for the next level
                 } else if (txtCheat.getText().equals("level++")) {
                     pokeLevel++;
                     pokeXP = 0;
@@ -255,8 +271,9 @@ public class PokemonMenuController implements Initializable {
                     lblLevelNext.setText("Level: " + myFormat.format(pokeLevel + 1));
                     txtCheat.setText("");
                     txtCheat.setVisible(false);
+                    //increases your level by 50, then does math to find out ho much XP you need for the next level
                 } else if (txtCheat.getText().equals("level+++")) {
-                    pokeLevel= pokeLevel + 50;
+                    pokeLevel = pokeLevel + 50;
                     pokeXP = 0;
                     pokeXPNeeded = 500 + (500 * pokeLevel);
                     lblLevelCur.setText("Level: " + myFormat.format(pokeLevel));
@@ -271,8 +288,8 @@ public class PokemonMenuController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb
-    ) {
+    public void initialize(URL url, ResourceBundle rb) {
+        //sets label text to what it needs to be
         lblLevelCur.setText("Level: " + myFormat.format(pokeLevel));
         lblLevelNext.setText("Level: " + myFormat.format(pokeLevel + 1));
         prgLevel.setProgress(pokeXP / pokeXPNeeded);
@@ -280,7 +297,7 @@ public class PokemonMenuController implements Initializable {
         lblCredits.setText("Credits: " + MainApp.credits);
 
         enemyLevel = 0;
-
+        //starts music
         music.setCycleCount(INDEFINITE);
         music.setVolume(0.5);
         music.play();

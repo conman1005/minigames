@@ -2,9 +2,11 @@ package trioteam.minigames;
 
 /*
  * Made By: Conner Cullity
- * Date: 
- * Description: 
+ * Date: 11/1/2018
+ * Description: The pokemon game of the MiniGames program.
  */
+
+//imports
 import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
@@ -44,7 +46,8 @@ import static trioteam.minigames.MainApp.pokeXPNeeded;
  * @author Conner
  */
 public class PokemonGameController implements Initializable {
-
+    
+    //Declairing Labels, Buttons and other objects
     @FXML
     private Label picPokemon;
     @FXML
@@ -86,22 +89,30 @@ public class PokemonGameController implements Initializable {
     
     MediaPlayer punch = new MediaPlayer((new Media(getClass().getResource("/pokemonimages/punch.mp3").toString())));
     MediaPlayer music = new MediaPlayer((new Media(getClass().getResource("/pokemonimages/battle.mp3").toString())));
-
+    
+    //Attack 1
     @FXML
     private void btnM1(ActionEvent event) throws IOException {
         enemyTurn = false;
         alert.setContentText(pokeInfo.pkmn + " used " + pokeInfo.move1 + "!");
         alert.showAndWait();
+        
+        //Starts attacking animation
         animation.setCycleCount(50);
         animation.play();
         punch.play();
         dmg = pokeInfo.move1DMG;
+        
+        //Checks if an attack is super effective
         if ((("Fire".equals(pokeInfo.move1Type)) && ("Grass".equals(pokeInfoE.type))) || (("Water".equals(pokeInfo.move1Type)) && ("Fire".equals(pokeInfoE.type))) || (("Grass".equals(pokeInfo.move1Type)) && ("Water".equals(pokeInfoE.type)))) {
             dmg = dmg * 1.5;
         }
+        //Increase damage by the Level and subtracts opponents HP by the damage
         dmg = dmg * (1 + (pokeLevel / 10));
         enemyHP = enemyHP - dmg;
         alert.setContentText("That did " + dmg + " damage!");
+        
+        //checks if enemy is down
         if (enemyHP <= 0) {
             music.stop();
             music.setCycleCount(INDEFINITE);
@@ -110,13 +121,16 @@ public class PokemonGameController implements Initializable {
             lblEnemyHP.setText("HP: 0" + "/" + pokeInfoE.maxHP);
             alert.setContentText("You have defeated the enemy " + pokeInfoE.pkmn);
             Platform.runLater(alert::showAndWait);
+            //checks is enemy level is lower than your level; gives you 100 XP and 10 credits
             if (enemyLevel <= pokeLevel) {
                 pokeXP = pokeXP + 100;
                 credits = credits + 10;
             } else {
+                //this equasion allows you to gain more XP the higher the enemy level is compared to your level.
                 pokeXP = pokeXP + 100 + (100 * (enemyLevel - pokeLevel));
                 credits = credits + (100 * (enemyLevel - pokeLevel));
             }
+            //checks if you got enough XP to go to next level, and increased the XP needed for the next level
             if (pokeXP >= pokeXPNeeded) {
                 pokeXP = 0;
                 pokeLevel++;
@@ -143,16 +157,20 @@ public class PokemonGameController implements Initializable {
         enemyTurn = false;
         alert.setContentText(pokeInfo.pkmn + " used " + pokeInfo.move2 + "!");
         alert.showAndWait();
+        //Starts attacking animation
         animation.setCycleCount(50);
         animation.play();
         punch.play();
         dmg = pokeInfo.move2DMG;
+        //Checks if an attack is super effective
         if ((("Fire".equals(pokeInfo.move2Type)) && ("Grass".equals(pokeInfoE.type))) || (("Water".equals(pokeInfo.move2Type)) && ("Fire".equals(pokeInfoE.type))) || (("Grass".equals(pokeInfo.move2Type)) && ("Water".equals(pokeInfoE.type)))) {
             dmg = dmg + (dmg * 0.5);
         }
+        //Increase damage by the Level and subtracts opponents HP by the damage
         dmg = dmg * (1 + (pokeLevel / 10));
         enemyHP = enemyHP - dmg;
         alert.setContentText("That did " + dmg + " damage!");
+        //checks if enemy is down
         if (enemyHP <= 0) {
             music.stop();
             music.setCycleCount(INDEFINITE);
@@ -161,13 +179,16 @@ public class PokemonGameController implements Initializable {
             lblEnemyHP.setText("HP: 0" + "/" + pokeInfoE.maxHP);
             alert.setContentText("You have defeated the enemy " + pokeInfoE.pkmn);
             Platform.runLater(alert::showAndWait);
+            //checks is enemy level is lower than your level; gives you 100 XP and 10 credits
             if (enemyLevel <= pokeLevel) {
                 pokeXP = pokeXP + 100;
                 credits = credits + 10;
             } else {
+                //this equasion allows you to gain more XP the higher the enemy level is compared to your level.
                 pokeXP = pokeXP + 100 + (100 * (enemyLevel - pokeLevel));
                 credits = credits + (10 * (enemyLevel - pokeLevel));
             }
+            //checks if you got enough XP to go to next level, and increased the XP needed for the next level
             if (pokeXP >= pokeXPNeeded) {
                 pokeXP = 0;
                 pokeLevel++;
@@ -197,15 +218,19 @@ public class PokemonGameController implements Initializable {
             alert.setContentText(pokeInfoE.pkmn + " used " + pokeInfoE.move1 + "!");
             alert.showAndWait();
             dmg = pokeInfoE.move1DMG;
+            //Starts pokemon animation
             animation.setCycleCount(50);
             animation.play();
             punch.play();
+            //Checks if the enemy attack is super effective
             if ((("Fire".equals(pokeInfoE.move1Type)) && ("Grass".equals(pokeInfo.type))) || (("Water".equals(pokeInfoE.move1Type)) && ("Fire".equals(pokeInfo.type))) || (("Grass".equals(pokeInfoE.move1Type)) && ("Water".equals(pokeInfo.type)))) {
                 dmg = dmg + (dmg * 0.5);
             }
+            //increased the damage depending on the enemy level
             dmg = dmg * (1 + (enemyLevel / 10));
             hp = hp - dmg;
             alert.setContentText("That did " + dmg + " damage!");
+            //checks if your pokemon is down
             if (hp <= 0) {
                 lblPokemonHP.setText("HP: 0" + "/" + pokeInfo.maxHP);
                 alert.setContentText("You have been defeated by " + pokeInfoE.pkmn);
@@ -222,16 +247,20 @@ public class PokemonGameController implements Initializable {
         } else {
             alert.setContentText(pokeInfoE.pkmn + " used " + pokeInfoE.move2 + "!");
             alert.showAndWait();
+            //Starts pokemon animation
             animation.setCycleCount(50);
             animation.play();
             punch.play();
             dmg = pokeInfoE.move2DMG;
+            //Checks if the enemy attack is super effective
             if ((("Fire".equals(pokeInfoE.move2Type)) && ("Grass".equals(pokeInfo.type))) || (("Water".equals(pokeInfoE.move2Type)) && ("Fire".equals(pokeInfo.type))) || (("Grass".equals(pokeInfoE.move2Type)) && ("Water".equals(pokeInfo.type)))) {
                 dmg = dmg + (dmg * 0.5);
             }
+            //increased the damage depending on the enemy level
             dmg = dmg * (1 + (enemyLevel / 10));
             hp = hp - dmg;
             alert.setContentText("That did " + dmg + " damage!");
+            //checks if your pokemon is down
             if (hp <= 0) {
                 lblPokemonHP.setText("HP: 0" + "/" + pokeInfo.maxHP);
                 alert.setContentText("You have been defeated by " + pokeInfoE.pkmn);
@@ -250,29 +279,37 @@ public class PokemonGameController implements Initializable {
     int animate = 0;
     private void animate() {
         animate++;
+        //checks who's turn it is
         if (enemyTurn == false) {
             if (animate >= 25) {
+                //moves your pokemon 25 pixels to the Left
                 picPokemon.setTranslateX(picPokemon.getTranslateX() - 1);
                 if (animate >= 50) {
+                    //moves your pokemon back to it's original spot
                     animate = 0;
                     picPokemon.setTranslateX(0);
                 }
             } else {
+                //moves your pokemon 25 pixels to the right
                 picPokemon.setTranslateX(picPokemon.getTranslateX() + 1);
             }
         } else {
             if (animate >= 25) {
+                //moves your pokemon 25 pixels to the right
                 picEnemy.setTranslateX(picEnemy.getTranslateX() + 1);
                 if (animate >= 50) {
+                    //moves your enemy back to it's original spot
                     animate = 0;
                     picEnemy.setTranslateX(0);
                 }
             } else {
+                //moves your enemy 25 pixels to the left
                 picEnemy.setTranslateX(picEnemy.getTranslateX() - 1);
             }
         }
     }
-
+    
+    //takes you to the pokemon menu
     @FXML
     private void btnMenu(ActionEvent event) throws IOException {
         music.stop();
@@ -300,7 +337,7 @@ public class PokemonGameController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText("You have been faced by " + pokeInfoE.pkmn + "!");
         
-        
+        //checks if you used the missingno easter egg
         if ("missingno".equals(pokeInfoE.pkmn)) {
             alert.setContentText("cY_*RK`O*LHYUO ^RO*QKWO*KXN*ROVOK]ON*WS]]SXQNY");
             alert.setTitle("Qplfnpo");
@@ -309,7 +346,7 @@ public class PokemonGameController implements Initializable {
         
         Platform.runLater(alert::showAndWait);
 
-        //Basic Pokemon Data
+        //Basic Pokemon Data, setting to pictures to the right pokemon, setting labels to the names of the pokemon
         lblPokemon.setText(pokeInfo.pkmn);
         lblEnemy.setText(pokeInfoE.pkmn);
 
@@ -329,6 +366,7 @@ public class PokemonGameController implements Initializable {
         lblLevelNext.setText("Level: " + myFormat.format(pokeLevel + 1));
         prgLevel.setProgress(pokeXP / pokeXPNeeded);
         
+        //starts music
         music.setCycleCount(INDEFINITE);
         music.setVolume(0.5);
         music.play();

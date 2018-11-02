@@ -16,6 +16,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -319,22 +321,29 @@ public class WacMenuController implements Initializable {
                         break;
                 }
 
+            } else {
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Credits");
+                alert.setHeaderText("Insifficient Funds");
+                alert.setContentText("Come back when you have more credits");
+                alert.showAndWait();
             }
-        } else if ("Confirm".equals(btnCon.getText())) {
-                MainApp.wacImage = grid[image];
-                Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/wackAMole.fxml")); //where FXMLPage2 is the name of the scene
+        }
+        if ("Confirm".equals(btnCon.getText())) {
+            MainApp.wacImage = grid[image];
+            Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/wackAMole.fxml")); //where FXMLPage2 is the name of the scene
 
-                Scene home_page_scene = new Scene(home_page_parent);
-                home_page_scene.getRoot().requestFocus();
-                //get reference to the stage 
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene home_page_scene = new Scene(home_page_parent);
+            home_page_scene.getRoot().requestFocus();
+            //get reference to the stage 
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-                stage.hide(); //optional
-                stage.setScene(home_page_scene); //puts the new scence in the stage
+            stage.hide(); //optional
+            stage.setScene(home_page_scene); //puts the new scence in the stage
 
-                stage.setTitle("Wac A Mole"); //changes the title
-                stage.show(); //shows the new page
-            }
+            stage.setTitle("Wac A Mole"); //changes the title
+            stage.show(); //shows the new page
+        }
     }
 
     @FXML
