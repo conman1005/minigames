@@ -9,7 +9,7 @@
     -fx-background-size: contain;
 }
 .picture-man {
-    -fx-background-image: url(../PICTURES/man.png);
+    -fx-background-image: url(../PICTURES/8.png);
     -fx-background-size: stretch;
 }
 .duck{
@@ -18,7 +18,7 @@
 }
 
 .bowser{
-    -fx-background-image: url(../PICTURES/bowser.png);
+    -fx-background-image: url(../PICTURES/1.png);
     -fx-background-size: stretch;
 }
 .bulbasoarFront {
@@ -31,19 +31,19 @@
     -fx-background-size: stretch;
 }
 .pacman-ghost{
-    -fx-background-image: url(../PICTURES/pacman-ghost.png);
+    -fx-background-image: url(../PICTURES/9.png);
     -fx-background-size: stretch;
 }
 .picture-boo{
-    -fx-background-image: url(../PICTURES/boo.png);
+    -fx-background-image: url(../PICTURES/0.png);
     -fx-background-size: stretch;
 }
 .picture-star-wars{
-    -fx-background-image: url(../PICTURES/star-wars.jpg);
+    -fx-background-image: url(../PICTURES/14.jpg);
     -fx-background-size: stretch;
 }
 .picture-sonic{
-    -fx-background-image: url(../PICTURES/sonic.jpg);
+    -fx-background-image: url(../PICTURES/12.jpg);
     -fx-background-size: stretch;
 }
 .mole{
