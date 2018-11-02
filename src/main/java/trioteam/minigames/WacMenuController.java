@@ -302,7 +302,7 @@ public class WacMenuController implements Initializable {
                         btnCon.setText("Confirm");
                         lblCredits.setText(MainApp.credits + "");
 
-                        lblPrice.setText("Darth Vader \n"
+                        lblPrice.setText("R2D2 \n"
                                 + "Price: " + cost);
 
                         break;
