@@ -10,11 +10,20 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 import static trioteam.minigames.MainApp.sideScroller;
 
 public class FXMLController implements Initializable {
 
+    @FXML
+    private MenuItem menuExit;
+    
+    @FXML
+    private void exit(ActionEvent event) {
+        System.exit(0);
+    }
+    
     @FXML
     private void btnPokemon(ActionEvent event) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/pokemonMenu.fxml")); //where FXMLPage2 is the name of the scene

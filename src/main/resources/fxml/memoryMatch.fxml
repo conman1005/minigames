@@ -18,7 +18,6 @@
             <items>
               <MenuItem fx:id="menuExit" mnemonicParsing="false" onAction="#exit" text="Exit" />
                   <MenuItem fx:id="menuInstructions" mnemonicParsing="false" onAction="#instructions" text="Instructions" />
-                  <MenuItem fx:id="menuBack" mnemonicParsing="false" onAction="#back" text="Instructions" />
             </items>
           </Menu>
         </menus>
@@ -188,15 +187,15 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="lblScore" layoutX="66.0" layoutY="100.0" onDragDetected="#putCard" text="0">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblHighScore" layoutX="216.0" layoutY="88.0" onDragDetected="#putCard" prefHeight="89.0" prefWidth="369.0">
+      <Label fx:id="lblScore" layoutX="231.0" layoutY="78.0" onDragDetected="#putCard" prefHeight="89.0" prefWidth="369.0" visible="false">
          <font>
             <Font name="ArcadeClassic" size="34.0" />
          </font>
       </Label>
+      <Button fx:id="btnMainMenu" layoutX="19.0" layoutY="109.0" mnemonicParsing="false" onAction="#backMain" prefHeight="53.0" prefWidth="169.0" styleClass="play" text="Main Menu">
+         <font>
+            <Font name="ArcadeClassic" size="28.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

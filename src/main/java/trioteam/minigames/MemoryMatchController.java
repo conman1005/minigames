@@ -49,8 +49,6 @@ public class MemoryMatchController implements Initializable {
     @FXML
     private MenuItem menuInstructions;
 
-        
-
 ArrayList<Integer> imageList = new <Integer>ArrayList();
 ArrayList<ImageView> buttons = new <ImageView>ArrayList();
 int firstCard = 100;
@@ -58,8 +56,6 @@ int secondCard = 100;
 int pairsLeft = 15;
 
 MediaPlayer player;
-
- 
 
     @FXML
     private ImageView img01;     @FXML private ImageView img02;   @FXML private ImageView img03;
@@ -99,20 +95,13 @@ MediaPlayer player;
     
     @FXML
     private Label lblTime;
-    
-    @FXML
-
-    private Label lblRandom;
-    
-    @FXML
-    private Label lblPair;
    
+    @FXML
     private Label lblHighScore;
     
     @FXML
-    private MenuItem menuBack;
+    private Button btnMainMenu;       
        
-
     int add = 0;
     int time = 0;
     int minute = 0;
@@ -121,6 +110,7 @@ MediaPlayer player;
     @FXML
     private void exit(ActionEvent event) {
         System.exit(0);
+        player.stop();
     }
 
     @FXML
@@ -133,20 +123,27 @@ MediaPlayer player;
         alert.showAndWait();
     }
     
-
     @FXML
     private void play(ActionEvent event){
         btnPlay.setVisible(false);
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+        player.play();
     }
 
     @FXML
-    private void back(ActionEvent event) throws IOException{
-    Parent second = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
-        Scene first = new Scene(second);
+    private void backMain(ActionEvent event) throws IOException{
+    Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml")); //where FXMLPage2 is the name of the scene
+
+        Scene home_page_scene = new Scene(home_page_parent);
+        //get reference to the stage 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(first);
-        stage.setTitle("Page 1");
-        stage.show();
+
+        stage.hide(); //optional
+        stage.setScene(home_page_scene); //puts the new scence in the stage
+
+        stage.setTitle("MiniGames"); //changes the title
+        stage.show(); //shows the new page
     }
     
     @FXML
@@ -195,20 +192,17 @@ MediaPlayer player;
         buttons.get(cardNum).setImage(name);
         //Check to see if the cards match
         }
-        if (imageList.get(firstCard).equals(imageList.get(secondCard))) {
+        if (firstCard!=100 && secondCard!=100&& imageList.get(firstCard).equals(imageList.get(secondCard)) ) {
         //Turn the labels off
         buttons.get(firstCard).setVisible(false);
-        buttons.get(secondCard).setVisible(false);
-        MainApp.credits = 0;
-        MainApp.credits ++;
-        lblScore.setText(""+MainApp.credits);
+        buttons.get(secondCard).setVisible(false);        
         //Reset the card hold varable
         firstCard = 100;
         secondCard = 100;
         //One less pair to find
         pairsLeft--;
         
-        
+        }
         //Check to see if you won
         if (pairsLeft == 0) {
             Alert alert = new Alert(AlertType.INFORMATION);
@@ -217,12 +211,13 @@ MediaPlayer player;
         alert.setContentText("You found all the pairs!");
         alert.showAndWait();
         highscore = minute * 60 + time;
-        lblScore.setText("" + highscore + "seconds");
+        lblScore.setVisible(true);
+        lblScore.setText("" + highscore + " seconds");
         MainApp.credits = MainApp.credits + highscore;
         timeline.stop();
         }       
     
-        }
+        
     }
     
 
@@ -230,10 +225,7 @@ MediaPlayer player;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
-    timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.play();
-        player = new MediaPlayer((new Media(getClass().getResource("/PICTURES/music.mp3").toString())));
+    player = new MediaPlayer((new Media(getClass().getResource("/PICTURES/music.mp3").toString())));
     buttons.add(img01);
     buttons.add(img02);
     buttons.add(img03);
