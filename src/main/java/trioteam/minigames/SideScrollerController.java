@@ -300,9 +300,25 @@ public class SideScrollerController implements Initializable {
 
     @FXML
     private void returnToMenu(Event event) throws IOException {
-		 timmer.stop();
-         movement.stop();
-		  soundEffects.pause();
+		if (Status.RUNNING == missile.getStatus()) {
+                    missile.pause();
+                }
+                if (Status.RUNNING == timmer.getStatus()) {
+                    timmer.pause();
+                }
+                if (Status.RUNNING == movement.getStatus()) {
+                    movement.pause();
+                }
+                if (backgroundMove.getStatus() == Animation.Status.RUNNING) {
+                    pauseAnimation();
+                }
+
+		 
+       
+		 if (Status.RUNNING == soundEffects.getStatus()) {
+                    
+                soundEffects.pause();
+		 }
         music.pause();
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml")); //where FXMLPage2 is the name of the scene
 
