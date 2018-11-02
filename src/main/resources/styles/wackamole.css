@@ -8,14 +8,7 @@
     -fx-background-image: url(../pokemonimages/background.png);
     -fx-background-size: contain;
 }
-.picture-man {
-    -fx-background-image: url(../PICTURES/8.png);
-    -fx-background-size: stretch;
-}
-.duck{
-    -fx-background-image: url(../PICTURES/duck.png);
-    -fx-background-size: stretch;
-}
+
 
 .bowser{
     -fx-background-image: url(../PICTURES/1.png);
@@ -39,11 +32,11 @@
     -fx-background-size: stretch;
 }
 .picture-star-wars{
-    -fx-background-image: url(../PICTURES/14.jpg);
+    -fx-background-image: url(../PICTURES/14.png);
     -fx-background-size: stretch;
 }
 .picture-sonic{
-    -fx-background-image: url(../PICTURES/12.jpg);
+    -fx-background-image: url(../PICTURES/12.png);
     -fx-background-size: stretch;
 }
 .mole{
