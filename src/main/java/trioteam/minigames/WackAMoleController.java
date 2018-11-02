@@ -167,6 +167,7 @@ public class WackAMoleController implements Initializable {
 
     @FXML
     private void returnToMenu(Event event) throws IOException {
+        timer.stop();
 
         Parent home_page_parent = FXMLLoader.load(getClass().getResource("/fxml/wacMenu.fxml")); //where FXMLPage2 is the name of the scene
 
