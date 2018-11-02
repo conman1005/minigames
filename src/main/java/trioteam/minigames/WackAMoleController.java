@@ -1,7 +1,7 @@
 /*
  * Made By: Conner Cullity, Spencer Jones and Erica Wheatley
- * Date: 
- * Description: 
+ * Date: 11/1/2018
+ * Description: Whack a mole mini game
  */
 package trioteam.minigames;
 
