@@ -1,3 +1,10 @@
+/*
+ * Made By: Conner Cullity, Spencer Jones and Erica Wheatley
+ * Date: 11/1/2018
+ * Description: This is an application with 4 Minigames, Pokemon Battle, Asteroid Dodge, Memory Match and Whack A Mole
+ */
+
+
 package trioteam.minigames;
 
 import javafx.application.Application;

@@ -1,10 +1,6 @@
 package trioteam.minigames;
 
-/*
- * Made By: Conner Cullity
- * Date: 11/1/2018
- * Description: The pokemon menu
- */
+
 //imports
 import java.io.IOException;
 import java.net.URL;
