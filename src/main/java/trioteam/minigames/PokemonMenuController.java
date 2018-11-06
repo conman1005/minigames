@@ -276,6 +276,9 @@ public class PokemonMenuController implements Initializable {
                     lblLevelNext.setText("Level: " + myFormat.format(pokeLevel + 1));
                     txtCheat.setText("");
                     txtCheat.setVisible(false);
+                } else if (txtCheat.getText().equals("credits++")) {
+                    MainApp.credits += 1000000;
+                    lblCredits.setText("Credits: " + MainApp.credits);
                 }
             } else {
                 txtCheat.setVisible(true);
