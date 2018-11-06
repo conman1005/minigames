@@ -2,7 +2,10 @@
  * Empty Stylesheet file.
  */
 
-
+@font-face {
+    font-family: ArcadeClassic;
+    src: url(../pokemonimages/ARCADECLASSIC.TTF);
+}
 
 .background {
     -fx-background-image: url(../pokemonimages/background.png);
