@@ -2,6 +2,11 @@
  * Empty Stylesheet file.
  */
 
+@font-face {
+    font-family: ArcadeClassic;
+    src: url(../pokemonimages/ARCADECLASSIC.TTF);
+}
+
 .title {
     -fx-text-fill: linear-gradient(#0050ff, #0032a0);
     -fx-font-family: "ArcadeClassic";
@@ -90,10 +95,5 @@
     -fx-background-insets: 0,1,2;
     -fx-background-radius: 3,2,1;
     -fx-text-fill: black;   
-}
-
-@font-face {
-    font-family: ArcadeClassic;
-    src: url(../pokemonimages/ARCADECLASSIC.TTF);
 }
 
